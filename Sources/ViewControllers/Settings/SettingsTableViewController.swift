@@ -18,7 +18,7 @@ enum SettingsSection: Int {
 
 class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate, DataManagerClient {
     @IBOutlet weak var scanOnLaunchSwitch: UISwitch!
-    
+
     var dataManager: DataManagerProtocol!
 
     private let allergensAlertsIndexPath = IndexPath(row: 2, section: 0)
@@ -50,7 +50,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     }
     @IBAction func didTapOpenBeautyFacts(_ sender: UIButton) {
         guard let url = URL(string: URLs.OpenBeautyFacts) else { return }
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var url: URL?
@@ -76,10 +76,10 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         if let url = url {
             openUrlInApp(url)
         } else if let url = urlsupport {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         }
     }
-  
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? UserViewController {
             destVC.dataManager = self.dataManager
@@ -119,4 +119,9 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+private func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

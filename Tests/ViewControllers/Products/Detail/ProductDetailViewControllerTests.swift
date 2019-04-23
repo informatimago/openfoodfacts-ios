@@ -27,7 +27,7 @@ class ProductDetailViewControllerTests: XCTestCase {
         super.setUp()
 
         let storyboard = UIStoryboard(name: String(describing: ProductDetailViewController.self), bundle: Bundle.main)
-        viewController = storyboard.instantiateInitialViewController() as! ProductDetailViewController
+        viewController = storyboard.instantiateInitialViewController() as? ProductDetailViewController
         navigationController = UINavigationControllerMock(rootViewController: viewController)
 
         dataManager = DataManagerMock()

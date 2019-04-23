@@ -511,8 +511,8 @@ extension ScannerViewController {
 
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { _ in
-            guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString) else { return }
-            UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+            guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+            UIApplication.shared.open(settingsURL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         }))
 
         self.present(alert, animated: true, completion: nil)
@@ -592,4 +592,9 @@ class ScannerFloatingPanelLayout: FloatingPanelLayout {
         default: return nil
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+private func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

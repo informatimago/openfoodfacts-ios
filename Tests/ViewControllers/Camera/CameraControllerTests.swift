@@ -36,9 +36,9 @@ class CameraControllerTests: XCTestCase {
 
     func testImagePickerControllerDidFinishPickingMediaWithInfo() {
         let testImage = TestHelper().getTestImage()
-        let info = [UIImagePickerControllerOriginalImage: testImage]
+        let info = [convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage): testImage]
 
-        cameraController.imagePickerController(UIImagePickerController(), didFinishPickingMediaWithInfo: info)
+        cameraController.imagePickerController(UIImagePickerController(), didFinishPickingMediaWithInfo: convertToUIImagePickerControllerInfoKeyDictionary(info))
 
         expect(self.cameraControllerDelegateMock?.gotImage).to(beTrue())
         expect(self.cameraControllerDelegateMock?.image).toEventually(equal(testImage))
@@ -70,4 +70,14 @@ class CameraHelperMock: CameraHelperProtocol {
     func getImagePickerForTaking(_ mediaType: MediaType) -> UIImagePickerController? {
         return UIImagePickerController()
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+private func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+private func convertToUIImagePickerControllerInfoKeyDictionary(_ input: [String: Any]) -> [UIImagePickerController.InfoKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIImagePickerController.InfoKey(rawValue: key), value)})
 }

@@ -26,7 +26,7 @@ class ProductAddViewControllerTests: XCTestCase {
         super.setUp()
 
         let storyboard = UIStoryboard(name: String(describing: ProductAddViewController.self), bundle: Bundle.main)
-        viewController = storyboard.instantiateInitialViewController() as! ProductAddViewController
+        viewController = storyboard.instantiateInitialViewController() as? ProductAddViewController
         navigationController = UINavigationControllerMock(rootViewController: viewController)
 
         dataManager = DataManagerMock()
@@ -61,7 +61,6 @@ class ProductAddViewControllerTests: XCTestCase {
         let productName = "product_name"
         let brand = "Brand"
         let quantityValue = "33"
-        let quantityUnit = "cl"
         let language = "de"
         let pendingUploadItem = PendingUploadItem(barcode: barcode)
         pendingUploadItem.productName = productName
@@ -120,8 +119,8 @@ class ProductAddViewControllerTests: XCTestCase {
         let height = CGFloat(258)
         let rectSize = CGSize(width: width, height: height)
         let cgRect = CGRect(origin: CGPoint.zero, size: rectSize)
-        let userInfo: [String: Any] = [UIKeyboardFrameEndUserInfoKey: cgRect as NSValue]
-        let notification = Notification(name: .UIKeyboardWillShow, object: nil, userInfo: userInfo)
+        let userInfo: [String: Any] = [UIResponder.keyboardFrameEndUserInfoKey: cgRect as NSValue]
+        let notification = Notification(name: UIResponder.keyboardWillShowNotification, object: nil, userInfo: userInfo)
         viewController.quantityField.becomeFirstResponder()
 
         viewController.keyboardWillShow(notification: notification)
@@ -137,8 +136,8 @@ class ProductAddViewControllerTests: XCTestCase {
         let height = CGFloat(375)
         let rectSize = CGSize(width: width, height: height)
         let cgRect = CGRect(origin: CGPoint.zero, size: rectSize)
-        let userInfo: [String: Any] = [UIKeyboardFrameEndUserInfoKey: cgRect as NSValue]
-        let notification = Notification(name: .UIKeyboardWillShow, object: nil, userInfo: userInfo)
+        let userInfo: [String: Any] = [UIResponder.keyboardFrameEndUserInfoKey: cgRect as NSValue]
+        let notification = Notification(name: UIResponder.keyboardWillShowNotification, object: nil, userInfo: userInfo)
         viewController.productNameField.becomeFirstResponder()
 
         viewController.keyboardWillShow(notification: notification)
@@ -150,7 +149,7 @@ class ProductAddViewControllerTests: XCTestCase {
     // MARK: - keyboardWillHide
 
     func testKeyboardWillHideShouldResetScrollViewInsets() {
-        let notification = Notification(name: .UIKeyboardWillHide, object: nil, userInfo: nil)
+        let notification = Notification(name: UIResponder.keyboardWillHideNotification, object: nil, userInfo: nil)
         let inset = UIEdgeInsets(top: 0, left: 10, bottom: 20, right: 30)
         viewController.scrollView.contentInset = inset
         viewController.scrollView.scrollIndicatorInsets = inset

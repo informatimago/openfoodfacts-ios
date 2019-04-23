@@ -35,13 +35,13 @@ class LoginViewController: UIViewController, DataManagerClient {
     }()
 
     override func viewWillAppear(_ animated: Bool) {
-        IQKeyboardManager.sharedManager().enable = true
-        IQKeyboardManager.sharedManager().shouldToolbarUsesTextFieldTintColor = true
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldToolbarUsesTextFieldTintColor = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        IQKeyboardManager.sharedManager().shouldToolbarUsesTextFieldTintColor = false
-        IQKeyboardManager.sharedManager().enable = false
+        IQKeyboardManager.shared.shouldToolbarUsesTextFieldTintColor = false
+        IQKeyboardManager.shared.enable = false
     }
 
     @IBAction func didTapForgotPassword(_ sender: UIButton) {

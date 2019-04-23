@@ -56,7 +56,7 @@ class SearchTableViewControllerTests: XCTestCase {
         let result = viewController.numberOfSections(in: tableView)
 
         expect(result) == 1
-        expect(tableView.separatorStyle.rawValue) == UITableViewCellSeparatorStyle.singleLine.rawValue
+        expect(tableView.separatorStyle.rawValue) == UITableViewCell.SeparatorStyle.singleLine.rawValue
         expect(tableView.isScrollEnabled) == true
     }
 
@@ -67,7 +67,7 @@ class SearchTableViewControllerTests: XCTestCase {
         let result = viewController.numberOfSections(in: tableView)
 
         expect(result) == 0
-        expect(tableView.separatorStyle.rawValue) == UITableViewCellSeparatorStyle.none.rawValue
+        expect(tableView.separatorStyle.rawValue) == UITableViewCell.SeparatorStyle.none.rawValue
         expect(tableView.isScrollEnabled) == false
         expect(tableView.backgroundView?.gestureRecognizers?[0]) === viewController.tapGestureRecognizer
     }

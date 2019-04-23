@@ -43,7 +43,7 @@ class SummaryFooterCellController: UIViewController, IconButtonViewDelegate {
             loginVC.delegate = self
 
             let navVC = UINavigationController(rootViewController: loginVC)
-            loginVC.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(SummaryFooterCellController.dismissLoginVC))
+            loginVC.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.cancel, target: self, action: #selector(SummaryFooterCellController.dismissLoginVC))
 
             self.present(navVC, animated: true)
 

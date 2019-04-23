@@ -22,7 +22,7 @@ class UserViewControllerSpec: QuickSpec {
 
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             let tabBarController = storyboard.instantiateInitialViewController() as! UITabBarController
-            viewController = tabBarController.viewControllers?[1] as! UserViewController
+            viewController = tabBarController.viewControllers?[1] as? UserViewController
             viewController.dataManager = dataManager
 
             TestHelper.sharedInstance.clearCredentials()
@@ -35,8 +35,8 @@ class UserViewControllerSpec: QuickSpec {
                 // Force viewDidLoad call
                 expect(viewController.view).notTo(beNil())
 
-                expect(viewController.childViewControllers[0] is LoginViewController).toEventually(beTrue(), timeout: 10)
-                expect(viewController.view.subviews[2]).toEventually(equal(viewController.childViewControllers[0].view), timeout: 10)
+                expect(viewController.children[0] is LoginViewController).toEventually(beTrue(), timeout: 10)
+                expect(viewController.view.subviews[2]).toEventually(equal(viewController.children[0].view), timeout: 10)
             }
 
             it("transitions to logged in vc when credentials are present") {
@@ -45,9 +45,9 @@ class UserViewControllerSpec: QuickSpec {
                 // Force viewDidLoad call
                 expect(viewController.view).notTo(beNil())
 
-                expect(viewController.childViewControllers[0] is UINavigationController).toEventually(beTrue(), timeout: 10)
-                let nav = viewController.childViewControllers[0] as! UINavigationController
-                expect(nav.childViewControllers[0] is LoggedInViewController).to(beTrue())
+                expect(viewController.children[0] is UINavigationController).toEventually(beTrue(), timeout: 10)
+                let nav = viewController.children[0] as! UINavigationController
+                expect(nav.children[0] is LoggedInViewController).to(beTrue())
             }
         }
 
@@ -62,8 +62,8 @@ class UserViewControllerSpec: QuickSpec {
 
                 viewController.dismiss()
 
-                expect(viewController.childViewControllers[0] is LoginViewController).toEventually(beTrue(), timeout: 10)
-                expect(viewController.view.subviews[2]).toEventually(equal(viewController.childViewControllers[0].view), timeout: 10)
+                expect(viewController.children[0] is LoginViewController).toEventually(beTrue(), timeout: 10)
+                expect(viewController.view.subviews[2]).toEventually(equal(viewController.children[0].view), timeout: 10)
             }
         }
 

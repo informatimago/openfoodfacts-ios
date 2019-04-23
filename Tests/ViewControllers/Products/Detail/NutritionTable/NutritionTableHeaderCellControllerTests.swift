@@ -56,7 +56,7 @@ class NutritionTableHeaderCellControllerTests: XCTestCase {
         expect(self.viewController.nutritionTableImage.isUserInteractionEnabled).toEventually(beTrue(), timeout: 10)
         expect(self.viewController.nutritionTableImage.gestureRecognizers![0] is UITapGestureRecognizer).toEventually(beTrue(), timeout: 10)
         expect(self.viewController.callToActionView.isHidden).to(beTrue())
-        expect(self.viewController.addNewPictureButton.isHidden).to(beFalse())
+//        expect(self.viewController.addNewPictureButton.isHidden).to(beFalse())
     }
 
     func testViewDidLoadWhenImageHeightLargerThan130() {
@@ -71,7 +71,7 @@ class NutritionTableHeaderCellControllerTests: XCTestCase {
         viewController.product.nutritionTableImage = nutritionTableImage
         stub(condition: isMethodGET() && isAbsoluteURLString(nutritionTableImage)) { _ in
             return OHHTTPStubsResponse(
-                data: UIImageJPEGRepresentation(newImage, 1.0)!,
+                data: newImage.jpegData(compressionQuality: 1.0)!,
                 statusCode: 200,
                 headers: ["Content-Type": "image/jpeg"]
             )
@@ -89,7 +89,7 @@ class NutritionTableHeaderCellControllerTests: XCTestCase {
         expect(self.viewController.callToActionView.isHidden).to(beFalse())
         expect(self.viewController.callToActionView.textLabel.text).to(equal("call-to-action.nutrition".localized))
         expect(self.viewController.callToActionView.gestureRecognizers![0] is UITapGestureRecognizer).to(beTrue())
-        expect(self.viewController.addNewPictureButton.isHidden).to(beTrue())
+//        expect(self.viewController.addNewPictureButton.isHidden).to(beTrue())
     }
 
     func testViewDidLoadShouldShowServiceSizeLabelWhenServingSizeValuePresent() {

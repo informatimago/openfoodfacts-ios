@@ -81,7 +81,7 @@ class RootViewController: UIViewController {
 
     private func showScan() {
         for child in tabBarVC.viewControllers ?? [] {
-            if let _ = child as? ScannerViewController {
+            if child as? ScannerViewController != nil {
                 tabBarVC.selectedIndex = tabBarVC.viewControllers?.firstIndex(of: child) ?? 0
                 break
             }
