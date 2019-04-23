@@ -191,7 +191,8 @@ extension ProductService {
                         multipartFormData.append(password, withName: Params.password)
                     }
             },
-                to: Endpoint.post + "/cgi/product_image_upload.pl",
+                to: "\(Endpoint.post)/cgi/product_image_upload.pl",
+                method: HTTPMethod.post,
                 headers: ["Content-Disposition": "form-data; name=\"imgupload_\(productImage.type.rawValue)\"; filename=\"\(productImage.fileName)\""],
                 encodingCompletion: { encodingResult in
                     self.utilityQueue.async {

@@ -1,5 +1,5 @@
 github "Alamofire/Alamofire" >= 4.6
-github "tristanhimmelman/AlamofireObjectMapper" >= 4.1.0
+github "tristanhimmelman/AlamofireObjectMapper" "5.2.1"
 github "onevcat/Kingfisher" >= 5.0
 github "xmartlabs/XLPagerTabStrip" >= 7.0
 github "Tovkal/ImageViewer" >= 0.1.4
