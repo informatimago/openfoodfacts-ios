@@ -12,13 +12,13 @@
         <!--Stock Controller-->
         <scene sceneID="Kvn-r6-K4B">
             <objects>
-                <tableViewController id="sOl-3Q-P92" userLabel="Stock Controller" customClass="StockViewController" customModule="OpenFoodFacts" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="sOl-3Q-P92" userLabel="Stock Controller" customClass="StockViewController" customModule="StockMeMiniDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1rg-BX-DGs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stockCell" rowHeight="92" id="7mH-iK-Nzf" customClass="StockCell" customModule="OpenFoodFacts" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stockCell" rowHeight="92" id="7mH-iK-Nzf" customClass="StockCell" customModule="StockMeMiniDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7mH-iK-Nzf" id="rJF-dm-Snb">
@@ -67,6 +67,38 @@
                                     <outlet property="stockValue" destination="WAw-qo-Fd3" id="pN3-xD-Vko"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newControllerCell" id="Xw5-H4-TAe">
+                                <rect key="frame" x="0.0" y="120" width="320" height="96"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xw5-H4-TAe" id="tVD-Oh-fQ7">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="95.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Controller IP Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bez-W0-wuA">
+                                            <rect key="frame" x="16" y="2" width="290" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="boxsim.laboite.sbde.fr" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DNG-xM-RQs">
+                                            <rect key="frame" x="16" y="32" width="288" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZs-0N-b5I">
+                                            <rect key="frame" x="17" y="65" width="288" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Connect"/>
+                                            <connections>
+                                                <action selector="connectToNewController:" destination="sOl-3Q-P92" eventType="touchUpInside" id="3EV-qz-nmg"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="sOl-3Q-P92" id="hKT-VS-kH9"/>
@@ -81,7 +113,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8b-w0-apz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984.8" y="-1472.1139430284859"/>
+            <point key="canvasLocation" x="1983.75" y="-1472.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wPq-85-qPt">
@@ -107,7 +139,7 @@
         <!--Search View Controller-->
         <scene sceneID="ZHu-lx-vha">
             <objects>
-                <viewController storyboardIdentifier="SearchViewController" id="VXh-yJ-52m" customClass="SearchViewController" customModule="OpenFoodFacts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="VXh-yJ-52m" customClass="SearchViewController" customModule="StockMeMiniDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="pO5-97-Stg"/>
                     <navigationItem key="navigationItem" id="WLD-6O-Dco"/>
                 </viewController>
@@ -139,7 +171,7 @@
         <!--Scanner View Controller-->
         <scene sceneID="uxI-SU-r8a">
             <objects>
-                <viewController id="KCg-et-v6Z" customClass="ScannerViewController" customModule="OpenFoodFacts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KCg-et-v6Z" customClass="ScannerViewController" customModule="StockMeMiniDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iqb-gJ-WyV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,7 +219,7 @@
         <!--History-->
         <scene sceneID="Cy1-Fs-syj">
             <objects>
-                <tableViewController storyboardIdentifier="HistoryTableViewController" title="History" id="USd-NH-eQg" customClass="HistoryTableViewController" customModule="OpenFoodFacts" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HistoryTableViewController" title="History" id="USd-NH-eQg" customClass="HistoryTableViewController" customModule="StockMeMiniDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JAK-RT-i8r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

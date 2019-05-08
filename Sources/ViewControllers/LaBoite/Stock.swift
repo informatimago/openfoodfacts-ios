@@ -7,25 +7,38 @@
 //
 
 import Foundation
+import Network
 
 class Stock {
 
+    var controllerIPAddress: String?
+    var controllerPort = UInt16(0)
+    // --
     var productName: String
-    var stock: Float=0.0
-    var reorderThreshold: Float=0.0
-    var maxStock: Float=1.0
+    var stock: Float = 0.0
+    var reorderThreshold: Float = 0.0
+    var maxStock: Float = 1.0
 
-    init(productName: String,stock: Float=0.0, reorderThreshold: Float=0.0){
-        self.productName=productName
-        self.stock=stock
-        self.maxStock=stock
-        self.reorderThreshold=reorderThreshold
+    init(controllerIPAddress: String, controllerPort: UInt16, maxStock: Float = 0.0, reorderThreshold: Float = 0.0) {
+        self.controllerIPAddress = controllerIPAddress
+        self.controllerPort = controllerPort
+        self.productName = "Unknown"
+        self.stock = 0.0
+        self.maxStock = maxStock
+        self.reorderThreshold = reorderThreshold
+    }
+
+    init(productName: String,stock: Float=0.0, reorderThreshold: Float=0.0) {
+        self.productName = productName
+        self.stock = stock
+        self.maxStock = stock
+        self.reorderThreshold = reorderThreshold
     }
 
     func stock(increment: Float) {
-        stock+=increment
-        if maxStock<stock {
-            maxStock=stock
+        stock += increment
+        if maxStock < stock {
+            maxStock = stock
         }
     }
 

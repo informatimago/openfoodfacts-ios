@@ -11,6 +11,9 @@ import UIKit
 
 class StockViewController: UITableViewController {
 
+    let defaultControllerIPAddress="boxsim.laboite.sbde.fr"
+    let controllerPort=UInt16(SERVER_PORT)
+
     var products: [Stock]=[]
 
     override func viewDidLoad() {
@@ -26,7 +29,9 @@ class StockViewController: UITableViewController {
         products[2].stock(decrement: 0.524)
 
         tableView.beginUpdates()
-        tableView.insertRows(at: [IndexPath(indexes: [0, 1, 2])], with: .automatic)
+        tableView.insertSections(IndexSet(arrayLiteral: 0, 1), with: .automatic)
+        tableView.insertRows(at: [IndexPath(index:1), IndexPath(indexes: [0])], with: .automatic) // The ControllerConfigurationCell
+        tableView.insertRows(at: [IndexPath(index:0), IndexPath(indexes: [0, 1, 2])], with: .automatic) // The StockCells
         tableView.endUpdates()
     }
 
@@ -48,23 +53,53 @@ class StockViewController: UITableViewController {
         }
     }
 
+    @IBAction func connectToNewController(_ sender: UIButton) {
+        if let tableViewCell = tableViewCellForView(sender) {
+            if let cell = tableViewCell as? ControllerConfigurationCell {
+                // TODO try to connect to the controller and add the cell only if ok
+                products.append(Stock(controllerIPAddress: cell.controllerIPAddress.text!,
+                                      controllerPort: controllerPort))
+                tableView.beginUpdates()
+                tableView.insertRows(at: [IndexPath(index:0), IndexPath(indexes: [products.count])], with: .automatic) // The StockCells
+                tableView.endUpdates()
+            }
+        }
+    }
+
     // UITableViewDataSource
 
+    override func numberOfSections(in: UITableView) -> Int {
+        return 2
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+        switch section {
+        case 0:  return products.count
+        case 1:  return 1
+        default: return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell", for: indexPath)
-        if let cell = cell as? StockCell {
-            let product = products[indexPath.item]
-            cell.productName.text=product.productName
-            cell.stockValue.text=String(format: "%.3f kg", product.stock)
-            cell.stockProgress.setProgress(product.stock/product.maxStock, animated: false)
-            cell.reorderThresholdSlider.maximumValue = product.maxStock
-            cell.reorderThresholdSlider.setValue(product.reorderThreshold, animated: false)
-            cell.reorderThresholdValue.text = String(format: "%.3f kg", cell.reorderThresholdSlider.value)
+        switch indexPath.section {
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "newControllerCell", for: indexPath)
+            if let cell = cell as? ControllerConfigurationCell {
+                cell.controllerIPAddress.text = defaultControllerIPAddress
+            }
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell", for: indexPath)
+            if let cell = cell as? StockCell {
+                let product = products[indexPath.item]
+                cell.productName.text=product.productName
+                cell.stockValue.text=String(format: "%.3f kg", product.stock)
+                cell.stockProgress.setProgress(product.stock/product.maxStock, animated: false)
+                cell.reorderThresholdSlider.maximumValue = product.maxStock
+                cell.reorderThresholdSlider.setValue(product.reorderThreshold, animated: false)
+                cell.reorderThresholdValue.text = String(format: "%.3f kg", cell.reorderThresholdSlider.value)
+            }
+            return cell
         }
-        return cell
     }
 }

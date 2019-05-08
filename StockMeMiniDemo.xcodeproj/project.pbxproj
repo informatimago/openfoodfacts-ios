@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1C325122831A520015AF05 /* ControllerConfigurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C325022831A520015AF05 /* ControllerConfigurationCell.swift */; };
+		2A1C3266228323C80015AF05 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3255228323C70015AF05 /* error.c */; };
+		2A1C3267228323C80015AF05 /* protocol.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C325A228323C70015AF05 /* protocol.c */; };
+		2A1C3268228323C80015AF05 /* socket.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C325C228323C80015AF05 /* socket.c */; };
+		2A1C3269228323C80015AF05 /* controller-ua-messages.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C325D228323C80015AF05 /* controller-ua-messages.c */; };
+		2A1C326A228323C80015AF05 /* client.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C325E228323C80015AF05 /* client.c */; };
+		2A1C326B228323C80015AF05 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3260228323C80015AF05 /* buffer.c */; };
+		2A1C326C228323C80015AF05 /* controller-ua-client.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3261228323C80015AF05 /* controller-ua-client.c */; };
+		2A1C326D228323C80015AF05 /* runtime.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3264228323C80015AF05 /* runtime.c */; };
 		2AE472DB2278782600B32D17 /* sbde-logo-big-83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472CB2278782600B32D17 /* sbde-logo-big-83.5@2x.png */; };
 		2AE472DC2278782600B32D17 /* sbde-logo-big-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472CC2278782600B32D17 /* sbde-logo-big-76@2x.png */; };
 		2AE472DD2278782600B32D17 /* sbde-logo-big-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472CD2278782600B32D17 /* sbde-logo-big-40@2x.png */; };
@@ -311,6 +320,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A1C325022831A520015AF05 /* ControllerConfigurationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerConfigurationCell.swift; sourceTree = "<group>"; };
+		2A1C3253228320930015AF05 /* fr_sbde_protocol_tests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fr_sbde_protocol_tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		2A1C3254228320930015AF05 /* fr_sbde_protocol-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fr_sbde_protocol-Bridging-Header.h"; sourceTree = "<group>"; };
+		2A1C3255228323C70015AF05 /* error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = error.c; sourceTree = "<group>"; };
+		2A1C3256228323C70015AF05 /* controller-ua-messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "controller-ua-messages.h"; sourceTree = "<group>"; };
+		2A1C3257228323C70015AF05 /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error.h; sourceTree = "<group>"; };
+		2A1C3258228323C70015AF05 /* port.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = port.h; sourceTree = "<group>"; };
+		2A1C3259228323C70015AF05 /* controller-ua-client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "controller-ua-client.h"; sourceTree = "<group>"; };
+		2A1C325A228323C70015AF05 /* protocol.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = protocol.c; sourceTree = "<group>"; };
+		2A1C325B228323C80015AF05 /* runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runtime.h; sourceTree = "<group>"; };
+		2A1C325C228323C80015AF05 /* socket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = socket.c; sourceTree = "<group>"; };
+		2A1C325D228323C80015AF05 /* controller-ua-messages.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "controller-ua-messages.c"; sourceTree = "<group>"; };
+		2A1C325E228323C80015AF05 /* client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = client.c; sourceTree = "<group>"; };
+		2A1C325F228323C80015AF05 /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
+		2A1C3260228323C80015AF05 /* buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = buffer.c; sourceTree = "<group>"; };
+		2A1C3261228323C80015AF05 /* controller-ua-client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "controller-ua-client.c"; sourceTree = "<group>"; };
+		2A1C3262228323C80015AF05 /* protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = protocol.h; sourceTree = "<group>"; };
+		2A1C3263228323C80015AF05 /* client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = client.h; sourceTree = "<group>"; };
+		2A1C3264228323C80015AF05 /* runtime.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = runtime.c; sourceTree = "<group>"; };
+		2A1C3265228323C80015AF05 /* socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socket.h; sourceTree = "<group>"; };
 		2AE472CB2278782600B32D17 /* sbde-logo-big-83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-83.5@2x.png"; sourceTree = "<group>"; };
 		2AE472CC2278782600B32D17 /* sbde-logo-big-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-76@2x.png"; sourceTree = "<group>"; };
 		2AE472CD2278782600B32D17 /* sbde-logo-big-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-40@2x.png"; sourceTree = "<group>"; };
@@ -975,6 +1004,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A1C3252228320930015AF05 /* fr_sbde_protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2A1C3260228323C80015AF05 /* buffer.c */,
+				2A1C325F228323C80015AF05 /* buffer.h */,
+				2A1C325E228323C80015AF05 /* client.c */,
+				2A1C3263228323C80015AF05 /* client.h */,
+				2A1C3261228323C80015AF05 /* controller-ua-client.c */,
+				2A1C3259228323C70015AF05 /* controller-ua-client.h */,
+				2A1C325D228323C80015AF05 /* controller-ua-messages.c */,
+				2A1C3256228323C70015AF05 /* controller-ua-messages.h */,
+				2A1C3255228323C70015AF05 /* error.c */,
+				2A1C3257228323C70015AF05 /* error.h */,
+				2A1C3258228323C70015AF05 /* port.h */,
+				2A1C325A228323C70015AF05 /* protocol.c */,
+				2A1C3262228323C80015AF05 /* protocol.h */,
+				2A1C3264228323C80015AF05 /* runtime.c */,
+				2A1C325B228323C80015AF05 /* runtime.h */,
+				2A1C325C228323C80015AF05 /* socket.c */,
+				2A1C3265228323C80015AF05 /* socket.h */,
+				2A1C3253228320930015AF05 /* fr_sbde_protocol_tests-Bridging-Header.h */,
+				2A1C3254228320930015AF05 /* fr_sbde_protocol-Bridging-Header.h */,
+			);
+			path = fr_sbde_protocol;
+			sourceTree = "<group>";
+		};
 		2AE472CA2278782600B32D17 /* SBDE.appiconset */ = {
 			isa = PBXGroup;
 			children = (
@@ -1001,9 +1056,11 @@
 		2AE472EF22787EB000B32D17 /* LaBoite */ = {
 			isa = PBXGroup;
 			children = (
+				2A1C3252228320930015AF05 /* fr_sbde_protocol */,
 				2AE472F022787ECC00B32D17 /* StockViewController.swift */,
 				2AE472F22278806B00B32D17 /* Stock.swift */,
 				2AE472F422789A4D00B32D17 /* StockCell.swift */,
+				2A1C325022831A520015AF05 /* ControllerConfigurationCell.swift */,
 			);
 			path = LaBoite;
 			sourceTree = "<group>";
@@ -2438,6 +2495,7 @@
 				95A566141FD6037800C997C8 /* LocalizableTextField.swift in Sources */,
 				30270C37222743D200E6973D /* EnvironmentImpactTableFormTableViewController.swift in Sources */,
 				95781BBF1EC3A898003E3256 /* ProductsResponse.swift in Sources */,
+				2A1C3266228323C80015AF05 /* error.c in Sources */,
 				9528560B1F78512300863FC6 /* Array.swift in Sources */,
 				956FF9581F1FF0CA0069D678 /* EmptyView.swift in Sources */,
 				95DB3BE61FDD8F2300E83B76 /* HistoryItem.swift in Sources */,
@@ -2454,9 +2512,11 @@
 				953CDD5B1F92A12A0096C428 /* UserViewController.swift in Sources */,
 				30D77D9C22088F0F00B180E9 /* Allergen.swift in Sources */,
 				956FF9471F1FF0CA0069D678 /* NutritionLevelsTableViewCell.swift in Sources */,
+				2A1C326B228323C80015AF05 /* buffer.c in Sources */,
 				95C265121E96D55B004212EC /* AppDelegate.swift in Sources */,
 				955BAFFB1FF7C63A0046F419 /* ErrorCodes.swift in Sources */,
 				95D060DB1F6094D30052012D /* UITableView.swift in Sources */,
+				2A1C326C228323C80015AF05 /* controller-ua-client.c in Sources */,
 				9525708C1EE9BC91002FC40D /* CellImageTapable.swift in Sources */,
 				30412DD2220E19BF00C485DD /* SelectCategoryViewController.swift in Sources */,
 				300085632208777900DC3896 /* OFFUrlsHelper.swift in Sources */,
@@ -2473,6 +2533,7 @@
 				957E05C41FE6D4DF00868315 /* UIColor.swift in Sources */,
 				956FF9651F1FF0FD0069D678 /* SearchTableViewController.swift in Sources */,
 				95AA2AFD1FDAB6E800EE3A14 /* PickerToolbarViewController.swift in Sources */,
+				2A1C3268228323C80015AF05 /* socket.c in Sources */,
 				95E9F0481EC8D7D900BA20B0 /* NutritionLevels.swift in Sources */,
 				95781BC11EC3A898003E3256 /* LocalizedString.swift in Sources */,
 				9549F2BE1FF43F2F00BA797C /* DataManagerHelper.swift in Sources */,
@@ -2484,14 +2545,17 @@
 				30412DD7220EF36500C485DD /* EditNutritiveValueView.swift in Sources */,
 				95781BBE1EC3A898003E3256 /* Product.swift in Sources */,
 				95D1D29A1FFC32E400595EA1 /* DeepLinkManager.swift in Sources */,
+				2A1C3267228323C80015AF05 /* protocol.c in Sources */,
 				956FF9661F1FF0FD0069D678 /* SearchTableViewControllerState.swift in Sources */,
 				95DB3BE81FDD923300E83B76 /* DataManager.swift in Sources */,
 				30412DE1220F111400C485DD /* SelectTaxonomyViewController.swift in Sources */,
 				95F7DB3E1F98E42500428208 /* UserDefaultsConstants.swift in Sources */,
 				302525EF222311A000C2C830 /* SelectAllergenViewController.swift in Sources */,
 				952C3BE91F9A335F003C755A /* UIViewController.swift in Sources */,
+				2A1C326A228323C80015AF05 /* client.c in Sources */,
 				958F33531F378076005269C5 /* InfoRowTableViewCell.swift in Sources */,
 				95A566181FD6037800C997C8 /* LocalizableUISearchBar.swift in Sources */,
+				2A1C325122831A520015AF05 /* ControllerConfigurationCell.swift in Sources */,
 				30412DDE220F104900C485DD /* SelectNutrimentViewController.swift in Sources */,
 				957094AF1EA124E800268236 /* ProductService.swift in Sources */,
 				307BBEBC21FA1CA700E2DF9D /* ScannerResultViewController.swift in Sources */,
@@ -2513,11 +2577,13 @@
 				95E9F0471EC8D7D900BA20B0 /* Nutriments.swift in Sources */,
 				95F14C891EDB6CDD00D99115 /* UIImage.swift in Sources */,
 				95D1D2981FFC30D900595EA1 /* RootViewController.swift in Sources */,
+				2A1C3269228323C80015AF05 /* controller-ua-messages.c in Sources */,
 				302525F32223145000C2C830 /* AllergensAddTableViewCell.swift in Sources */,
 				2AE472F122787ECC00B32D17 /* StockViewController.swift in Sources */,
 				95781BC21EC3A898003E3256 /* ArrayTransform.swift in Sources */,
 				956FF95C1F1FF0CA0069D678 /* StateView.swift in Sources */,
 				95E16B2F1EE9E20A00331B2B /* UIStackView.swift in Sources */,
+				2A1C326D228323C80015AF05 /* runtime.c in Sources */,
 				956FF95A1F1FF0CA0069D678 /* LoadingView.swift in Sources */,
 				950ACC6D1F9945D500B54B78 /* URLs.swift in Sources */,
 				95781B9B1EC26B24003E3256 /* Double.swift in Sources */,
@@ -3037,6 +3103,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -3048,6 +3115,10 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Sources/Frameworks",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"Darwin=1",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3055,6 +3126,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "iOS Dev StockMe MiniDemo";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sources/ViewControllers/LaBoite/fr_sbde_protocol/fr_sbde_protocol-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3065,6 +3138,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -3075,6 +3149,10 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Sources/Frameworks",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"Darwin=1",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3082,6 +3160,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "iOS Dev StockMe MiniDemo";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sources/ViewControllers/LaBoite/fr_sbde_protocol/fr_sbde_protocol-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3152,6 +3231,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -3163,6 +3243,10 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Sources/Frameworks",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"Darwin=1",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3170,6 +3254,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "iOS Dev StockMe MiniDemo";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sources/ViewControllers/LaBoite/fr_sbde_protocol/fr_sbde_protocol-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
