@@ -7,7 +7,7 @@
       buildImplicitDependencies = "YES">
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Testing"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -16,20 +16,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "95F31BE91F38F71D00B8AF90"
-               BuildableName = "OpenFoodFactsTests.xctest"
-               BlueprintName = "OpenFoodFactsTests"
-               ReferencedContainer = "container:OpenFoodFacts.xcodeproj">
+               BlueprintIdentifier = "951FA76C1F4E22790096AC5A"
+               BuildableName = "OpenFoodFactsUITests.xctest"
+               BlueprintName = "OpenFoodFactsUITests"
+               ReferencedContainer = "container:StockMeMiniDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "951FA76C1F4E22790096AC5A"
-               BuildableName = "OpenFoodFactsUITests.xctest"
-               BlueprintName = "OpenFoodFactsUITests"
-               ReferencedContainer = "container:OpenFoodFacts.xcodeproj">
+               BlueprintIdentifier = "95F31BE91F38F71D00B8AF90"
+               BuildableName = "OpenFoodFactsTests.xctest"
+               BlueprintName = "OpenFoodFactsTests"
+               ReferencedContainer = "container:StockMeMiniDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

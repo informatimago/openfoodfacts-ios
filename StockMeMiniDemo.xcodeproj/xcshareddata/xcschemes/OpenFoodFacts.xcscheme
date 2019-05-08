@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "95C2650D1E96D55B004212EC"
-               BuildableName = "OpenFoodFacts.app"
-               BlueprintName = "OpenFoodFacts"
-               ReferencedContainer = "container:OpenFoodFacts.xcodeproj">
+               BuildableName = "StockMeMiniDemo.app"
+               BlueprintName = "StockMeMiniDemo"
+               ReferencedContainer = "container:StockMeMiniDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,7 +36,7 @@
                BlueprintIdentifier = "95F31BE91F38F71D00B8AF90"
                BuildableName = "OpenFoodFactsTests.xctest"
                BlueprintName = "OpenFoodFactsTests"
-               ReferencedContainer = "container:OpenFoodFacts.xcodeproj">
+               ReferencedContainer = "container:StockMeMiniDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -46,7 +46,7 @@
                BlueprintIdentifier = "951FA76C1F4E22790096AC5A"
                BuildableName = "OpenFoodFactsUITests.xctest"
                BlueprintName = "OpenFoodFactsUITests"
-               ReferencedContainer = "container:OpenFoodFacts.xcodeproj">
+               ReferencedContainer = "container:StockMeMiniDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -54,9 +54,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "95C2650D1E96D55B004212EC"
-            BuildableName = "OpenFoodFacts.app"
-            BlueprintName = "OpenFoodFacts"
-            ReferencedContainer = "container:OpenFoodFacts.xcodeproj">
+            BuildableName = "StockMeMiniDemo.app"
+            BlueprintName = "StockMeMiniDemo"
+            ReferencedContainer = "container:StockMeMiniDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,9 +78,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "95C2650D1E96D55B004212EC"
-            BuildableName = "OpenFoodFacts.app"
-            BlueprintName = "OpenFoodFacts"
-            ReferencedContainer = "container:OpenFoodFacts.xcodeproj">
+            BuildableName = "StockMeMiniDemo.app"
+            BlueprintName = "StockMeMiniDemo"
+            ReferencedContainer = "container:StockMeMiniDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,9 +97,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "95C2650D1E96D55B004212EC"
-            BuildableName = "OpenFoodFacts.app"
-            BlueprintName = "OpenFoodFacts"
-            ReferencedContainer = "container:OpenFoodFacts.xcodeproj">
+            BuildableName = "StockMeMiniDemo.app"
+            BlueprintName = "StockMeMiniDemo"
+            ReferencedContainer = "container:StockMeMiniDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

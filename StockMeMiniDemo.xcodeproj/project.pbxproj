@@ -854,7 +854,7 @@
 		95B512EB1F94FEE7003B0012 /* UserViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewControllerUITests.swift; sourceTree = "<group>"; };
 		95BA22681F6B21BA0090C471 /* TakePictureViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePictureViewControllerTests.swift; sourceTree = "<group>"; };
 		95C216481FDC8A5900EC5BCB /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
-		95C2650E1E96D55B004212EC /* OpenFoodFacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenFoodFacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95C2650E1E96D55B004212EC /* StockMeMiniDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockMeMiniDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C265111E96D55B004212EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95C265181E96D55B004212EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95C265241E96D5C2004212EC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -1676,7 +1676,7 @@
 		95C2650F1E96D55B004212EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				95C2650E1E96D55B004212EC /* OpenFoodFacts.app */,
+				95C2650E1E96D55B004212EC /* StockMeMiniDemo.app */,
 				95F31BEA1F38F71D00B8AF90 /* OpenFoodFactsTests.xctest */,
 				951FA76D1F4E22790096AC5A /* OpenFoodFactsUITests.xctest */,
 			);
@@ -1946,9 +1946,9 @@
 			productReference = 951FA76D1F4E22790096AC5A /* OpenFoodFactsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		95C2650D1E96D55B004212EC /* OpenFoodFacts */ = {
+		95C2650D1E96D55B004212EC /* StockMeMiniDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95C265201E96D55B004212EC /* Build configuration list for PBXNativeTarget "OpenFoodFacts" */;
+			buildConfigurationList = 95C265201E96D55B004212EC /* Build configuration list for PBXNativeTarget "StockMeMiniDemo" */;
 			buildPhases = (
 				95C2650A1E96D55B004212EC /* Sources */,
 				95C2650B1E96D55B004212EC /* Frameworks */,
@@ -1961,9 +1961,9 @@
 			);
 			dependencies = (
 			);
-			name = OpenFoodFacts;
+			name = StockMeMiniDemo;
 			productName = OpenFoodFacts;
-			productReference = 95C2650E1E96D55B004212EC /* OpenFoodFacts.app */;
+			productReference = 95C2650E1E96D55B004212EC /* StockMeMiniDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		95F31BE91F38F71D00B8AF90 /* OpenFoodFactsTests */ = {
@@ -2006,7 +2006,7 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 8W59692BCX;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					95F31BE91F38F71D00B8AF90 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -2017,7 +2017,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 95C265091E96D55B004212EC /* Build configuration list for PBXProject "OpenFoodFacts" */;
+			buildConfigurationList = 95C265091E96D55B004212EC /* Build configuration list for PBXProject "StockMeMiniDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -2160,7 +2160,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				95C2650D1E96D55B004212EC /* OpenFoodFacts */,
+				95C2650D1E96D55B004212EC /* StockMeMiniDemo */,
 				95F31BE91F38F71D00B8AF90 /* OpenFoodFactsTests */,
 				951FA76C1F4E22790096AC5A /* OpenFoodFactsUITests */,
 			);
@@ -2589,12 +2589,12 @@
 /* Begin PBXTargetDependency section */
 		951FA7731F4E22790096AC5A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 95C2650D1E96D55B004212EC /* OpenFoodFacts */;
+			target = 95C2650D1E96D55B004212EC /* StockMeMiniDemo */;
 			targetProxy = 951FA7721F4E22790096AC5A /* PBXContainerItemProxy */;
 		};
 		95F31BF01F38F71E00B8AF90 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 95C2650D1E96D55B004212EC /* OpenFoodFacts */;
+			target = 95C2650D1E96D55B004212EC /* StockMeMiniDemo */;
 			targetProxy = 95F31BEF1F38F71E00B8AF90 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -3037,9 +3037,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 19;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8W59692BCX;
@@ -3051,10 +3051,10 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.sbde.org.openfoodfacts.scanner;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.sbde.box.StockMe.MiniDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS Dev StockMe MiniDemo";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3067,7 +3067,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 8W59692BCX;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3078,10 +3078,10 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.sbde.org.openfoodfacts.scanner;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.sbde.box.StockMe.MiniDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS Dev StockMe MiniDemo";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3154,7 +3154,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 19;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8W59692BCX;
@@ -3166,10 +3166,10 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.sbde.org.openfoodfacts.scanner;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.sbde.box.StockMe.MiniDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "iOS Dev StockMe MiniDemo";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3274,7 +3274,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95C265091E96D55B004212EC /* Build configuration list for PBXProject "OpenFoodFacts" */ = {
+		95C265091E96D55B004212EC /* Build configuration list for PBXProject "StockMeMiniDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95C2651E1E96D55B004212EC /* Debug */,
@@ -3284,7 +3284,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95C265201E96D55B004212EC /* Build configuration list for PBXNativeTarget "OpenFoodFacts" */ = {
+		95C265201E96D55B004212EC /* Build configuration list for PBXNativeTarget "StockMeMiniDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95C265211E96D55B004212EC /* Debug */,
