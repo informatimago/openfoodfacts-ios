@@ -35,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = RootViewController()
         window?.makeKeyAndVisible()
 
+        fr_sbde_protocol_client_initialize();
+
         return true
     }
 

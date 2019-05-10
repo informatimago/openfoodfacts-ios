@@ -16,6 +16,7 @@
 		2A1C326B228323C80015AF05 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3260228323C80015AF05 /* buffer.c */; };
 		2A1C326C228323C80015AF05 /* controller-ua-client.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3261228323C80015AF05 /* controller-ua-client.c */; };
 		2A1C326D228323C80015AF05 /* runtime.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3264228323C80015AF05 /* runtime.c */; };
+		2AE412F6228562DA0071A99B /* UIProgress+Thickness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */; };
 		2AE472DB2278782600B32D17 /* sbde-logo-big-83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472CB2278782600B32D17 /* sbde-logo-big-83.5@2x.png */; };
 		2AE472DC2278782600B32D17 /* sbde-logo-big-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472CC2278782600B32D17 /* sbde-logo-big-76@2x.png */; };
 		2AE472DD2278782600B32D17 /* sbde-logo-big-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472CD2278782600B32D17 /* sbde-logo-big-40@2x.png */; };
@@ -340,6 +341,7 @@
 		2A1C3263228323C80015AF05 /* client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = client.h; sourceTree = "<group>"; };
 		2A1C3264228323C80015AF05 /* runtime.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = runtime.c; sourceTree = "<group>"; };
 		2A1C3265228323C80015AF05 /* socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socket.h; sourceTree = "<group>"; };
+		2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIProgress+Thickness.swift"; sourceTree = "<group>"; };
 		2AE472CB2278782600B32D17 /* sbde-logo-big-83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-83.5@2x.png"; sourceTree = "<group>"; };
 		2AE472CC2278782600B32D17 /* sbde-logo-big-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-76@2x.png"; sourceTree = "<group>"; };
 		2AE472CD2278782600B32D17 /* sbde-logo-big-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-40@2x.png"; sourceTree = "<group>"; };
@@ -1061,6 +1063,7 @@
 				2AE472F22278806B00B32D17 /* Stock.swift */,
 				2AE472F422789A4D00B32D17 /* StockCell.swift */,
 				2A1C325022831A520015AF05 /* ControllerConfigurationCell.swift */,
+				2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */,
 			);
 			path = LaBoite;
 			sourceTree = "<group>";
@@ -2545,6 +2548,7 @@
 				30412DD7220EF36500C485DD /* EditNutritiveValueView.swift in Sources */,
 				95781BBE1EC3A898003E3256 /* Product.swift in Sources */,
 				95D1D29A1FFC32E400595EA1 /* DeepLinkManager.swift in Sources */,
+				2AE412F6228562DA0071A99B /* UIProgress+Thickness.swift in Sources */,
 				2A1C3267228323C80015AF05 /* protocol.c in Sources */,
 				956FF9661F1FF0FD0069D678 /* SearchTableViewControllerState.swift in Sources */,
 				95DB3BE81FDD923300E83B76 /* DataManager.swift in Sources */,

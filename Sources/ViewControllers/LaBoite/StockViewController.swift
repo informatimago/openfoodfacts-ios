@@ -13,11 +13,13 @@ class StockViewController: UITableViewController {
 
     let defaultControllerIPAddress="boxsim.laboite.sbde.fr"
     let controllerPort=UInt16(SERVER_PORT)
+    var timer: Timer?
 
     var products: [Stock]=[]
 
     override func viewDidLoad() {
         addDemoCells()
+        startPollingControllers()
     }
 
     func addDemoCells() {
@@ -30,8 +32,12 @@ class StockViewController: UITableViewController {
 
         tableView.beginUpdates()
         tableView.insertSections(IndexSet(arrayLiteral: 0, 1), with: .automatic)
-        tableView.insertRows(at: [IndexPath(index:1), IndexPath(indexes: [0])], with: .automatic) // The ControllerConfigurationCell
-        tableView.insertRows(at: [IndexPath(index:0), IndexPath(indexes: [0, 1, 2])], with: .automatic) // The StockCells
+        // The ControllerConfigurationCell
+        tableView.insertRows(at: [IndexPath(item:0 , section: 1)], with: .automatic)
+        // The StockCells
+        tableView.insertRows(at: [IndexPath(item: 0, section: 0)], with: .automatic)
+        tableView.insertRows(at: [IndexPath(item: 1, section: 0)], with: .automatic)
+        tableView.insertRows(at: [IndexPath(item: 2, section: 0)], with: .automatic)
         tableView.endUpdates()
     }
 
@@ -47,7 +53,8 @@ class StockViewController: UITableViewController {
         if let tableViewCell = tableViewCellForView(sender) {
             if let cell = tableViewCell as? StockCell {
                 if cell.reorderThresholdSlider == sender {
-                    cell.reorderThresholdValue.text = String(format: "%.3f kg", cell.reorderThresholdSlider.value)
+                    cell.product.reorderThreshold = cell.reorderThresholdSlider.value
+                    cell.product.changed()
                 }
             }
         }
@@ -60,8 +67,9 @@ class StockViewController: UITableViewController {
                 products.append(Stock(controllerIPAddress: cell.controllerIPAddress.text!,
                                       controllerPort: controllerPort))
                 tableView.beginUpdates()
-                tableView.insertRows(at: [IndexPath(index:0), IndexPath(indexes: [products.count])], with: .automatic) // The StockCells
+                tableView.insertRows(at: [IndexPath(item: products.count-1, section: 0)], with: .automatic)
                 tableView.endUpdates()
+                timer!.fire()
             }
         }
     }
@@ -85,21 +93,37 @@ class StockViewController: UITableViewController {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "newControllerCell", for: indexPath)
             if let cell = cell as? ControllerConfigurationCell {
-                cell.controllerIPAddress.text = defaultControllerIPAddress
+                cell.controllerIPAddress!.text = defaultControllerIPAddress
             }
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell", for: indexPath)
             if let cell = cell as? StockCell {
                 let product = products[indexPath.item]
-                cell.productName.text=product.productName
-                cell.stockValue.text=String(format: "%.3f kg", product.stock)
-                cell.stockProgress.setProgress(product.stock/product.maxStock, animated: false)
-                cell.reorderThresholdSlider.maximumValue = product.maxStock
-                cell.reorderThresholdSlider.setValue(product.reorderThreshold, animated: false)
-                cell.reorderThresholdValue.text = String(format: "%.3f kg", cell.reorderThresholdSlider.value)
+                cell.product = product
+                cell.changed(stock: product)
             }
             return cell
         }
     }
+
+    // Stock Polling
+
+    func startPollingControllers() {
+        guard timer == nil else { return }
+        timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(floatLiteral: 33.0),
+                                     repeats: true,
+                                     block: { (_: Timer) -> Void in
+                                        print("Calling pollControllers")
+                                        self.pollControllers() })
+        print("Created scheduled Timer \(timer!.timeInterval)")
+    }
+
+    func pollControllers() {
+        print("pollControllers")
+        for stock in products {
+            stock.pollController()
+        }
+    }
+
 }
