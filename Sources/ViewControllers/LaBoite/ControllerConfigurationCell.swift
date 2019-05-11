@@ -11,5 +11,6 @@ import UIKit
 class ControllerConfigurationCell: UITableViewCell {
 
     @IBOutlet weak var controllerIPAddress: UITextField!
+    @IBOutlet weak var controllerPort: UITextField!
 
 }

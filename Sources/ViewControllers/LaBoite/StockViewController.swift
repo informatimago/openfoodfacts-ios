@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import UserNotifications
 
 class StockViewController: UITableViewController {
 
@@ -18,8 +19,19 @@ class StockViewController: UITableViewController {
     var products: [Stock]=[]
 
     override func viewDidLoad() {
+        hideKeyboardWhenTappedAround()
         addDemoCells()
         startPollingControllers()
+
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge],
+                                                                completionHandler: {granted, error in
+                                                                    if granted {
+                                                                        print("UserNotification allowed.")
+                                                                    } else {
+                                                                        print("UserNotification refused.")
+                                                                    }
+        })
+        UNUserNotificationCenter.current().delegate = UIApplication.shared.delegate as? UNUserNotificationCenterDelegate
     }
 
     func addDemoCells() {
@@ -65,13 +77,17 @@ class StockViewController: UITableViewController {
             if let cell = tableViewCell as? ControllerConfigurationCell {
                 // TODO try to connect to the controller and add the cell only if ok
                 products.append(Stock(controllerIPAddress: cell.controllerIPAddress.text!,
-                                      controllerPort: controllerPort))
+                                      controllerPort: UInt16(cell.controllerPort.text!) ?? controllerPort))
                 tableView.beginUpdates()
                 tableView.insertRows(at: [IndexPath(item: products.count-1, section: 0)], with: .automatic)
                 tableView.endUpdates()
                 timer!.fire()
             }
         }
+    }
+
+    @IBAction func scanProductCodeBar(_ sender: UIButton) {
+        print("TODO: SCAN PRODUCT CODE BAR")
     }
 
     // UITableViewDataSource

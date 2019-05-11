@@ -8,9 +8,11 @@
 
 import Foundation
 import Network
+import UserNotifications
 
 protocol StockObserver {
     func changed(stock: Stock)
+    func notifyReorder(stock: Stock)
 }
 
 class Stock {
@@ -25,6 +27,7 @@ class Stock {
     var stock: Float = 0.0
     var reorderThreshold: Float = 0.0
     var maxStock: Float = 1.0
+    var notified = false
 
     init(controllerIPAddress: String, controllerPort: UInt16, maxStock: Float = 0.0, reorderThreshold: Float = 0.0) {
         self.controllerIPAddress = controllerIPAddress
@@ -43,14 +46,17 @@ class Stock {
     }
 
     func changed() {
+        notified = false
         if let observer = observer {
-            observer.changed(stock: self)
+            DispatchQueue.main.async {
+                observer.changed(stock: self)
+            }
         }
     }
 
     func updateMaxStock() {
         if maxStock < stock {
-            maxStock = stock
+            maxStock = ceil(stock)
         }
         changed()
    }
@@ -71,17 +77,25 @@ class Stock {
     }
 
     func checkReorder() {
-        if stock < reorderThreshold {
+        if stock <= reorderThreshold {
             reorder()
         }
     }
 
     func reorder() {
-        print("Reorder \(productName)\n")
+        if !notified {
+            print("Reorder \(productName)\n")
+            if let observer = observer {
+                DispatchQueue.main.async {
+                    observer.notifyReorder(stock: self)
+                    self.notified = true
+                }
+            }
+        }
     }
 
     func receiveGrossWeight(_ weight: Float) {
-        stock(set:weight - tare)
+        stock(set: weight - tare)
         changed()
         checkReorder()
     }
@@ -94,8 +108,9 @@ class Stock {
     var controller: OpaquePointer?
 
     func pollController() {
-        print("pollController \(String(describing: controllerIPAddress))")
+        print("pollController \(String(describing: controllerIPAddress)) \(controllerPort)1")
         if controllerIPAddress == nil {
+            checkReorder()
             return
         }
         if connectToController() {

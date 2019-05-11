@@ -11,11 +11,12 @@ import Fabric
 import Crashlytics
 import XCGLogger
 import RealmSwift
+import UserNotifications
 
 let log = XCGLogger(identifier: "advancedLogger", includeDefaultDestinations: false)
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -35,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = RootViewController()
         window?.makeKeyAndVisible()
 
-        fr_sbde_protocol_client_initialize();
+        fr_sbde_protocol_client_initialize()
+        StockCell.registerNotifications()
 
         return true
     }
@@ -69,6 +71,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Realm.Configuration.defaultConfiguration = config
     }
+
+    // UserNotification action handling:
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler:
+        @escaping () -> Void) {
+
+        // Get the meeting ID from the original notification.
+        let userInfo = response.notification.request.content.userInfo
+        let productName = userInfo["PRODUCT_NAME"] as? String ?? ""
+
+        // Perform the task associated with the action.
+        switch response.actionIdentifier {
+        case "REORDER_NOW_ACTION", "com.apple.UNNotificationDefaultActionIdentifier":
+            print("Reorder now \(productName)")
+            if let escapedProductName = productName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) {
+                UIApplication.shared.open(URL(string: "https://www.carrefour.fr/s?q=\(escapedProductName)")!,
+                                          options: [:],
+                                          completionHandler: {_ in })
+            }
+        case "REORDER_DECLINE_ACTION":
+            print("Will reorder \(productName) later.")
+        default:
+            print("Default response actionIdentifier \(response.actionIdentifier)")
+        }
+
+        // Always call the completion handler when done.
+        completionHandler()
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+
 }
 
 // swiftlint:disable force_cast

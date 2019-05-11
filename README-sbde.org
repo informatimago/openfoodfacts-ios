@@ -5,3 +5,49 @@ can work with the original controller-simulator, or with the
 multiple-controller version, in branch
 demo-weighing--protocol-1--multi-controller of laboite.
 
+* MiniDemo Specifications
+** demo avec backend simplifié
+
+- 1 to 50 controllers, of type bulk mono-product.
+- User Application:
+    - Simple backend user accounts;
+    - Simplified configuration: the controllers are pre-configured,
+      the application connects automatically according to the
+      configuration stored on the backend (no user interface to configure).
+    - The user application manages several controllers.
+    - Stock management assumes 1 controleur ≡ 1 produit.
+    - Re-order threshold with notification to order and url to the
+      provider's website.
+    - The list of providers and catalog of products are stored
+      directly on the backend (no Administration application to edit it).
+    - If possible, use a codebar scanner to identify the products.
+
+** mini demo sans backend
+
+1 - 50 controlleurs
+application: - liste des controlleur avec nom de produit (code bar); URL; mass en stock ; mass limit.
+             - notification quand la masse en stock passe en dessous du stock avec lien sur URL.
+             - mode pesée.
+             - application polls the controllers in background.
+
+
+** stockme-minidemo-ios
+*** DONE add a notification when going under threshold
+- State "DONE"       from "TODO"       [2019-05-11 Sat 09:44]
+CLOSED: [2019-05-11 Sat 09:44]
+- State "TODO"       from "TODO"       [2019-05-11 Sat 09:44]
+*** TODO add product icon/button; when tap on it, go to scanner/search to identify new product [stockcell]
+*** TODO search product name [stockcell]
+*** TODO scan product  [stockcell]
+*** DONE add port in controllercell
+- State "DONE"       from "TODO"       [2019-05-11 Sat 03:38]
+CLOSED: [2019-05-11 Sat 03:38]
+*** DONE to the simulator, add variants selected by port, each a product progressively decreasing, until it's reordered (X kg + remaining -> random under T kg)
+- State "DONE"       from "TODO"       [2019-05-11 Sat 03:38]
+CLOSED: [2019-05-11 Sat 03:38]
+
+*** TODO delete controller  [stockcell]
+** Controller
+
+The tare must be computed by the controller, as the minimum weight > 0, and subtracted from the reported stock.
+
