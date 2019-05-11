@@ -1,0 +1,7 @@
+* Notes
+
+This application uses the version 1 of the sbde laboite protocol.  It
+can work with the original controller-simulator, or with the
+multiple-controller version, in branch
+demo-weighing--protocol-1--multi-controller of laboite.
+
