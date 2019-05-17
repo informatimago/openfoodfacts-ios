@@ -10,8 +10,13 @@ import Foundation
 import UIKit
 import UserNotifications
 
-class StockViewController: UITableViewController {
+protocol SearchObserver {
+    func cancelSearch()
+    func searchFound(product: Product)
+}
 
+class StockViewController: UITableViewController, SearchObserver {
+    let pollPeriod = 3.0 // seconds
     let defaultControllerIPAddress="boxsim.laboite.sbde.fr"
     let controllerPort=UInt16(SERVER_PORT)
     var timer: Timer?
@@ -61,13 +66,20 @@ class StockViewController: UITableViewController {
         }
     }
 
-    @IBAction func updateReorderThreshold(_ sender: UISlider) {
-        if let tableViewCell = tableViewCellForView(sender) {
+    func stockCellContaining(view: UIView) -> StockCell? {
+        if let tableViewCell = tableViewCellForView(view) {
             if let cell = tableViewCell as? StockCell {
-                if cell.reorderThresholdSlider == sender {
-                    cell.product.reorderThreshold = cell.reorderThresholdSlider.value
-                    cell.product.changed()
-                }
+                return cell
+            }
+        }
+        return nil
+    }
+
+    @IBAction func updateReorderThreshold(_ sender: UISlider) {
+        if let cell = stockCellContaining(view: sender) {
+            if cell.reorderThresholdSlider == sender {
+                cell.product.reorderThreshold = cell.reorderThresholdSlider.value
+                cell.product.changed()
             }
         }
     }
@@ -86,8 +98,14 @@ class StockViewController: UITableViewController {
         }
     }
 
-    @IBAction func scanProductCodeBar(_ sender: UIButton) {
-        print("TODO: SCAN PRODUCT CODE BAR")
+
+    var associatingCell: StockCell?
+
+    @IBAction func associateProduct(_ sender: UIButton) {
+        if let cell = stockCellContaining(view: sender) {
+            associatingCell = cell
+            segueToScanner()
+        }
     }
 
     // UITableViewDataSource
@@ -127,7 +145,7 @@ class StockViewController: UITableViewController {
 
     func startPollingControllers() {
         guard timer == nil else { return }
-        timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(floatLiteral: 33.0),
+        timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(floatLiteral: pollPeriod),
                                      repeats: true,
                                      block: { (_: Timer) -> Void in
                                         print("Calling pollControllers")
@@ -136,10 +154,35 @@ class StockViewController: UITableViewController {
     }
 
     func pollControllers() {
-        print("pollControllers")
         for stock in products {
             stock.pollController()
         }
+    }
+
+    // Search product by name
+
+    static var searchingController: StockViewController?
+
+    class func searchObserver() -> SearchObserver? {
+        return searchingController
+    }
+
+    func segueToScanner() {
+        // RootViewController.rootViewController()?.showScan()
+        StockViewController.searchingController = self
+        performSegue(withIdentifier: "scanProductSegue", sender: self)
+    }
+
+    func searchFound(product: Product) {
+        print("\(String(describing: product.name))")
+        associatingCell?.product.setProduct(product)
+        associatingCell = nil
+        StockViewController.searchingController = nil
+    }
+
+    func cancelSearch() {
+        associatingCell = nil
+        StockViewController.searchingController = nil
     }
 
 }

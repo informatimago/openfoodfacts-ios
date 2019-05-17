@@ -15,6 +15,8 @@ class ScanProductSummaryView: UIView {
     @IBOutlet weak var novaGroupView: NovaGroupView!
     @IBOutlet weak var environmentImpactImageView: UIImageView!
     @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var associationCancelButton: UIButton!
+    @IBOutlet weak var associationSetButton: UIButton!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,7 +35,10 @@ class ScanProductSummaryView: UIView {
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
 
+    var product: Product?
+
     func fillIn(product: Product) {
+        self.product = product
         titleLabel.text = product.name
 
         if let imageUrl = product.frontImageSmallUrl ?? product.imageSmallUrl ??  product.frontImageUrl ?? product.imageUrl, let url = URL(string: imageUrl) {
@@ -73,6 +78,28 @@ class ScanProductSummaryView: UIView {
             environmentImpactImageView.isHidden = false
         } else {
             environmentImpactImageView.isHidden = true
+        }
+
+        let notAssociating = StockViewController.searchObserver() == nil
+        associationSetButton.isHidden = notAssociating
+        associationCancelButton.isHidden = notAssociating
+    }
+
+    func popViewController() {
+        self.parentContainerViewController()?.dismiss(animated: false)
+    }
+
+    @IBAction func associationSet(_ sender: Any?) {
+        if let searchObserver = StockViewController.searchObserver() {
+            popViewController()
+            searchObserver.searchFound(product: product!)
+        }
+    }
+
+    @IBAction func associationCancel(_ sender: Any?) {
+        if let searchObserver = StockViewController.searchObserver() {
+            popViewController()
+            searchObserver.cancelSearch()
         }
     }
 

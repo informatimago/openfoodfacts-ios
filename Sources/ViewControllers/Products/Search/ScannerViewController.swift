@@ -58,6 +58,12 @@ class ScannerViewController: UIViewController, DataManagerClient {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("ScannerViewController.viewDidLoad and dataManager = \(String(describing: dataManager))")
+        if dataManager == nil {
+            dataManager = RootViewController.rootViewController()?.dataManager
+            print("ScannerViewController.viewDidLoad and dataManager = \(String(describing: dataManager))")
+       }
+
         self.title = "product-scanner.view-title".localized
 
         lastCodeScanned = nil

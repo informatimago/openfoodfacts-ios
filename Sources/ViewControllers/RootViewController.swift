@@ -18,6 +18,8 @@ class RootViewController: UIViewController {
         }
     }
 
+    let dataManager = DataManager()
+
     init() {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         guard let tabBarVC = storyboard.instantiateInitialViewController() as? UITabBarController else { fatalError("Initial VC is required") }
@@ -34,7 +36,6 @@ class RootViewController: UIViewController {
         taxonomiesApi.persistenceManager = persistenceManager
         taxonomiesApi.refreshTaxonomiesFromServerIfNeeded()
 
-        let dataManager = DataManager()
         dataManager.productApi = productApi
         dataManager.taxonomiesApi = taxonomiesApi
         dataManager.persistenceManager = persistenceManager
@@ -42,7 +43,7 @@ class RootViewController: UIViewController {
         setupViewControllers(tabBarVC, dataManager)
 
         transition(to: tabBarVC) { _ in
-            let count = dataManager.getItemsPendingUpload().count
+            let count = self.dataManager.getItemsPendingUpload().count
             NotificationCenter.default.post(name: .pendingUploadBadgeChange, object: nil, userInfo: [NotificationUserInfoKey.pendingUploadItemCount: count])
             //to check for scanner state
             if UserDefaults.standard.bool(forKey: UserDefaultsConstants.scanningOnLaunch) == true {
@@ -79,7 +80,7 @@ class RootViewController: UIViewController {
         }
     }
 
-    private func showScan() {
+    func showScan() {
         for child in tabBarVC.viewControllers ?? [] {
             if child as? ScannerViewController != nil {
                 tabBarVC.selectedIndex = tabBarVC.viewControllers?.firstIndex(of: child) ?? 0
@@ -99,4 +100,11 @@ class RootViewController: UIViewController {
         // Reset
         self.deepLink = nil
     }
+
+    class func rootViewController () -> RootViewController? {
+        let rvc = UIApplication.shared.keyWindow!.rootViewController
+        let myrvc = rvc as? RootViewController
+        return myrvc
+    }
+
 }

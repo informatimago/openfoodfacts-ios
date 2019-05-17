@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import Kingfisher
 
 class StockCell: UITableViewCell, StockObserver {
 
@@ -16,6 +17,7 @@ class StockCell: UITableViewCell, StockObserver {
     @IBOutlet weak var stockProgress: UIProgressView!
     @IBOutlet weak var reorderThresholdValue: UILabel!
     @IBOutlet weak var reorderThresholdSlider: UISlider!
+    @IBOutlet weak var productImage: UIButton!
 
     var internalProduct: Stock!
     var product: Stock! {
@@ -29,8 +31,23 @@ class StockCell: UITableViewCell, StockObserver {
     }
 
     func changed(stock: Stock) {
-        productName.text=product.productName
-        stockValue.text=String(format: "%.3f kg", product.stock)
+        productName.text = stock.productName
+        if let imageUrlString = stock.productImageUrl {
+            if let url = URL(string: imageUrlString) {
+                print("productImage.imageView = \(String(describing: productImage.imageView))")
+                print("productImageUrl = \(String(describing: stock.productImageUrl))")
+                KingfisherManager.shared.retrieveImage(with: url) { result in
+                    switch result {
+                    case .success(let value):
+                        print("Kingfisher Task done for: \(value.source.url?.absoluteString ?? "")")
+                        self.productImage.setImage(value.image, for: UIControl.State.normal)
+                    case .failure(let error):
+                        print("Kingfisher Job failed: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
+        stockValue.text = String(format: "%.3f kg", product.stock)
         stockProgress.barHeight = 8.0
         stockProgress.setProgress(product.stock/product.maxStock, animated: false)
         reorderThresholdSlider.maximumValue = product.maxStock
@@ -51,7 +68,6 @@ class StockCell: UITableViewCell, StockObserver {
         }
         stockProgress.progressTintColor = color
     }
-
 
     class func registerNotifications() {
         // Define the custom actions.

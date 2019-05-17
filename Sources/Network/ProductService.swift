@@ -100,7 +100,7 @@ class ProductService: ProductApi {
 
         var url: String
 
-        // In debug mode we post products to the test environment (.net), so we use the post endpoint to get a product by barcode (when scanning it) 
+        // In debug mode we post products to the test environment (.net), so we use the post endpoint to get a product by barcode (when scanning it)
         // so we get the product as a result for this get
         #if DEBUG
             if isScanning {

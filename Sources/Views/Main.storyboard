@@ -57,7 +57,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Te6-RW-MSA">
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Te6-RW-MSA">
                                             <rect key="frame" x="0.0" y="17" width="64" height="64"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration">
@@ -65,12 +65,14 @@
                                             </accessibility>
                                             <state key="normal" image="barcode"/>
                                             <connections>
-                                                <action selector="scanProductCodeBar:" destination="sOl-3Q-P92" eventType="touchUpInside" id="5Zm-xV-DWA"/>
+                                                <action selector="associateProduct:" destination="sOl-3Q-P92" eventType="touchUpInside" id="NDT-ag-ArI"/>
+                                                <segue destination="2z5-iM-xjQ" kind="presentation" identifier="scanProductSegue" id="1uK-O4-J4N"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="productImage" destination="Te6-RW-MSA" id="Ocu-ll-dkG"/>
                                     <outlet property="productName" destination="7DJ-C1-Ije" id="bfj-K2-sgI"/>
                                     <outlet property="reorderThresholdSlider" destination="DFD-NR-5GO" id="AeS-AQ-JxJ"/>
                                     <outlet property="reorderThresholdValue" destination="lKt-Sd-4Hs" id="IKD-pT-RwD"/>
@@ -135,7 +137,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8b-w0-apz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1983.75" y="-1472.5"/>
+            <point key="canvasLocation" x="1976.25" y="-1605"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wPq-85-qPt">
@@ -167,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqu-2N-7de" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1966" y="-774"/>
+            <point key="canvasLocation" x="1986" y="-19"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EcN-lx-Z5L">
@@ -179,7 +181,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zWJ-cM-wEZ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -188,7 +190,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oek-2C-StQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1966" y="652"/>
+            <point key="canvasLocation" x="1976" y="-751"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="uxI-SU-r8a">
@@ -209,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzp-bH-fMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2929" y="652"/>
+            <point key="canvasLocation" x="2940" y="-751"/>
         </scene>
         <!--Settings-->
         <scene sceneID="aJB-Vt-Nsm">
@@ -219,7 +221,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASu-D9-VHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1506" y="1158"/>
+            <point key="canvasLocation" x="1259" y="864"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DbU-91-5Ke">
@@ -227,7 +229,7 @@
                 <navigationController id="wWT-tg-702" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="history" id="MgE-9D-emK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="L1G-SG-nSS">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -236,7 +238,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1w-fW-QuP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1966" y="-58"/>
+            <point key="canvasLocation" x="1976" y="685"/>
         </scene>
         <!--History-->
         <scene sceneID="Cy1-Fs-syj">
@@ -292,11 +294,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xeT-yh-SR7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2929" y="-58"/>
+            <point key="canvasLocation" x="2940" y="684"/>
         </scene>
     </scenes>
     <resources>
         <image name="barcode" width="25" height="25"/>
         <image name="tetra-pak" width="29" height="29"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="1uK-O4-J4N"/>
+    </inferredMetricsTieBreakers>
 </document>

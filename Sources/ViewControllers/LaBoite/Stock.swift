@@ -24,6 +24,7 @@ class Stock {
     var tare: Float = 0.0
     // --
     var productName: String
+    var productImageUrl: String?
     var stock: Float = 0.0
     var reorderThreshold: Float = 0.0
     var maxStock: Float = 1.0
@@ -45,6 +46,12 @@ class Stock {
         self.reorderThreshold = reorderThreshold
     }
 
+    func setProduct(_ product: Product) {
+        productName = product.name ?? "Unknown"
+        productImageUrl = product.frontImageSmallUrl ?? product.imageSmallUrl ??  product.frontImageUrl ?? product.imageUrl
+        changed()
+    }
+
     func changed() {
         notified = false
         if let observer = observer {
@@ -62,8 +69,10 @@ class Stock {
    }
 
     func stock(set newValue: Float) {
-        stock = newValue
-        updateMaxStock()
+        if stock != newValue {
+            stock = newValue
+            updateMaxStock()
+        }
     }
 
     func stock(increment: Float) {
@@ -96,7 +105,6 @@ class Stock {
 
     func receiveGrossWeight(_ weight: Float) {
         stock(set: weight - tare)
-        changed()
         checkReorder()
     }
 
