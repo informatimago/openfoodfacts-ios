@@ -184,6 +184,54 @@ class StockViewController: UITableViewController, SearchObserver {
         }
     }
 
+    @available(iOS 11.0, *)
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        switch indexPath.section {
+        case 0:
+            let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
+                print("index path of delete: \(indexPath)")
+                print("action = \(action)")
+                print("sourceView = \(sourceView)")
+                self.products.remove(at: indexPath.item)
+                self.saveConfiguration()
+                completionHandler(true)
+            }
+
+//            let rename = UIContextualAction(style: .normal, title: "Edit") { (action, sourceView, completionHandler) in
+//                print("index path of edit: \(indexPath)")
+//                completionHandler(true)
+//            }
+//            let swipeActionConfig = UISwipeActionsConfiguration(actions: [rename, delete])
+            let swipeActionConfig = UISwipeActionsConfiguration(actions: [delete])
+            swipeActionConfig.performsFirstActionWithFullSwipe = false
+            return swipeActionConfig
+        default:
+            return nil
+        }
+    }
+
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        switch indexPath.section {
+        case 0:
+            return true
+        default:
+            return false
+        }
+    }
+
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCell.EditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            // handle delete (by removing the data from your array and updating the tableview)
+            switch indexPath.section {
+            case 0:
+                products.remove(at: indexPath.item)
+                saveConfiguration()
+            default:
+                break
+            }
+        }
+    }
+
     // Stock Polling
 
     func startPollingControllers() {
