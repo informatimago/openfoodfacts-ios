@@ -46,6 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         DeepLinkManager.shared.checkDeepLink()
     }
 
+    func applicationWillTerminate(_ application: UIApplication) {
+        StockViewController.instance?.saveConfiguration()
+    }
+
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         completionHandler(DeepLinkManager.shared.handleShortcut(item: shortcutItem))
     }

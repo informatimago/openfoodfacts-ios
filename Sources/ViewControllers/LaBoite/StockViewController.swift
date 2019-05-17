@@ -16,6 +16,7 @@ protocol SearchObserver {
 }
 
 class StockViewController: UITableViewController, SearchObserver {
+    let defaults=UserDefaults.init()
     let pollPeriod = 3.0 // seconds
     let defaultControllerIPAddress="boxsim.laboite.sbde.fr"
     let controllerPort=UInt16(SERVER_PORT)
@@ -24,8 +25,11 @@ class StockViewController: UITableViewController, SearchObserver {
     var products: [Stock]=[]
 
     override func viewDidLoad() {
+        StockViewController.instance = self
         hideKeyboardWhenTappedAround()
-        addDemoCells()
+        if !loadConfiguration() {
+            addDemoCells()
+        }
         startPollingControllers()
 
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge],
@@ -33,10 +37,55 @@ class StockViewController: UITableViewController, SearchObserver {
                                                                     if granted {
                                                                         print("UserNotification allowed.")
                                                                     } else {
-                                                                        print("UserNotification refused.")
+                                                                        print("UserNotification refused \(String(describing: error)).")
                                                                     }
         })
         UNUserNotificationCenter.current().delegate = UIApplication.shared.delegate as? UNUserNotificationCenterDelegate
+    }
+
+    func encode() -> [[String: Any]] {
+        var encoded = [[String: Any]]()
+        for stock in products {
+            encoded.append(stock.encode())
+        }
+        return encoded
+    }
+
+    enum Key: String {
+        case stock = "fr.sbde.laboite.StockMeMiniDemo.stock"
+    }
+
+    func saveConfiguration() {
+        let configuration = encode()
+        print("saving configuration = \(configuration)")
+        defaults.set(configuration, forKey: StockViewController.Key.stock.rawValue)
+    }
+
+    func loadConfiguration() -> Bool {
+        let encoded = defaults.value(forKey: StockViewController.Key.stock.rawValue)
+        print("loaded configuration = \(String(describing: encoded))")
+        if encoded == nil {
+            return false
+        }
+        var stocks = [Stock]()
+        if let encoded = encoded as? [[String: Any]]? {
+            for encodedStock in encoded! {
+                stocks.append(Stock(fromDictionary: encodedStock))
+            }
+        }
+        products = stocks
+        initializeTableView()
+        return true
+    }
+
+    func initializeTableView() {
+        tableView.beginUpdates()
+        tableView.insertSections(IndexSet(arrayLiteral: 0, 1), with: .automatic)
+        // The ControllerConfigurationCell
+        tableView.insertRows(at: [IndexPath(item: 0, section: 1)], with: .automatic)
+        tableView.endUpdates()
+        // The StockCells
+        tableView.reloadData()
     }
 
     func addDemoCells() {
@@ -47,15 +96,7 @@ class StockViewController: UITableViewController, SearchObserver {
         products[1].stock(decrement: 0.735)
         products[2].stock(decrement: 0.524)
 
-        tableView.beginUpdates()
-        tableView.insertSections(IndexSet(arrayLiteral: 0, 1), with: .automatic)
-        // The ControllerConfigurationCell
-        tableView.insertRows(at: [IndexPath(item:0 , section: 1)], with: .automatic)
-        // The StockCells
-        tableView.insertRows(at: [IndexPath(item: 0, section: 0)], with: .automatic)
-        tableView.insertRows(at: [IndexPath(item: 1, section: 0)], with: .automatic)
-        tableView.insertRows(at: [IndexPath(item: 2, section: 0)], with: .automatic)
-        tableView.endUpdates()
+        initializeTableView()
     }
 
     func tableViewCellForView(_ view: UIView) -> UITableViewCell? {
@@ -80,6 +121,7 @@ class StockViewController: UITableViewController, SearchObserver {
             if cell.reorderThresholdSlider == sender {
                 cell.product.reorderThreshold = cell.reorderThresholdSlider.value
                 cell.product.changed()
+                saveConfiguration()
             }
         }
     }
@@ -94,6 +136,7 @@ class StockViewController: UITableViewController, SearchObserver {
                 tableView.insertRows(at: [IndexPath(item: products.count-1, section: 0)], with: .automatic)
                 tableView.endUpdates()
                 timer!.fire()
+                saveConfiguration()
             }
         }
     }
@@ -161,6 +204,7 @@ class StockViewController: UITableViewController, SearchObserver {
 
     // Search product by name
 
+    static var instance: StockViewController?
     static var searchingController: StockViewController?
 
     class func searchObserver() -> SearchObserver? {
@@ -178,6 +222,7 @@ class StockViewController: UITableViewController, SearchObserver {
         associatingCell?.product.setProduct(product)
         associatingCell = nil
         StockViewController.searchingController = nil
+        saveConfiguration()
     }
 
     func cancelSearch() {

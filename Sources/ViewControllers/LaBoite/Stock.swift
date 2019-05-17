@@ -30,6 +30,42 @@ class Stock {
     var maxStock: Float = 1.0
     var notified = false
 
+    func encode() -> [String: Any] {
+        return [
+            "controller.IPAddress": controllerIPAddress ?? "",
+            "controller.port": controllerPort,
+            "product.name": productName,
+            "product.imageUrl": productImageUrl ?? "",
+            "stock.tare": tare,
+            "stock.mass": stock,
+            "stock.reorderThreshold": reorderThreshold,
+            "stock.maximum": maxStock
+        ]
+    }
+
+    static func orempty(_ string: String?) -> String? {
+        if let string = string {
+            if string == "" {
+                return nil
+            } else {
+                return string
+            }
+        } else {
+            return string
+        }
+    }
+
+    init(fromDictionary dict: [String: Any]) {
+        self.controllerIPAddress = Stock.orempty(dict["controller.IPAddress"] as? String)
+        self.controllerPort = dict["controller.port"] as? UInt16 ?? 0
+        self.productName = dict["product.name"] as? String ?? "Unknown"
+        self.productImageUrl = Stock.orempty(dict["product.imageUrl"] as? String)
+        self.tare = dict["stock.tare"] as? Float ?? 0.0
+        self.stock = dict["stock.mass"] as? Float ?? 1.0
+        self.maxStock = dict["stock.maximum"] as? Float ?? 1.0
+        self.reorderThreshold = dict["stock.reorderThreshold"] as? Float ?? 0.1
+    }
+
     init(controllerIPAddress: String, controllerPort: UInt16, maxStock: Float = 0.0, reorderThreshold: Float = 0.0) {
         self.controllerIPAddress = controllerIPAddress
         self.controllerPort = controllerPort
