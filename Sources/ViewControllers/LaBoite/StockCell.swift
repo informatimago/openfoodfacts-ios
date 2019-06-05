@@ -14,9 +14,10 @@ class StockCell: UITableViewCell, StockObserver {
 
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var stockValue: UILabel!
-    @IBOutlet weak var stockProgress: UIProgressView!
+    @IBOutlet weak var stockProgress: UIProgressView?
     @IBOutlet weak var reorderThresholdValue: UILabel!
-    @IBOutlet weak var reorderThresholdSlider: UISlider!
+    @IBOutlet weak var reorderThresholdManual: UITextField!
+    @IBOutlet weak var reorderThresholdSlider: UISlider?
     @IBOutlet weak var productImage: UIButton!
 
     var internalProduct: Stock!
@@ -47,12 +48,12 @@ class StockCell: UITableViewCell, StockObserver {
                 }
             }
         }
-        stockValue.text = String(format: "%.3f kg", product.stock)
-        stockProgress.barHeight = 8.0
-        stockProgress.setProgress(product.stock/product.maxStock, animated: false)
-        reorderThresholdSlider.maximumValue = product.maxStock
-        reorderThresholdSlider.setValue(product.reorderThreshold, animated: false)
-        reorderThresholdValue.text = String(format: "%.3f kg", reorderThresholdSlider.value)
+        stockValue.text = String(format: "%.0f g", product.stock*1000)
+        stockProgress?.barHeight = 8.0
+        stockProgress?.setProgress(product.stock/product.maxStock, animated: false)
+        reorderThresholdSlider?.maximumValue = product.maxStock
+        reorderThresholdSlider?.setValue(product.reorderThreshold, animated: false)
+        reorderThresholdValue.text = String(format: "%.0f g", product.reorderThreshold*1000)
         updateColor()
     }
 
@@ -66,7 +67,11 @@ class StockCell: UITableViewCell, StockObserver {
         } else if current <= orangeLevel {
             color = UIColor.orange
         }
-        stockProgress.progressTintColor = color
+        stockProgress?.progressTintColor = color
+        if let stockValue = stockValue as? BoxedLabel {
+            stockValue.color = color
+            stockValue.setNeedsDisplay()
+        }
     }
 
     class func registerNotifications() {

@@ -36,9 +36,13 @@ application: - liste des controlleur avec nom de produit (code bar); URL; mass e
 - State "DONE"       from "TODO"       [2019-05-11 Sat 09:44]
 CLOSED: [2019-05-11 Sat 09:44]
 - State "TODO"       from "TODO"       [2019-05-11 Sat 09:44]
-*** TODO add product icon/button; when tap on it, go to scanner/search to identify new product [stockcell]
+*** DONE add product icon/button; when tap on it, go to scanner/search to identify new product [stockcell]
+- State "DONE"       from "TODO"       [2019-05-18 Sat 08:25]
+CLOSED: [2019-05-18 Sat 08:25]
 *** TODO search product name [stockcell]
-*** TODO scan product  [stockcell]
+*** DONE scan product  [stockcell]
+- State "DONE"       from "TODO"       [2019-05-18 Sat 08:25]
+CLOSED: [2019-05-18 Sat 08:25]
 *** DONE add port in controllercell
 - State "DONE"       from "TODO"       [2019-05-11 Sat 03:38]
 CLOSED: [2019-05-11 Sat 03:38]
@@ -46,7 +50,9 @@ CLOSED: [2019-05-11 Sat 03:38]
 - State "DONE"       from "TODO"       [2019-05-11 Sat 03:38]
 CLOSED: [2019-05-11 Sat 03:38]
 
-*** TODO delete controller  [stockcell]
+*** DONE delete controller  [stockcell]
+- State "DONE"       from "TODO"       [2019-05-18 Sat 08:25]
+CLOSED: [2019-05-18 Sat 08:25]
 ** Controller
 
 The tare must be computed by the controller, as the minimum weight > 0, and subtracted from the reported stock.

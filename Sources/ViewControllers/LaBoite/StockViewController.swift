@@ -79,6 +79,9 @@ class StockViewController: UITableViewController, SearchObserver {
     }
 
     func initializeTableView() {
+        tableView.estimatedRowHeight = 100.0 // Adjust Primary table height
+        tableView.rowHeight = 100.0 // UITableView.automaticDimension
+
         tableView.beginUpdates()
         tableView.insertSections(IndexSet(arrayLiteral: 0, 1), with: .automatic)
         // The ControllerConfigurationCell
@@ -116,10 +119,17 @@ class StockViewController: UITableViewController, SearchObserver {
         return nil
     }
 
-    @IBAction func updateReorderThreshold(_ sender: UISlider) {
+    @IBAction func updateReorderThreshold(_ sender: UIView) {
         if let cell = stockCellContaining(view: sender) {
-            if cell.reorderThresholdSlider == sender {
-                cell.product.reorderThreshold = cell.reorderThresholdSlider.value
+            if let slider = sender as? UISlider {
+                cell.product.reorderThreshold = slider.value
+                cell.product.changed()
+                saveConfiguration()
+            }
+            if let text = sender as? UITextField {
+                dismissKeyboard()
+                let value = Int(text.text!)
+                cell.product.reorderThreshold = Float(value!)/1000.0
                 cell.product.changed()
                 saveConfiguration()
             }

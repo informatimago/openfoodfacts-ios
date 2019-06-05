@@ -89,6 +89,15 @@ class RootViewController: UIViewController {
         }
     }
 
+    func showStock() {
+        for child in tabBarVC.viewControllers ?? [] {
+            if child as? StockViewController != nil {
+                tabBarVC.selectedIndex = tabBarVC.viewControllers?.firstIndex(of: child) ?? 0
+                break
+            }
+        }
+    }
+
     private func handleDeepLink() {
         guard let deepLink = self.deepLink else { return }
 

@@ -16,24 +16,20 @@
 		2A1C326B228323C80015AF05 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3260228323C80015AF05 /* buffer.c */; };
 		2A1C326C228323C80015AF05 /* controller-ua-client.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3261228323C80015AF05 /* controller-ua-client.c */; };
 		2A1C326D228323C80015AF05 /* runtime.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3264228323C80015AF05 /* runtime.c */; };
+		2A2C7BAB22A7464C009104F7 /* scale.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA322A7464C009104F7 /* scale.png */; };
+		2A2C7BAC22A7464C009104F7 /* add-app.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA422A7464C009104F7 /* add-app.png */; };
+		2A2C7BAD22A7464C009104F7 /* shopping.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA522A7464C009104F7 /* shopping.png */; };
+		2A2C7BAE22A7464C009104F7 /* receipes.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA622A7464C009104F7 /* receipes.png */; };
+		2A2C7BAF22A7464C009104F7 /* norder-title.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA722A7464C009104F7 /* norder-title.png */; };
+		2A2C7BB022A7464C009104F7 /* status-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA822A7464C009104F7 /* status-list.png */; };
+		2A2C7BB122A7464C009104F7 /* NOrder.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA922A7464C009104F7 /* NOrder.jpeg */; };
+		2A2C7BB222A7464C009104F7 /* nutrition.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BAA22A7464C009104F7 /* nutrition.png */; };
+		2A2C7BB622A74CD4009104F7 /* NOrderMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C7BB522A74CD4009104F7 /* NOrderMenuController.swift */; };
+		2A2C7BB822A7520F009104F7 /* sbde-logo-big.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BB722A7520F009104F7 /* sbde-logo-big.png */; };
+		2A2C7BBA22A75B5E009104F7 /* StockSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */; };
+		2A2C7BBC22A76417009104F7 /* BoxedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */; };
 		2AE412F6228562DA0071A99B /* UIProgress+Thickness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */; };
 		2AE412F822865FE50071A99B /* UIViewController+dismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE412F722865FE50071A99B /* UIViewController+dismissKeyboard.swift */; };
-		2AE472DB2278782600B32D17 /* sbde-logo-big-83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472CB2278782600B32D17 /* sbde-logo-big-83.5@2x.png */; };
-		2AE472DC2278782600B32D17 /* sbde-logo-big-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472CC2278782600B32D17 /* sbde-logo-big-76@2x.png */; };
-		2AE472DD2278782600B32D17 /* sbde-logo-big-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472CD2278782600B32D17 /* sbde-logo-big-40@2x.png */; };
-		2AE472DE2278782600B32D17 /* sbde-logo-big-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472CE2278782600B32D17 /* sbde-logo-big-76.png */; };
-		2AE472DF2278782600B32D17 /* sbde-logo-big-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472CF2278782600B32D17 /* sbde-logo-big-40@3x.png */; };
-		2AE472E02278782600B32D17 /* sbde-logo-big-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472D02278782600B32D17 /* sbde-logo-big-60@3x.png */; };
-		2AE472E12278782600B32D17 /* sbde-logo-big-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472D12278782600B32D17 /* sbde-logo-big-29@2x.png */; };
-		2AE472E22278782600B32D17 /* sbde-logo-big-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472D22278782600B32D17 /* sbde-logo-big-1024.png */; };
-		2AE472E32278782600B32D17 /* sbde-logo-big-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472D32278782600B32D17 /* sbde-logo-big-29.png */; };
-		2AE472E42278782600B32D17 /* sbde-logo-big-29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472D42278782600B32D17 /* sbde-logo-big-29@3x.png */; };
-		2AE472E52278782600B32D17 /* sbde-logo-big-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472D52278782600B32D17 /* sbde-logo-big-60@2x.png */; };
-		2AE472E62278782600B32D17 /* sbde-logo-big-20@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472D62278782600B32D17 /* sbde-logo-big-20@3x.png */; };
-		2AE472E72278782600B32D17 /* sbde-logo-big-20.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472D72278782600B32D17 /* sbde-logo-big-20.png */; };
-		2AE472E82278782600B32D17 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472D82278782600B32D17 /* Contents.json */; };
-		2AE472E92278782600B32D17 /* sbde-logo-big-20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472D92278782600B32D17 /* sbde-logo-big-20@2x.png */; };
-		2AE472EA2278782600B32D17 /* sbde-logo-big-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE472DA2278782600B32D17 /* sbde-logo-big-40.png */; };
 		2AE472F122787ECC00B32D17 /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE472F022787ECC00B32D17 /* StockViewController.swift */; };
 		2AE472F32278806B00B32D17 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE472F22278806B00B32D17 /* Stock.swift */; };
 		2AE472F522789A4D00B32D17 /* StockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE472F422789A4D00B32D17 /* StockCell.swift */; };
@@ -342,25 +338,21 @@
 		2A1C3263228323C80015AF05 /* client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = client.h; sourceTree = "<group>"; };
 		2A1C3264228323C80015AF05 /* runtime.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = runtime.c; sourceTree = "<group>"; };
 		2A1C3265228323C80015AF05 /* socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socket.h; sourceTree = "<group>"; };
+		2A2C7BA322A7464C009104F7 /* scale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scale.png; sourceTree = "<group>"; };
+		2A2C7BA422A7464C009104F7 /* add-app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-app.png"; sourceTree = "<group>"; };
+		2A2C7BA522A7464C009104F7 /* shopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopping.png; sourceTree = "<group>"; };
+		2A2C7BA622A7464C009104F7 /* receipes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = receipes.png; sourceTree = "<group>"; };
+		2A2C7BA722A7464C009104F7 /* norder-title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "norder-title.png"; sourceTree = "<group>"; };
+		2A2C7BA822A7464C009104F7 /* status-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-list.png"; sourceTree = "<group>"; };
+		2A2C7BA922A7464C009104F7 /* NOrder.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NOrder.jpeg; sourceTree = "<group>"; };
+		2A2C7BAA22A7464C009104F7 /* nutrition.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nutrition.png; sourceTree = "<group>"; };
+		2A2C7BB522A74CD4009104F7 /* NOrderMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOrderMenuController.swift; sourceTree = "<group>"; };
+		2A2C7BB722A7520F009104F7 /* sbde-logo-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big.png"; sourceTree = "<group>"; };
+		2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSelectionViewController.swift; sourceTree = "<group>"; };
+		2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxedLabel.swift; sourceTree = "<group>"; };
 		2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIProgress+Thickness.swift"; sourceTree = "<group>"; };
 		2AE412F722865FE50071A99B /* UIViewController+dismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissKeyboard.swift"; sourceTree = "<group>"; };
 		2AE412F922868F7D0071A99B /* StockMeMiniDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StockMeMiniDemo.entitlements; sourceTree = "<group>"; };
-		2AE472CB2278782600B32D17 /* sbde-logo-big-83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-83.5@2x.png"; sourceTree = "<group>"; };
-		2AE472CC2278782600B32D17 /* sbde-logo-big-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-76@2x.png"; sourceTree = "<group>"; };
-		2AE472CD2278782600B32D17 /* sbde-logo-big-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-40@2x.png"; sourceTree = "<group>"; };
-		2AE472CE2278782600B32D17 /* sbde-logo-big-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-76.png"; sourceTree = "<group>"; };
-		2AE472CF2278782600B32D17 /* sbde-logo-big-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-40@3x.png"; sourceTree = "<group>"; };
-		2AE472D02278782600B32D17 /* sbde-logo-big-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-60@3x.png"; sourceTree = "<group>"; };
-		2AE472D12278782600B32D17 /* sbde-logo-big-29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-29@2x.png"; sourceTree = "<group>"; };
-		2AE472D22278782600B32D17 /* sbde-logo-big-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-1024.png"; sourceTree = "<group>"; };
-		2AE472D32278782600B32D17 /* sbde-logo-big-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-29.png"; sourceTree = "<group>"; };
-		2AE472D42278782600B32D17 /* sbde-logo-big-29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-29@3x.png"; sourceTree = "<group>"; };
-		2AE472D52278782600B32D17 /* sbde-logo-big-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-60@2x.png"; sourceTree = "<group>"; };
-		2AE472D62278782600B32D17 /* sbde-logo-big-20@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-20@3x.png"; sourceTree = "<group>"; };
-		2AE472D72278782600B32D17 /* sbde-logo-big-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-20.png"; sourceTree = "<group>"; };
-		2AE472D82278782600B32D17 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
-		2AE472D92278782600B32D17 /* sbde-logo-big-20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-20@2x.png"; sourceTree = "<group>"; };
-		2AE472DA2278782600B32D17 /* sbde-logo-big-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big-40.png"; sourceTree = "<group>"; };
 		2AE472F022787ECC00B32D17 /* StockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
 		2AE472F22278806B00B32D17 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		2AE472F422789A4D00B32D17 /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
@@ -1035,27 +1027,20 @@
 			path = fr_sbde_protocol;
 			sourceTree = "<group>";
 		};
-		2AE472CA2278782600B32D17 /* SBDE.appiconset */ = {
+		2A2C7BA222A7464C009104F7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				2AE472CB2278782600B32D17 /* sbde-logo-big-83.5@2x.png */,
-				2AE472CC2278782600B32D17 /* sbde-logo-big-76@2x.png */,
-				2AE472CD2278782600B32D17 /* sbde-logo-big-40@2x.png */,
-				2AE472CE2278782600B32D17 /* sbde-logo-big-76.png */,
-				2AE472CF2278782600B32D17 /* sbde-logo-big-40@3x.png */,
-				2AE472D02278782600B32D17 /* sbde-logo-big-60@3x.png */,
-				2AE472D12278782600B32D17 /* sbde-logo-big-29@2x.png */,
-				2AE472D22278782600B32D17 /* sbde-logo-big-1024.png */,
-				2AE472D32278782600B32D17 /* sbde-logo-big-29.png */,
-				2AE472D42278782600B32D17 /* sbde-logo-big-29@3x.png */,
-				2AE472D52278782600B32D17 /* sbde-logo-big-60@2x.png */,
-				2AE472D62278782600B32D17 /* sbde-logo-big-20@3x.png */,
-				2AE472D72278782600B32D17 /* sbde-logo-big-20.png */,
-				2AE472D82278782600B32D17 /* Contents.json */,
-				2AE472D92278782600B32D17 /* sbde-logo-big-20@2x.png */,
-				2AE472DA2278782600B32D17 /* sbde-logo-big-40.png */,
+				2A2C7BB722A7520F009104F7 /* sbde-logo-big.png */,
+				2A2C7BA322A7464C009104F7 /* scale.png */,
+				2A2C7BA422A7464C009104F7 /* add-app.png */,
+				2A2C7BA522A7464C009104F7 /* shopping.png */,
+				2A2C7BA622A7464C009104F7 /* receipes.png */,
+				2A2C7BA722A7464C009104F7 /* norder-title.png */,
+				2A2C7BA822A7464C009104F7 /* status-list.png */,
+				2A2C7BA922A7464C009104F7 /* NOrder.jpeg */,
+				2A2C7BAA22A7464C009104F7 /* nutrition.png */,
 			);
-			path = SBDE.appiconset;
+			path = Images;
 			sourceTree = "<group>";
 		};
 		2AE472EF22787EB000B32D17 /* LaBoite */ = {
@@ -1068,6 +1053,9 @@
 				2A1C325022831A520015AF05 /* ControllerConfigurationCell.swift */,
 				2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */,
 				2AE412F722865FE50071A99B /* UIViewController+dismissKeyboard.swift */,
+				2A2C7BB522A74CD4009104F7 /* NOrderMenuController.swift */,
+				2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */,
+				2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */,
 			);
 			path = LaBoite;
 			sourceTree = "<group>";
@@ -1763,7 +1751,6 @@
 				95D6A7591E9C080A0017B423 /* Views */,
 				95C265111E96D55B004212EC /* AppDelegate.swift */,
 				95C265181E96D55B004212EC /* Assets.xcassets */,
-				2AE472CA2278782600B32D17 /* SBDE.appiconset */,
 				951FB0991EB29852005CAE33 /* Info.plist */,
 				951FB09F1EB2989A005CAE33 /* InfoPlist.strings */,
 				95DFD7CF1F01A45C007FDB69 /* Localizable.strings */,
@@ -1876,6 +1863,7 @@
 		95D6A7591E9C080A0017B423 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2A2C7BA222A7464C009104F7 /* Images */,
 				9581B3E51F900E6A0036AC7C /* Main.storyboard */,
 				95890AB61F967EE600085B20 /* LaunchScreen.storyboard */,
 				95019A721FDAAAA300A7BB79 /* Common */,
@@ -2058,7 +2046,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 1010;
-				ORGANIZATIONNAME = "Andrés Pizá Bückmann";
+				ORGANIZATIONNAME = "SBDE SAS àcv";
 				TargetAttributes = {
 					951FA76C1F4E22790096AC5A = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -2260,52 +2248,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AE472E02278782600B32D17 /* sbde-logo-big-60@3x.png in Resources */,
-				2AE472DD2278782600B32D17 /* sbde-logo-big-40@2x.png in Resources */,
-				2AE472E82278782600B32D17 /* Contents.json in Resources */,
-				2AE472E52278782600B32D17 /* sbde-logo-big-60@2x.png in Resources */,
 				302525F42223145000C2C830 /* AllergensAddTableViewCell.xib in Resources */,
 				95902B471F2E284700A72EF7 /* SummaryHeaderCellController.xib in Resources */,
 				30412DD5220E2AF100C485DD /* SelectCategoryViewController.xib in Resources */,
 				303C279F2201AB7B00159961 /* ScanProductSummaryView.xib in Resources */,
+				2A2C7BB022A7464C009104F7 /* status-list.png in Resources */,
+				2A2C7BB122A7464C009104F7 /* NOrder.jpeg in Resources */,
 				303C27A32201AC1800159961 /* ManualBarcodeInputView.xib in Resources */,
-				2AE472E62278782600B32D17 /* sbde-logo-big-20@3x.png in Resources */,
 				95E3ADE21F21433D00CD61D9 /* ProductAddViewController.storyboard in Resources */,
+				2A2C7BAB22A7464C009104F7 /* scale.png in Resources */,
+				2A2C7BB822A7520F009104F7 /* sbde-logo-big.png in Resources */,
 				9581B3E71F900F1D0036AC7C /* Settings.storyboard in Resources */,
-				2AE472E72278782600B32D17 /* sbde-logo-big-20.png in Resources */,
 				957E05C61FE6D59E00868315 /* SingleLetterNutriscoreView.xib in Resources */,
-				2AE472E92278782600B32D17 /* sbde-logo-big-20@2x.png in Resources */,
 				958F33581F378086005269C5 /* NutriScoreView.xib in Resources */,
+				2A2C7BAF22A7464C009104F7 /* norder-title.png in Resources */,
 				95A526B31FEAC50F005526B1 /* User.storyboard in Resources */,
 				956FF94A1F1FF0CA0069D678 /* NutritionLevelView.xib in Resources */,
-				2AE472E42278782600B32D17 /* sbde-logo-big-29@3x.png in Resources */,
 				951FB09D1EB2989A005CAE33 /* InfoPlist.strings in Resources */,
+				2A2C7BB222A7464C009104F7 /* nutrition.png in Resources */,
 				9581B3E61F900F180036AC7C /* Main.storyboard in Resources */,
 				95DFD7CD1F01A45C007FDB69 /* Localizable.strings in Resources */,
-				2AE472DC2278782600B32D17 /* sbde-logo-big-76@2x.png in Resources */,
 				95019A741FDAAABC00A7BB79 /* PickerActionSheet.xib in Resources */,
+				2A2C7BAC22A7464C009104F7 /* add-app.png in Resources */,
 				95A565C91FD6011F00C997C8 /* README.md in Resources */,
-				2AE472DB2278782600B32D17 /* sbde-logo-big-83.5@2x.png in Resources */,
 				30412DDF220F104900C485DD /* SelectNutrimentViewController.xib in Resources */,
-				2AE472DE2278782600B32D17 /* sbde-logo-big-76.png in Resources */,
 				956FF94E1F1FF0CA0069D678 /* NutritionTableRowTableViewCell.xib in Resources */,
-				2AE472EA2278782600B32D17 /* sbde-logo-big-40.png in Resources */,
-				2AE472E12278782600B32D17 /* sbde-logo-big-29@2x.png in Resources */,
 				30270C2E2226DE3C00E6973D /* IconButtonView.xib in Resources */,
 				95890AB71F967EE900085B20 /* LaunchScreen.storyboard in Resources */,
 				302525F0222311A000C2C830 /* SelectAllergenViewController.xib in Resources */,
+				2A2C7BAD22A7464C009104F7 /* shopping.png in Resources */,
 				956FF9461F1FF0CA0069D678 /* NutritionHeaderTableViewCell.xib in Resources */,
 				956FF9561F1FF0CA0069D678 /* ProductTableViewCell.xib in Resources */,
 				95C216491FDC8A5900EC5BCB /* Search.storyboard in Resources */,
 				30412DD9220EF46300C485DD /* EditNutritiveValueView.xib in Resources */,
-				2AE472DF2278782600B32D17 /* sbde-logo-big-40@3x.png in Resources */,
 				95890AB51F967E6300085B20 /* InitialView.xib in Resources */,
 				956FF94C1F1FF0CA0069D678 /* NutritionTableHeaderCellController.xib in Resources */,
-				2AE472E22278782600B32D17 /* sbde-logo-big-1024.png in Resources */,
 				30270C322226EAD000E6973D /* SummaryFooterCellController.xib in Resources */,
 				956FF9481F1FF0CA0069D678 /* NutritionLevelsTableViewCell.xib in Resources */,
 				95C265191E96D55B004212EC /* Assets.xcassets in Resources */,
-				2AE472E32278782600B32D17 /* sbde-logo-big-29.png in Resources */,
+				2A2C7BAE22A7464C009104F7 /* receipes.png in Resources */,
 				958F335C1F37809A005269C5 /* PictureCallToActionView.xib in Resources */,
 				956FF9421F1FF0CA0069D678 /* IngredientsHeaderCellController.xib in Resources */,
 				958F33541F378076005269C5 /* InfoRowTableViewCell.xib in Resources */,
@@ -2484,6 +2465,7 @@
 				956FF9451F1FF0CA0069D678 /* NutritionHeaderTableViewCell.swift in Sources */,
 				30270C342226F4A000E6973D /* operators.swift in Sources */,
 				303C27A52201C0E500159961 /* NovaGroupView.swift in Sources */,
+				2A2C7BBA22A75B5E009104F7 /* StockSelectionViewController.swift in Sources */,
 				956FF94D1F1FF0CA0069D678 /* NutritionTableRowTableViewCell.swift in Sources */,
 				95A566121FD6037800C997C8 /* LocalizableString.swift in Sources */,
 				957E05C21FE6D0B600868315 /* SingleLetterNutriscoreView.swift in Sources */,
@@ -2538,6 +2520,7 @@
 				95A566171FD6037800C997C8 /* LocalizableNavigationItem.swift in Sources */,
 				956FF8881F1FF0740069D678 /* ProductAddViewController.swift in Sources */,
 				30270C302226E90100E6973D /* SummaryFooterCellController.swift in Sources */,
+				2A2C7BB622A74CD4009104F7 /* NOrderMenuController.swift in Sources */,
 				30412DDB220F089700C485DD /* Nutriment.swift in Sources */,
 				95513BC51FEAD8640027C198 /* PendingUploadTableViewController.swift in Sources */,
 				95AA2AFF1FDABB2D00EE3A14 /* Language.swift in Sources */,
@@ -2589,6 +2572,7 @@
 				958F334D1F377831005269C5 /* NutritionTableHeaderCellController.swift in Sources */,
 				2AE472F32278806B00B32D17 /* Stock.swift in Sources */,
 				95E9F0471EC8D7D900BA20B0 /* Nutriments.swift in Sources */,
+				2A2C7BBC22A76417009104F7 /* BoxedLabel.swift in Sources */,
 				95F14C891EDB6CDD00D99115 /* UIImage.swift in Sources */,
 				95D1D2981FFC30D900595EA1 /* RootViewController.swift in Sources */,
 				2A1C3269228323C80015AF05 /* controller-ua-messages.c in Sources */,
@@ -3117,7 +3101,8 @@
 		95C265211E96D55B004212EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = NOrder;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -3152,7 +3137,8 @@
 		95C265221E96D55B004212EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = NOrder;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Pascal Bourguignon (8W59692BCX)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pascal Bourguignon (8W59692BCX)";
@@ -3245,7 +3231,8 @@
 		95F2B0441F516E13004F8AF9 /* Testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = NOrder;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
