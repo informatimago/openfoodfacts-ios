@@ -17,6 +17,8 @@
 		2A1C326C228323C80015AF05 /* controller-ua-client.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3261228323C80015AF05 /* controller-ua-client.c */; };
 		2A1C326D228323C80015AF05 /* runtime.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3264228323C80015AF05 /* runtime.c */; };
 		2A1D1D6C22AA2FF9008AAFE5 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A1D1D6B22AA2FF9008AAFE5 /* header.png */; };
+		2A1D1D6E22AA3F67008AAFE5 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D1D6D22AA3F67008AAFE5 /* Provider.swift */; };
+		2A1D1D7022AA40BD008AAFE5 /* CarrefourProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D1D6F22AA40BD008AAFE5 /* CarrefourProvider.swift */; };
 		2A2C7BAB22A7464C009104F7 /* scale.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA322A7464C009104F7 /* scale.png */; };
 		2A2C7BAC22A7464C009104F7 /* add-app.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA422A7464C009104F7 /* add-app.png */; };
 		2A2C7BAD22A7464C009104F7 /* shopping.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA522A7464C009104F7 /* shopping.png */; };
@@ -340,6 +342,8 @@
 		2A1C3264228323C80015AF05 /* runtime.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = runtime.c; sourceTree = "<group>"; };
 		2A1C3265228323C80015AF05 /* socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socket.h; sourceTree = "<group>"; };
 		2A1D1D6B22AA2FF9008AAFE5 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
+		2A1D1D6D22AA3F67008AAFE5 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		2A1D1D6F22AA40BD008AAFE5 /* CarrefourProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrefourProvider.swift; sourceTree = "<group>"; };
 		2A2C7BA322A7464C009104F7 /* scale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scale.png; sourceTree = "<group>"; };
 		2A2C7BA422A7464C009104F7 /* add-app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-app.png"; sourceTree = "<group>"; };
 		2A2C7BA522A7464C009104F7 /* shopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopping.png; sourceTree = "<group>"; };
@@ -1059,6 +1063,8 @@
 				2A2C7BB522A74CD4009104F7 /* NOrderMenuController.swift */,
 				2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */,
 				2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */,
+				2A1D1D6D22AA3F67008AAFE5 /* Provider.swift */,
+				2A1D1D6F22AA40BD008AAFE5 /* CarrefourProvider.swift */,
 			);
 			path = LaBoite;
 			sourceTree = "<group>";
@@ -2464,6 +2470,7 @@
 				95F14C8B1EDCADD600D99115 /* RotatingProcessor.swift in Sources */,
 				303C279D2201AB6B00159961 /* ScanProductSummaryView.swift in Sources */,
 				95781BC41EC3A898003E3256 /* TagTransform.swift in Sources */,
+				2A1D1D7022AA40BD008AAFE5 /* CarrefourProvider.swift in Sources */,
 				9581B3EA1F912B5C0036AC7C /* LoginViewController.swift in Sources */,
 				95DB3BEC1FDD9B0E00E83B76 /* Instantiable.swift in Sources */,
 				956FF9451F1FF0CA0069D678 /* NutritionHeaderTableViewCell.swift in Sources */,
@@ -2517,6 +2524,7 @@
 				95D060DB1F6094D30052012D /* UITableView.swift in Sources */,
 				2A1C326C228323C80015AF05 /* controller-ua-client.c in Sources */,
 				9525708C1EE9BC91002FC40D /* CellImageTapable.swift in Sources */,
+				2A1D1D6E22AA3F67008AAFE5 /* Provider.swift in Sources */,
 				30412DD2220E19BF00C485DD /* SelectCategoryViewController.swift in Sources */,
 				300085632208777900DC3896 /* OFFUrlsHelper.swift in Sources */,
 				30270C2C2226DE3100E6973D /* IconButtonView.swift in Sources */,

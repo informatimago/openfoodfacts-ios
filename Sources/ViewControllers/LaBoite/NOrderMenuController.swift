@@ -26,6 +26,8 @@ class NOrderMenuController: UIViewController {
 
     @IBAction func receipes() {
         print("move to receipes")
+        let receipesUrl = currentProvider!.urlToReceipes()!
+        UIApplication.shared.open(receipesUrl, options: [:], completionHandler: {_ in })
     }
 
     @IBAction func nutrition() {
@@ -34,6 +36,8 @@ class NOrderMenuController: UIViewController {
 
     @IBAction func shopping() {
         print("move to shopping")
+        let shopUrl = currentProvider!.urlToShop()!
+        UIApplication.shared.open(shopUrl, options: [:], completionHandler: {_ in })
     }
 
     @IBAction func addApp() {

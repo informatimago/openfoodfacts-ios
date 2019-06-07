@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         fr_sbde_protocol_client_initialize()
         StockCell.registerNotifications()
+        currentProvider = CarrefourProvider.init()
 
         return true
     }
@@ -91,11 +92,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         switch response.actionIdentifier {
         case "REORDER_NOW_ACTION", "com.apple.UNNotificationDefaultActionIdentifier":
             print("Reorder now \(productName)")
-            if let escapedProductName = productName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) {
-                UIApplication.shared.open(URL(string: "https://www.carrefour.fr/s?q=\(escapedProductName)")!,
-                                          options: [:],
-                                          completionHandler: {_ in })
-            }
+            let orderUrl = currentProvider!.urlToOrder(productNamed: productName)!
+            UIApplication.shared.open(orderUrl, options: [:], completionHandler: {_ in })
         case "REORDER_DECLINE_ACTION":
             print("Will reorder \(productName) later.")
         default:
