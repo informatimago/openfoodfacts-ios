@@ -3,7 +3,7 @@
 //  OpenFoodFacts
 //
 //  Created by Pascal Bourguignon on 30/04/2019.
-//  Copyright © 2019 Andrés Pizá Bückmann. All rights reserved.
+//  Copyright © 2019 SBDE SAS àcv. All rights reserved.
 //
 
 import UIKit
@@ -12,13 +12,14 @@ import Kingfisher
 
 class StockCell: UITableViewCell, StockObserver {
 
+    @IBOutlet weak var productImage: UIButton!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var stockValue: UILabel!
     @IBOutlet weak var stockProgress: UIProgressView?
-    @IBOutlet weak var reorderThresholdValue: UILabel!
-    @IBOutlet weak var reorderThresholdManual: UITextField!
+    @IBOutlet weak var reorderThresholdValue: UILabel?
+    @IBOutlet weak var reorderThresholdButton: UIButton?
     @IBOutlet weak var reorderThresholdSlider: UISlider?
-    @IBOutlet weak var productImage: UIButton!
+    @IBOutlet weak var orderButton: UIButton?
 
     var internalProduct: Stock!
     var product: Stock! {
@@ -53,7 +54,9 @@ class StockCell: UITableViewCell, StockObserver {
         stockProgress?.setProgress(product.stock/product.maxStock, animated: false)
         reorderThresholdSlider?.maximumValue = product.maxStock
         reorderThresholdSlider?.setValue(product.reorderThreshold, animated: false)
-        reorderThresholdValue.text = String(format: "%.0f g", product.reorderThreshold*1000)
+        let threshold = String(format: "%.0f g", product.reorderThreshold*1000)
+        reorderThresholdValue?.text = threshold
+        reorderThresholdButton?.setTitle(threshold, for: UIControl.State.normal)
         updateColor()
     }
 

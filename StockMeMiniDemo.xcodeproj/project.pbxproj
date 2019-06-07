@@ -16,6 +16,7 @@
 		2A1C326B228323C80015AF05 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3260228323C80015AF05 /* buffer.c */; };
 		2A1C326C228323C80015AF05 /* controller-ua-client.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3261228323C80015AF05 /* controller-ua-client.c */; };
 		2A1C326D228323C80015AF05 /* runtime.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3264228323C80015AF05 /* runtime.c */; };
+		2A1D1D6C22AA2FF9008AAFE5 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A1D1D6B22AA2FF9008AAFE5 /* header.png */; };
 		2A2C7BAB22A7464C009104F7 /* scale.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA322A7464C009104F7 /* scale.png */; };
 		2A2C7BAC22A7464C009104F7 /* add-app.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA422A7464C009104F7 /* add-app.png */; };
 		2A2C7BAD22A7464C009104F7 /* shopping.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA522A7464C009104F7 /* shopping.png */; };
@@ -338,6 +339,7 @@
 		2A1C3263228323C80015AF05 /* client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = client.h; sourceTree = "<group>"; };
 		2A1C3264228323C80015AF05 /* runtime.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = runtime.c; sourceTree = "<group>"; };
 		2A1C3265228323C80015AF05 /* socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = socket.h; sourceTree = "<group>"; };
+		2A1D1D6B22AA2FF9008AAFE5 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
 		2A2C7BA322A7464C009104F7 /* scale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scale.png; sourceTree = "<group>"; };
 		2A2C7BA422A7464C009104F7 /* add-app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-app.png"; sourceTree = "<group>"; };
 		2A2C7BA522A7464C009104F7 /* shopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopping.png; sourceTree = "<group>"; };
@@ -1030,6 +1032,7 @@
 		2A2C7BA222A7464C009104F7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2A1D1D6B22AA2FF9008AAFE5 /* header.png */,
 				2A2C7BB722A7520F009104F7 /* sbde-logo-big.png */,
 				2A2C7BA322A7464C009104F7 /* scale.png */,
 				2A2C7BA422A7464C009104F7 /* add-app.png */,
@@ -2293,6 +2296,7 @@
 				956FF93D1F1FF0CA0069D678 /* ButtonBarView.xib in Resources */,
 				95D060D91F6085320052012D /* LoadingCell.xib in Resources */,
 				74CB633920373B6D008FC48D /* Credits.html in Resources */,
+				2A1D1D6C22AA2FF9008AAFE5 /* header.png in Resources */,
 				956FF9511F1FF0CA0069D678 /* ProductDetailViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

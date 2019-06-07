@@ -15,7 +15,8 @@ protocol SearchObserver {
     func searchFound(product: Product)
 }
 
-class StockViewController: UITableViewController, SearchObserver {
+class StockViewController: UITableViewController, SearchObserver, UIPickerViewDelegate, UIPickerViewDataSource {
+
     let defaults=UserDefaults.init()
     let pollPeriod = 3.0 // seconds
     let defaultControllerIPAddress="boxsim.laboite.sbde.fr"
@@ -152,12 +153,81 @@ class StockViewController: UITableViewController, SearchObserver {
     }
 
 
+    // StockCell
+
     var associatingCell: StockCell?
 
     @IBAction func associateProduct(_ sender: UIButton) {
         if let cell = stockCellContaining(view: sender) {
             associatingCell = cell
             segueToScanner()
+        }
+    }
+
+    // MARK: UIPickerView Delegation
+
+    var thresholdValues = [String](arrayLiteral:"25 g", "50 g", "75 g", "100 g", "200 g", "300 g", "500 g")
+    var orderValues = [String](arrayLiteral:"250 g", "500 g", "750 g", "1000 g", "2000 g", "5000 g")
+
+    var currentCell: StockCell?
+    var currentPicker: UIPickerView?
+    var pickerValues: [String]?
+    var pickerButton: UIButton?
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if (pickerValues != nil) {
+            return pickerValues!.count
+        } else {
+            return 0
+        }
+    }
+
+    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerValues?[row]
+    }
+
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerButton!.setTitle(pickerValues![row], for: UIControl.State.normal)
+        currentPicker!.isHidden = true
+    }
+
+    func initializePicker() {
+        if currentPicker == nil {
+            currentPicker = UIPickerView()
+            currentPicker!.delegate = self
+            currentPicker!.dataSource = self
+            currentPicker!.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(currentPicker!)
+            currentPicker!.isHidden = true
+            currentPicker!.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+            currentPicker!.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+            currentPicker!.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        }
+    }
+
+    @IBAction func changeThreshold(_ sender: UIButton) {
+        initializePicker()
+        if let cell = stockCellContaining(view: sender) {
+            currentCell = cell
+            pickerValues = thresholdValues
+            pickerButton = sender
+            currentPicker!.reloadAllComponents()
+            currentPicker!.isHidden = false
+        }
+    }
+
+    @IBAction func changeOrder(_ sender: UIButton) {
+        initializePicker()
+        if let cell = stockCellContaining(view: sender) {
+            currentCell = cell
+            pickerValues = orderValues
+            pickerButton = sender
+            currentPicker!.reloadAllComponents()
+            currentPicker!.isHidden = false
         }
     }
 

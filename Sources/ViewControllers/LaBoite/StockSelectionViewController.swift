@@ -18,4 +18,9 @@ class StockSelectionViewController: UIViewController {
         self.dismiss(animated: true)
     }
 
+    @IBAction func selectCategory(_ sender: UIButton) {
+        currentCategory!.text = sender.titleLabel!.text
+    }
+
+    @IBOutlet var currentCategory: UILabel?
 }
