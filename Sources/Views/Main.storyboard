@@ -161,9 +161,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezc-xe-OeP">
-                                        <rect key="frame" x="16" y="89" width="86" height="30"/>
+                                        <rect key="frame" x="23" y="89" width="73" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Ajout d'apps">
+                                        <state key="normal" title="Ajout base">
                                             <color key="titleColor" red="0.0" green="0.49764263339999998" blue="0.053727179280000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
@@ -192,6 +192,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="j00-K9-QyH" kind="presentation" identifier="stockSegue" id="0mw-OD-5GJ"/>
+                        <segue destination="gRH-6O-vO6" kind="presentation" identifier="baseSegue" id="Dx1-9l-cVA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ksx-35-LeI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -340,6 +341,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLt-nf-Y4o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="435" y="-1075"/>
+        </scene>
+        <!--Base View Controller-->
+        <scene sceneID="dr6-Yf-Q2B">
+            <objects>
+                <viewController id="gRH-6O-vO6" customClass="BaseViewController" customModule="StockMeMiniDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LOu-hY-HJ8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Controller IP Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctc-pR-yVK">
+                                <rect key="frame" x="16" y="35" width="206" height="22"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Port:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5XZ-zb-hyh">
+                                <rect key="frame" x="16" y="97" width="206" height="22"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="boxsim.laboite.sbde.fr" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qfk-xI-Vg2">
+                                <rect key="frame" x="15" y="59" width="286" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11501" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8bL-Gm-lPG">
+                                <rect key="frame" x="16" y="127" width="91" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4az-Vm-CDi">
+                                <rect key="frame" x="16" y="178" width="285" height="68"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="connectToNewController:" destination="xy6-0t-Qcs" eventType="touchUpInside" id="PL4-iS-wzB"/>
+                                    <action selector="connectToNewController:" destination="sOl-3Q-P92" eventType="touchUpInside" id="mIf-KB-PDG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="EbS-Oh-rKf"/>
+                    </view>
+                    <connections>
+                        <outlet property="addNewBase" destination="4az-Vm-CDi" id="aJL-h6-brF"/>
+                        <outlet property="controllerIPAddress" destination="Qfk-xI-Vg2" id="JZi-nu-TKH"/>
+                        <outlet property="controllerPort" destination="8bL-Gm-lPG" id="u5n-jy-2ON"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aq3-wl-wSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="435" y="-255"/>
         </scene>
         <!--Stock Controller-->
         <scene sceneID="Kvn-r6-K4B">

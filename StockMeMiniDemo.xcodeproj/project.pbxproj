@@ -19,6 +19,7 @@
 		2A1D1D6C22AA2FF9008AAFE5 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A1D1D6B22AA2FF9008AAFE5 /* header.png */; };
 		2A1D1D6E22AA3F67008AAFE5 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D1D6D22AA3F67008AAFE5 /* Provider.swift */; };
 		2A1D1D7022AA40BD008AAFE5 /* CarrefourProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D1D6F22AA40BD008AAFE5 /* CarrefourProvider.swift */; };
+		2A1D1D7222AA48D8008AAFE5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D1D7122AA48D8008AAFE5 /* BaseViewController.swift */; };
 		2A2C7BAB22A7464C009104F7 /* scale.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA322A7464C009104F7 /* scale.png */; };
 		2A2C7BAC22A7464C009104F7 /* add-app.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA422A7464C009104F7 /* add-app.png */; };
 		2A2C7BAD22A7464C009104F7 /* shopping.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BA522A7464C009104F7 /* shopping.png */; };
@@ -31,6 +32,7 @@
 		2A2C7BB822A7520F009104F7 /* sbde-logo-big.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BB722A7520F009104F7 /* sbde-logo-big.png */; };
 		2A2C7BBA22A75B5E009104F7 /* StockSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */; };
 		2A2C7BBC22A76417009104F7 /* BoxedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */; };
+		2AC1F2D322AE21B000D8AAC8 /* BaseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1F2D222AE21B000D8AAC8 /* BaseList.swift */; };
 		2AE412F6228562DA0071A99B /* UIProgress+Thickness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */; };
 		2AE412F822865FE50071A99B /* UIViewController+dismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE412F722865FE50071A99B /* UIViewController+dismissKeyboard.swift */; };
 		2AE472F122787ECC00B32D17 /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE472F022787ECC00B32D17 /* StockViewController.swift */; };
@@ -344,6 +346,7 @@
 		2A1D1D6B22AA2FF9008AAFE5 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
 		2A1D1D6D22AA3F67008AAFE5 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		2A1D1D6F22AA40BD008AAFE5 /* CarrefourProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrefourProvider.swift; sourceTree = "<group>"; };
+		2A1D1D7122AA48D8008AAFE5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2A2C7BA322A7464C009104F7 /* scale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scale.png; sourceTree = "<group>"; };
 		2A2C7BA422A7464C009104F7 /* add-app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-app.png"; sourceTree = "<group>"; };
 		2A2C7BA522A7464C009104F7 /* shopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopping.png; sourceTree = "<group>"; };
@@ -356,6 +359,7 @@
 		2A2C7BB722A7520F009104F7 /* sbde-logo-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big.png"; sourceTree = "<group>"; };
 		2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSelectionViewController.swift; sourceTree = "<group>"; };
 		2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxedLabel.swift; sourceTree = "<group>"; };
+		2AC1F2D222AE21B000D8AAC8 /* BaseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseList.swift; sourceTree = "<group>"; };
 		2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIProgress+Thickness.swift"; sourceTree = "<group>"; };
 		2AE412F722865FE50071A99B /* UIViewController+dismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissKeyboard.swift"; sourceTree = "<group>"; };
 		2AE412F922868F7D0071A99B /* StockMeMiniDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StockMeMiniDemo.entitlements; sourceTree = "<group>"; };
@@ -1055,7 +1059,6 @@
 			children = (
 				2A1C3252228320930015AF05 /* fr_sbde_protocol */,
 				2AE472F022787ECC00B32D17 /* StockViewController.swift */,
-				2AE472F22278806B00B32D17 /* Stock.swift */,
 				2AE472F422789A4D00B32D17 /* StockCell.swift */,
 				2A1C325022831A520015AF05 /* ControllerConfigurationCell.swift */,
 				2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */,
@@ -1063,8 +1066,11 @@
 				2A2C7BB522A74CD4009104F7 /* NOrderMenuController.swift */,
 				2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */,
 				2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */,
+				2A1D1D7122AA48D8008AAFE5 /* BaseViewController.swift */,
 				2A1D1D6D22AA3F67008AAFE5 /* Provider.swift */,
 				2A1D1D6F22AA40BD008AAFE5 /* CarrefourProvider.swift */,
+				2AC1F2D222AE21B000D8AAC8 /* BaseList.swift */,
+				2AE472F22278806B00B32D17 /* Stock.swift */,
 			);
 			path = LaBoite;
 			sourceTree = "<group>";
@@ -2546,6 +2552,7 @@
 				95781BC11EC3A898003E3256 /* LocalizedString.swift in Sources */,
 				9549F2BE1FF43F2F00BA797C /* DataManagerHelper.swift in Sources */,
 				302525E92223044E00C2C830 /* AllergensAlertsTableViewController.swift in Sources */,
+				2A1D1D7222AA48D8008AAFE5 /* BaseViewController.swift in Sources */,
 				95781B141EBE4E5C003E3256 /* UITableViewCell.swift in Sources */,
 				2AE472F522789A4D00B32D17 /* StockCell.swift in Sources */,
 				954587941F730C2D00269E71 /* CameraHelper.swift in Sources */,
@@ -2576,6 +2583,7 @@
 				957CBEAC1F323B1F00A1B398 /* FormTableViewController.swift in Sources */,
 				957CBEC41F33B36400A1B398 /* SummaryFormTableViewController.swift in Sources */,
 				74C59E8B203FB9E2006C456F /* SharingManager.swift in Sources */,
+				2AC1F2D322AE21B000D8AAC8 /* BaseList.swift in Sources */,
 				95D1D29C1FFC33B600595EA1 /* ShortcutParser.swift in Sources */,
 				9526F8F51FDF2A8B0008E1CC /* DataManagerClient.swift in Sources */,
 				958F335B1F37809A005269C5 /* PictureCallToActionView.swift in Sources */,

@@ -23,14 +23,16 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
     let controllerPort=UInt16(SERVER_PORT)
     var timer: Timer?
 
-    var products: [Stock]=[]
+    var bases: BaseList?
 
     override func viewDidLoad() {
         StockViewController.instance = self
         hideKeyboardWhenTappedAround()
-        if !loadConfiguration() {
+        bases = BaseList.init()
+        if !(bases!.load()) {
             addDemoCells()
         }
+        initializeTableView()
         startPollingControllers()
 
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge],
@@ -42,41 +44,6 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
                                                                     }
         })
         UNUserNotificationCenter.current().delegate = UIApplication.shared.delegate as? UNUserNotificationCenterDelegate
-    }
-
-    func encode() -> [[String: Any]] {
-        var encoded = [[String: Any]]()
-        for stock in products {
-            encoded.append(stock.encode())
-        }
-        return encoded
-    }
-
-    enum Key: String {
-        case stock = "fr.sbde.laboite.StockMeMiniDemo.stock"
-    }
-
-    func saveConfiguration() {
-        let configuration = encode()
-        print("saving configuration = \(configuration)")
-        defaults.set(configuration, forKey: StockViewController.Key.stock.rawValue)
-    }
-
-    func loadConfiguration() -> Bool {
-        let encoded = defaults.value(forKey: StockViewController.Key.stock.rawValue)
-        print("loaded configuration = \(String(describing: encoded))")
-        if encoded == nil {
-            return false
-        }
-        var stocks = [Stock]()
-        if let encoded = encoded as? [[String: Any]]? {
-            for encodedStock in encoded! {
-                stocks.append(Stock(fromDictionary: encodedStock))
-            }
-        }
-        products = stocks
-        initializeTableView()
-        return true
     }
 
     func initializeTableView() {
@@ -93,14 +60,16 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
     }
 
     func addDemoCells() {
-        products.append(Stock(productName: "Riz Long Grain", stock: 5.000, reorderThreshold: 0.300))
-        products.append(Stock(productName: "Cassonade", stock: 1.000, reorderThreshold: 0.100))
-        products.append(Stock(productName: "Huile d'Olive Vierge Extra", stock: 1.000, reorderThreshold: 0.100))
-        products[0].stock(decrement: 0.550)
-        products[1].stock(decrement: 0.735)
-        products[2].stock(decrement: 0.524)
+        bases!.elements.append(Stock(productName: "Riz Long Grain", stock: 5.000, reorderThreshold: 0.300))
+        bases!.elements.append(Stock(productName: "Cassonade", stock: 1.000, reorderThreshold: 0.100))
+        bases!.elements.append(Stock(productName: "Huile d'Olive Vierge Extra", stock: 1.000, reorderThreshold: 0.100))
+        bases!.elements[0].stock(decrement: 0.550)
+        bases!.elements[1].stock(decrement: 0.735)
+        bases!.elements[2].stock(decrement: 0.524)
+    }
 
-        initializeTableView()
+    func saveConfiguration() {
+        bases!.save()
     }
 
     func tableViewCellForView(_ view: UIView) -> UITableViewCell? {
@@ -120,19 +89,27 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
         return nil
     }
 
+    func updateThreshold(_ value: Float, ofCell cell: StockCell) {
+        cell.product.reorderThreshold = value
+        cell.product.changed()
+        bases!.save()
+    }
+
+    func updateOrder(_ value: Float, ofCell cell: StockCell) {
+        cell.product.order = value
+        cell.product.changed()
+        bases!.save()
+    }
+
     @IBAction func updateReorderThreshold(_ sender: UIView) {
         if let cell = stockCellContaining(view: sender) {
             if let slider = sender as? UISlider {
-                cell.product.reorderThreshold = slider.value
-                cell.product.changed()
-                saveConfiguration()
+                updateThreshold(slider.value, ofCell: cell)
             }
             if let text = sender as? UITextField {
                 dismissKeyboard()
                 let value = Int(text.text!)
-                cell.product.reorderThreshold = Float(value!)/1000.0
-                cell.product.changed()
-                saveConfiguration()
+                updateThreshold(Float(value!)/1000.0, ofCell: cell)
             }
         }
     }
@@ -141,13 +118,13 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
         if let tableViewCell = tableViewCellForView(sender) {
             if let cell = tableViewCell as? ControllerConfigurationCell {
                 // TODO try to connect to the controller and add the cell only if ok
-                products.append(Stock(controllerIPAddress: cell.controllerIPAddress.text!,
+                bases!.elements.append(Stock(controllerIPAddress: cell.controllerIPAddress.text!,
                                       controllerPort: UInt16(cell.controllerPort.text!) ?? controllerPort))
                 tableView.beginUpdates()
-                tableView.insertRows(at: [IndexPath(item: products.count-1, section: 0)], with: .automatic)
+                tableView.insertRows(at: [IndexPath(item: bases!.elements.count-1, section: 0)], with: .automatic)
                 tableView.endUpdates()
                 timer!.fire()
-                saveConfiguration()
+                bases!.save()
             }
         }
     }
@@ -166,13 +143,27 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
 
     // MARK: UIPickerView Delegation
 
-    var thresholdValues = [String](arrayLiteral:"25 g", "50 g", "75 g", "100 g", "200 g", "300 g", "500 g")
-    var orderValues = [String](arrayLiteral:"250 g", "500 g", "750 g", "1000 g", "2000 g", "5000 g")
+    func parseMassValue(_ text: String) -> Float? {
+        if text.hasSuffix(" g") {
+            return Float(text.prefix(text.count - 2))!/1000.0
+        } else {
+            let value = Float(text)
+            return value
+        }
+    }
+
+    var thresholdValues = [String](arrayLiteral: "25 g", "50 g", "75 g", "100 g", "200 g", "300 g", "500 g", "750 g", "1000 g")
+    var orderValues = [String](arrayLiteral: "250 g", "500 g", "750 g", "1000 g", "2000 g", "5000 g")
 
     var currentCell: StockCell?
     var currentPicker: UIPickerView?
     var pickerValues: [String]?
     var pickerButton: UIButton?
+    enum PickerField {
+        case threshold
+        case order
+    }
+    var pickerField = PickerField.threshold
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -191,13 +182,22 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
     }
 
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerButton!.setTitle(pickerValues![row], for: UIControl.State.normal)
+        let newValue = pickerValues![row]
+        pickerButton!.setTitle(newValue, for: UIControl.State.normal)
         currentPicker!.isHidden = true
+        let parsedValue = parseMassValue(newValue)
+        switch(pickerField){
+        case PickerField.threshold:
+            updateThreshold(parsedValue!, ofCell: currentCell!)
+        case PickerField.order:
+            updateOrder(parsedValue!, ofCell: currentCell!)
+        }
     }
 
     func initializePicker() {
         if currentPicker == nil {
             currentPicker = UIPickerView()
+            currentPicker!.backgroundColor = UIColor.lightGray
             currentPicker!.delegate = self
             currentPicker!.dataSource = self
             currentPicker!.translatesAutoresizingMaskIntoConstraints = false
@@ -215,6 +215,7 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
             currentCell = cell
             pickerValues = thresholdValues
             pickerButton = sender
+            pickerField = PickerField.threshold
             currentPicker!.reloadAllComponents()
             currentPicker!.isHidden = false
         }
@@ -226,6 +227,7 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
             currentCell = cell
             pickerValues = orderValues
             pickerButton = sender
+            pickerField = PickerField.order
             currentPicker!.reloadAllComponents()
             currentPicker!.isHidden = false
         }
@@ -239,7 +241,7 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0:  return products.count
+        case 0:  return bases!.elements.count
         case 1:  return 1
         default: return 0
         }
@@ -256,7 +258,7 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell", for: indexPath)
             if let cell = cell as? StockCell {
-                let product = products[indexPath.item]
+                let product = bases!.elements[indexPath.item]
                 cell.product = product
                 cell.changed(stock: product)
             }
@@ -272,8 +274,8 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
                 print("index path of delete: \(indexPath)")
                 print("action = \(action)")
                 print("sourceView = \(sourceView)")
-                self.products.remove(at: indexPath.item)
-                self.saveConfiguration()
+                self.bases!.elements.remove(at: indexPath.item)
+                self.bases!.save()
                 completionHandler(true)
             }
 
@@ -304,8 +306,8 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
             // handle delete (by removing the data from your array and updating the tableview)
             switch indexPath.section {
             case 0:
-                products.remove(at: indexPath.item)
-                saveConfiguration()
+                bases!.elements.remove(at: indexPath.item)
+                bases!.save()
             default:
                 break
             }
@@ -325,7 +327,7 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
     }
 
     func pollControllers() {
-        for stock in products {
+        for stock in bases!.elements {
             stock.pollController()
         }
     }
@@ -350,7 +352,7 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
         associatingCell?.product.setProduct(product)
         associatingCell = nil
         StockViewController.searchingController = nil
-        saveConfiguration()
+        bases!.save()
     }
 
     func cancelSearch() {

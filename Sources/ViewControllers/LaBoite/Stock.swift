@@ -27,6 +27,7 @@ class Stock {
     var productImageUrl: String?
     var stock: Float = 0.0
     var reorderThreshold: Float = 0.0
+    var order: Float = 0.0
     var maxStock: Float = 1.0
     var notified = false
 
@@ -39,6 +40,7 @@ class Stock {
             "stock.tare": tare,
             "stock.mass": stock,
             "stock.reorderThreshold": reorderThreshold,
+            "stock.nextOrder": order,
             "stock.maximum": maxStock
         ]
     }
@@ -64,6 +66,7 @@ class Stock {
         self.stock = dict["stock.mass"] as? Float ?? 1.0
         self.maxStock = dict["stock.maximum"] as? Float ?? 1.0
         self.reorderThreshold = dict["stock.reorderThreshold"] as? Float ?? 0.1
+        self.order = dict["stock.nextOrder"] as? Float ?? 0.1
     }
 
     init(controllerIPAddress: String, controllerPort: UInt16, maxStock: Float = 0.0, reorderThreshold: Float = 0.0) {

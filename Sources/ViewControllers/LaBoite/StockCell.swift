@@ -57,6 +57,8 @@ class StockCell: UITableViewCell, StockObserver {
         let threshold = String(format: "%.0f g", product.reorderThreshold*1000)
         reorderThresholdValue?.text = threshold
         reorderThresholdButton?.setTitle(threshold, for: UIControl.State.normal)
+        let order = String(format: "%.0f g", product.order*1000)
+        orderButton?.setTitle(order, for: UIControl.State.normal)
         updateColor()
     }
 
