@@ -17,10 +17,7 @@ protocol SearchObserver {
 
 class StockViewController: UITableViewController, SearchObserver, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    let defaults=UserDefaults.init()
     let pollPeriod = 3.0 // seconds
-    let defaultControllerIPAddress="boxsim.laboite.sbde.fr"
-    let controllerPort=UInt16(SERVER_PORT)
     var timer: Timer?
 
     var bases: BaseList?
@@ -117,9 +114,8 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
     @IBAction func connectToNewController(_ sender: UIButton) {
         if let tableViewCell = tableViewCellForView(sender) {
             if let cell = tableViewCell as? ControllerConfigurationCell {
-                // TODO try to connect to the controller and add the cell only if ok
-                bases!.elements.append(Stock(controllerIPAddress: cell.controllerIPAddress.text!,
-                                      controllerPort: UInt16(cell.controllerPort.text!) ?? controllerPort))
+                bases!.addNewBase(cell.controllerIPAddress.text!,
+                                  UInt16(cell.controllerPort.text!) ?? BaseList.defaultControllerPort)
                 tableView.beginUpdates()
                 tableView.insertRows(at: [IndexPath(item: bases!.elements.count-1, section: 0)], with: .automatic)
                 tableView.endUpdates()
@@ -236,25 +232,26 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
     // UITableViewDataSource
 
     override func numberOfSections(in: UITableView) -> Int {
-        return 2
+        // return 2
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:  return bases!.elements.count
-        case 1:  return 1
+        // case 1:  return 1
         default: return 0
         }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "newControllerCell", for: indexPath)
-            if let cell = cell as? ControllerConfigurationCell {
-                cell.controllerIPAddress!.text = defaultControllerIPAddress
-            }
-            return cell
+            // case 1:
+            //     let cell = tableView.dequeueReusableCell(withIdentifier: "newControllerCell", for: indexPath)
+            //     if let cell = cell as? ControllerConfigurationCell {
+            //         cell.controllerIPAddress!.text = BaseList.defaultControllerIPAddress
+            //     }
+            //     return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell", for: indexPath)
             if let cell = cell as? StockCell {

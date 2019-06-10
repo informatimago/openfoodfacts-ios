@@ -45,6 +45,7 @@ class NOrderMenuController: UIViewController {
 
     @IBAction func addApp() {
         print("move to addApp")
+        performSegue(withIdentifier: "addBase", sender: self)
     }
 
 }

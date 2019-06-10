@@ -10,6 +10,13 @@ import Foundation
 
 class BaseList {
 
+    static let defaultControllerIPAddress="boxsim.laboite.sbde.fr"
+    static let defaultControllerPort=UInt16(SERVER_PORT)
+    static var list = BaseList.init()
+    class func instance() -> BaseList {
+        return list
+    }
+
     enum Key: String {
         case stock = "fr.sbde.laboite.StockMeMiniDemo.stock"
     }
@@ -44,6 +51,13 @@ class BaseList {
         }
         elements = newBases
         return true
+    }
+
+    func addNewBase(_ controllerIPAddress: String, _ controllerPort: UInt16) {
+        // TODO try to connect to the controller and add the cell only if ok
+        elements.append(Stock(controllerIPAddress: controllerIPAddress,
+                                     controllerPort: controllerPort))
+        save()
     }
 
 }
