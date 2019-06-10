@@ -15,7 +15,9 @@ class StockSelectionViewController: UIViewController {
     }
 
     @IBAction func back() {
-        self.dismiss(animated: true)
+        RootViewController.rootViewController()!.showMenu()
+        performSegue(withIdentifier: "tabs", sender: self)
+        // self.dismiss(animated: true)
     }
 
     @IBAction func selectCategory(_ sender: UIButton) {

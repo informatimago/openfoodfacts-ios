@@ -16,8 +16,9 @@ class NOrderMenuController: UIViewController {
 
     @IBAction func stock() {
         print("move to stock")
-        // RootViewController.rootViewController()!.showStock()
-        performSegue(withIdentifier: "stockSegue", sender: self)
+        RootViewController.rootViewController()!.showStock()
+        performSegue(withIdentifier: "tabs", sender: self)
+        // performSegue(withIdentifier: "stockSegue", sender: self)
     }
 
     @IBAction func scale() {
@@ -32,6 +33,8 @@ class NOrderMenuController: UIViewController {
 
     @IBAction func nutrition() {
         print("move to nutrition")
+        RootViewController.rootViewController()!.showSearch()
+        performSegue(withIdentifier: "tabs", sender: self)
     }
 
     @IBAction func shopping() {

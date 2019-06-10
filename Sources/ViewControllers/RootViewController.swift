@@ -80,9 +80,9 @@ class RootViewController: UIViewController {
         }
     }
 
-    func showScan() {
+    func showMenu() {
         for child in tabBarVC.viewControllers ?? [] {
-            if child as? ScannerViewController != nil {
+            if child as? NOrderMenuController != nil {
                 tabBarVC.selectedIndex = tabBarVC.viewControllers?.firstIndex(of: child) ?? 0
                 break
             }
@@ -91,7 +91,25 @@ class RootViewController: UIViewController {
 
     func showStock() {
         for child in tabBarVC.viewControllers ?? [] {
-            if child as? StockViewController != nil {
+            if child as? StockSelectionViewController != nil {
+                tabBarVC.selectedIndex = tabBarVC.viewControllers?.firstIndex(of: child) ?? 0
+                break
+            }
+        }
+    }
+
+    func showSearch() {
+        for child in tabBarVC.viewControllers ?? [] {
+            if child as? SearchViewController != nil {
+                tabBarVC.selectedIndex = tabBarVC.viewControllers?.firstIndex(of: child) ?? 0
+                break
+            }
+        }
+    }
+
+    func showScan() {
+        for child in tabBarVC.viewControllers ?? [] {
+            if child as? ScannerViewController != nil {
                 tabBarVC.selectedIndex = tabBarVC.viewControllers?.firstIndex(of: child) ?? 0
                 break
             }

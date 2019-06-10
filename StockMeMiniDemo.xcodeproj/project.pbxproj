@@ -1058,13 +1058,13 @@
 			isa = PBXGroup;
 			children = (
 				2A1C3252228320930015AF05 /* fr_sbde_protocol */,
+				2A2C7BB522A74CD4009104F7 /* NOrderMenuController.swift */,
+				2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */,
 				2AE472F022787ECC00B32D17 /* StockViewController.swift */,
 				2AE472F422789A4D00B32D17 /* StockCell.swift */,
 				2A1C325022831A520015AF05 /* ControllerConfigurationCell.swift */,
 				2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */,
 				2AE412F722865FE50071A99B /* UIViewController+dismissKeyboard.swift */,
-				2A2C7BB522A74CD4009104F7 /* NOrderMenuController.swift */,
-				2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */,
 				2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */,
 				2A1D1D7122AA48D8008AAFE5 /* BaseViewController.swift */,
 				2A1D1D6D22AA3F67008AAFE5 /* Provider.swift */,
