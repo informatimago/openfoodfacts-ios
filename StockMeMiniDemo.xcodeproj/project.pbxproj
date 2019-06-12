@@ -33,6 +33,7 @@
 		2A2C7BBA22A75B5E009104F7 /* StockSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */; };
 		2A2C7BBC22A76417009104F7 /* BoxedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */; };
 		2AC1F2D322AE21B000D8AAC8 /* BaseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1F2D222AE21B000D8AAC8 /* BaseList.swift */; };
+		2AC1F2D522B0ACC800D8AAC8 /* ScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1F2D422B0ACC800D8AAC8 /* ScaleViewController.swift */; };
 		2AE412F6228562DA0071A99B /* UIProgress+Thickness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */; };
 		2AE412F822865FE50071A99B /* UIViewController+dismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE412F722865FE50071A99B /* UIViewController+dismissKeyboard.swift */; };
 		2AE472F122787ECC00B32D17 /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE472F022787ECC00B32D17 /* StockViewController.swift */; };
@@ -360,6 +361,7 @@
 		2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSelectionViewController.swift; sourceTree = "<group>"; };
 		2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxedLabel.swift; sourceTree = "<group>"; };
 		2AC1F2D222AE21B000D8AAC8 /* BaseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseList.swift; sourceTree = "<group>"; };
+		2AC1F2D422B0ACC800D8AAC8 /* ScaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleViewController.swift; sourceTree = "<group>"; };
 		2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIProgress+Thickness.swift"; sourceTree = "<group>"; };
 		2AE412F722865FE50071A99B /* UIViewController+dismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissKeyboard.swift"; sourceTree = "<group>"; };
 		2AE412F922868F7D0071A99B /* StockMeMiniDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StockMeMiniDemo.entitlements; sourceTree = "<group>"; };
@@ -1064,6 +1066,7 @@
 				2A1D1D7122AA48D8008AAFE5 /* BaseViewController.swift */,
 				2AE472F422789A4D00B32D17 /* StockCell.swift */,
 				2A1C325022831A520015AF05 /* ControllerConfigurationCell.swift */,
+				2AC1F2D422B0ACC800D8AAC8 /* ScaleViewController.swift */,
 				2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */,
 				2AE412F722865FE50071A99B /* UIViewController+dismissKeyboard.swift */,
 				2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */,
@@ -2608,6 +2611,7 @@
 				950163741F2D1EF20057B8D5 /* TakePictureViewController.swift in Sources */,
 				2AE412F822865FE50071A99B /* UIViewController+dismissKeyboard.swift in Sources */,
 				30E43D78220895B100D7A906 /* Category.swift in Sources */,
+				2AC1F2D522B0ACC800D8AAC8 /* ScaleViewController.swift in Sources */,
 				95A566161FD6037800C997C8 /* LocalizableButton.swift in Sources */,
 				95DDAF621F25401D0096B74E /* CameraController.swift in Sources */,
 				955BAFFE1FF828540046F419 /* RealmPendingUploadItem.swift in Sources */,

@@ -102,6 +102,17 @@ class RootViewController: UIViewController {
         }
     }
 
+    func showScale() {
+        print("showScale")
+        for child in tabBarVC.viewControllers ?? [] {
+            if child as? ScaleViewController != nil {
+                tabBarVC.selectedIndex = tabBarVC.viewControllers?.firstIndex(of: child) ?? 0
+                print("selected tab \(tabBarVC.selectedIndex)")
+                break
+            }
+        }
+    }
+
     func showSearch() {
         print("showSearch")
         for child in tabBarVC.viewControllers ?? [] {

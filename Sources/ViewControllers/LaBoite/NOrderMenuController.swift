@@ -23,6 +23,8 @@ class NOrderMenuController: UIViewController {
 
     @IBAction func scale() {
         print("move to scale")
+        RootViewController.rootViewController()!.showScale()
+        performSegue(withIdentifier: "tabs", sender: self)
     }
 
     @IBAction func receipes() {
