@@ -103,6 +103,11 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
         bases!.save()
     }
 
+    @IBAction func order() {
+        let shopUrl = currentProvider!.urlToShop()!
+        UIApplication.shared.open(shopUrl, options: [:], completionHandler: {_ in })
+    }
+
     @IBAction func updateReorderThreshold(_ sender: UIView) {
         if let cell = stockCellContaining(view: sender) {
             if let slider = sender as? UISlider {
@@ -237,14 +242,13 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
     // UITableViewDataSource
 
     override func numberOfSections(in: UITableView) -> Int {
-        // return 2
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:  return bases!.elements.count
-        // case 1:  return 1
+        case 1:  return 1
         default: return 0
         }
     }
@@ -256,7 +260,10 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
             //     if let cell = cell as? ControllerConfigurationCell {
             //         cell.controllerIPAddress!.text = BaseList.defaultControllerIPAddress
             //     }
-            //     return cell
+        //     return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath)
+            return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "stockCell", for: indexPath)
             if let cell = cell as? StockCell {

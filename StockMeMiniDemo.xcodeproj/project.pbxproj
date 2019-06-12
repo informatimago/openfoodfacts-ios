@@ -34,6 +34,7 @@
 		2A2C7BBC22A76417009104F7 /* BoxedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */; };
 		2AC1F2D322AE21B000D8AAC8 /* BaseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1F2D222AE21B000D8AAC8 /* BaseList.swift */; };
 		2AC1F2D522B0ACC800D8AAC8 /* ScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1F2D422B0ACC800D8AAC8 /* ScaleViewController.swift */; };
+		2AC1F2D722B0C0A900D8AAC8 /* order.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC1F2D622B0C0A900D8AAC8 /* order.png */; };
 		2AE412F6228562DA0071A99B /* UIProgress+Thickness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */; };
 		2AE412F822865FE50071A99B /* UIViewController+dismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE412F722865FE50071A99B /* UIViewController+dismissKeyboard.swift */; };
 		2AE472F122787ECC00B32D17 /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE472F022787ECC00B32D17 /* StockViewController.swift */; };
@@ -362,6 +363,7 @@
 		2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxedLabel.swift; sourceTree = "<group>"; };
 		2AC1F2D222AE21B000D8AAC8 /* BaseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseList.swift; sourceTree = "<group>"; };
 		2AC1F2D422B0ACC800D8AAC8 /* ScaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleViewController.swift; sourceTree = "<group>"; };
+		2AC1F2D622B0C0A900D8AAC8 /* order.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = order.png; sourceTree = "<group>"; };
 		2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIProgress+Thickness.swift"; sourceTree = "<group>"; };
 		2AE412F722865FE50071A99B /* UIViewController+dismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissKeyboard.swift"; sourceTree = "<group>"; };
 		2AE412F922868F7D0071A99B /* StockMeMiniDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StockMeMiniDemo.entitlements; sourceTree = "<group>"; };
@@ -1049,6 +1051,7 @@
 				2A2C7BA522A7464C009104F7 /* shopping.png */,
 				2A2C7BA622A7464C009104F7 /* receipes.png */,
 				2A2C7BA722A7464C009104F7 /* norder-title.png */,
+				2AC1F2D622B0C0A900D8AAC8 /* order.png */,
 				2A2C7BA822A7464C009104F7 /* status-list.png */,
 				2A2C7BA922A7464C009104F7 /* NOrder.jpeg */,
 				2A2C7BAA22A7464C009104F7 /* nutrition.png */,
@@ -2306,6 +2309,7 @@
 				95C265191E96D55B004212EC /* Assets.xcassets in Resources */,
 				2A2C7BAE22A7464C009104F7 /* receipes.png in Resources */,
 				958F335C1F37809A005269C5 /* PictureCallToActionView.xib in Resources */,
+				2AC1F2D722B0C0A900D8AAC8 /* order.png in Resources */,
 				956FF9421F1FF0CA0069D678 /* IngredientsHeaderCellController.xib in Resources */,
 				958F33541F378076005269C5 /* InfoRowTableViewCell.xib in Resources */,
 				956FF93D1F1FF0CA0069D678 /* ButtonBarView.xib in Resources */,
