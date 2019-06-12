@@ -22,6 +22,11 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
 
     var bases: BaseList?
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
+
     override func viewDidLoad() {
         StockViewController.instance = self
         hideKeyboardWhenTappedAround()
@@ -273,6 +278,13 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
                 print("sourceView = \(sourceView)")
                 self.bases!.elements.remove(at: indexPath.item)
                 self.bases!.save()
+                tableView.reloadData()
+                completionHandler(true)
+            }
+
+            let tare = UIContextualAction(style: .normal, title: "Tare") { (action, sourceView, completionHandler) in
+                self.bases!.elements[indexPath.item].setTare()
+                self.bases!.save()
                 completionHandler(true)
             }
 
@@ -281,7 +293,7 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
 //                completionHandler(true)
 //            }
 //            let swipeActionConfig = UISwipeActionsConfiguration(actions: [rename, delete])
-            let swipeActionConfig = UISwipeActionsConfiguration(actions: [delete])
+            let swipeActionConfig = UISwipeActionsConfiguration(actions: [delete,tare])
             swipeActionConfig.performsFirstActionWithFullSwipe = false
             return swipeActionConfig
         default:

@@ -31,6 +31,10 @@ class Stock {
     var maxStock: Float = 1.0
     var notified = false
 
+    func setTare() {
+        tare = stock
+    }
+
     func encode() -> [String: Any] {
         return [
             "controller.IPAddress": controllerIPAddress ?? "",
@@ -108,7 +112,7 @@ class Stock {
    }
 
     func stock(set newValue: Float) {
-        if stock != newValue {
+        if (stock != newValue) {
             stock = newValue
             updateMaxStock()
         }
@@ -143,7 +147,11 @@ class Stock {
     }
 
     func receiveGrossWeight(_ weight: Float) {
-        stock(set: weight - tare)
+        if (tare <= weight) {
+            stock(set: weight - tare)
+        } else {
+            stock(set: 0.0)
+        }
         checkReorder()
     }
 
