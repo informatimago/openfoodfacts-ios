@@ -81,39 +81,49 @@ class RootViewController: UIViewController {
     }
 
     func showMenu() {
+        print("showMenu")
         for child in tabBarVC.viewControllers ?? [] {
             if child as? NOrderMenuController != nil {
                 tabBarVC.selectedIndex = tabBarVC.viewControllers?.firstIndex(of: child) ?? 0
+                print("selected tab \(tabBarVC.selectedIndex)")
                 break
             }
         }
     }
 
     func showStock() {
+        print("showStock")
         for child in tabBarVC.viewControllers ?? [] {
             if child as? StockSelectionViewController != nil {
                 tabBarVC.selectedIndex = tabBarVC.viewControllers?.firstIndex(of: child) ?? 0
+                print("selected tab \(tabBarVC.selectedIndex)")
                 break
             }
         }
     }
 
     func showSearch() {
+        print("showSearch")
         for child in tabBarVC.viewControllers ?? [] {
             if child as? SearchViewController != nil {
                 tabBarVC.selectedIndex = tabBarVC.viewControllers?.firstIndex(of: child) ?? 0
+                print("selected tab \(tabBarVC.selectedIndex)")
                 break
             }
         }
     }
 
     func showScan() {
-        for child in tabBarVC.viewControllers ?? [] {
-            if child as? ScannerViewController != nil {
-                tabBarVC.selectedIndex = tabBarVC.viewControllers?.firstIndex(of: child) ?? 0
-                break
-            }
-        }
+        print("showScan")
+        tabBarVC.selectedIndex = 3
+        print("selected tab \(tabBarVC.selectedIndex)")
+//        for child in tabBarVC.viewControllers ?? [] {
+//            if "Scanner" == child.title {
+//                tabBarVC.selectedIndex = tabBarVC.viewControllers?.firstIndex(of: child) ?? 0
+//                print("selected tab \(tabBarVC.selectedIndex)")
+//                break
+//            }
+//        }
     }
 
     private func handleDeepLink() {

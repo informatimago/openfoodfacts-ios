@@ -312,7 +312,7 @@
                                 <color key="tintColor" red="0.0120952447" green="0.04243255428" blue="0.39686308549999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ot-8G-Wtb">
-                                <rect key="frame" x="0.0" y="177" width="318" height="257"/>
+                                <rect key="frame" x="0.0" y="177" width="320" height="257"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <segue destination="xy6-0t-Qcs" kind="embed" id="i37-qi-F35"/>
@@ -342,7 +342,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLt-nf-Y4o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1013" y="-989"/>
+            <point key="canvasLocation" x="1012.5" y="-990"/>
         </scene>
         <!--Base View Controller-->
         <scene sceneID="dr6-Yf-Q2B">
@@ -429,15 +429,15 @@
             <objects>
                 <tableViewController id="xy6-0t-Qcs" customClass="StockViewController" customModule="StockMeMiniDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WpO-aM-vaU">
-                        <rect key="frame" x="0.0" y="0.0" width="318" height="257"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="257"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="stockCell" rowHeight="70" id="lJh-IU-gM5" customClass="StockCell" customModule="StockMeMiniDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="318" height="70"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lJh-IU-gM5" id="tII-N1-izA" customClass="StockCell" customModule="StockMeMiniDemo" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="318" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3f-GC-Jxg">
@@ -452,14 +452,14 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4950 g" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbr-u1-ata" customClass="BoxedLabel" customModule="StockMeMiniDemo" customModuleProvider="target">
-                                            <rect key="frame" x="136" y="19" width="64" height="30"/>
+                                            <rect key="frame" x="138" y="19" width="64" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aas-fO-xzo" userLabel="Threshold">
-                                            <rect key="frame" x="201" y="19" width="58" height="30"/>
+                                            <rect key="frame" x="203" y="19" width="58" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="200 g"/>
                                             <connections>
@@ -467,7 +467,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bu-yJ-lD8" userLabel="Order">
-                                            <rect key="frame" x="260" y="19" width="58" height="30"/>
+                                            <rect key="frame" x="262" y="19" width="58" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="200 g"/>
                                             <connections>
@@ -475,7 +475,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Riz Uncle Benz Long" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7D-Vx-2mZ" userLabel="Product Name">
-                                            <rect key="frame" x="49" y="5" width="91" height="62"/>
+                                            <rect key="frame" x="49" y="5" width="92" height="62"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -497,28 +497,28 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="newControllerCell" rowHeight="100" id="27r-jH-tK6" customClass="ControllerConfigurationCell" customModule="StockMeMiniDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="98" width="318" height="100"/>
+                                <rect key="frame" x="0.0" y="98" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="27r-jH-tK6" id="klX-T9-jO7">
-                                    <rect key="frame" x="0.0" y="0.0" width="318" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Controller IP Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHd-Cl-zPP">
-                                            <rect key="frame" x="17" y="0.0" width="288" height="22"/>
+                                            <rect key="frame" x="17" y="0.0" width="290" height="22"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="boxsim.laboite.sbde.fr" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RPi-cU-0Lp">
-                                            <rect key="frame" x="16" y="18" width="286" height="30"/>
+                                            <rect key="frame" x="16" y="18" width="288" height="30"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMx-fU-HBa">
-                                            <rect key="frame" x="123" y="55" width="179" height="30"/>
+                                            <rect key="frame" x="123" y="55" width="181" height="30"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Add"/>
                                             <connections>
@@ -546,14 +546,10 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="2z5-iM-xjQ" kind="presentation" identifier="scanProductSegue" id="Tg1-ac-yyN"/>
+                        <segue destination="Vnh-CA-Eam" kind="show" identifier="tabs" id="5Yp-g3-g41"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B4m-YK-Nc7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pickerView contentMode="scaleToFill" id="9iV-Bz-lej">
-                    <rect key="frame" x="0.0" y="0.0" width="319" height="169"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                </pickerView>
             </objects>
             <point key="canvasLocation" x="1995" y="-989"/>
         </scene>
@@ -627,10 +623,13 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="TeX-lq-JfG"/>
+                    <connections>
+                        <segue destination="Vnh-CA-Eam" kind="show" identifier="tabs" id="EPW-Qi-Eop"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzp-bH-fMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2768" y="982"/>
+            <point key="canvasLocation" x="2813" y="983"/>
         </scene>
         <!--Settings-->
         <scene sceneID="aJB-Vt-Nsm">
@@ -729,8 +728,7 @@
         <image name="tetra-pak" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="518-X0-aKB"/>
-        <segue reference="Gkb-cw-u59"/>
+        <segue reference="EPW-Qi-Eop"/>
         <segue reference="Bpb-tK-TEe"/>
     </inferredMetricsTieBreakers>
 </document>

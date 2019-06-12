@@ -21,8 +21,11 @@ class BaseViewController: UIViewController {
     @IBOutlet weak var controllerPort: UITextField!
 
     @IBAction func addNewBase(_ sender: UIButton) {
-        BaseList.instance().addNewBase(controllerIPAddress.text!,
-                                       UInt16(controllerPort.text!) ?? BaseList.defaultControllerPort)
+        let address = controllerIPAddress.text!
+        let port = UInt16(controllerPort.text!) ?? BaseList.defaultControllerPort
+        print("Adding base \(address):\(port)")
+        BaseList.instance().addNewBase(address, port)
+        back()
     }
 
 }

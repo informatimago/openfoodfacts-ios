@@ -86,7 +86,9 @@ class ScanProductSummaryView: UIView {
     }
 
     func popViewController() {
-        self.parentContainerViewController()?.dismiss(animated: false)
+//        self.parentContainerViewController()?.dismiss(animated: false)
+        RootViewController.rootViewController()!.showStock()
+        self.parentContainerViewController()?.performSegue(withIdentifier: "tabs", sender: self)
     }
 
     @IBAction func associationSet(_ sender: Any?) {

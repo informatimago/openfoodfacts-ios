@@ -25,7 +25,7 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
     override func viewDidLoad() {
         StockViewController.instance = self
         hideKeyboardWhenTappedAround()
-        bases = BaseList.init()
+        bases = BaseList.instance()
         if !(bases!.load()) {
             addDemoCells()
         }
@@ -339,9 +339,9 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
     }
 
     func segueToScanner() {
-        // RootViewController.rootViewController()?.showScan()
         StockViewController.searchingController = self
-        performSegue(withIdentifier: "scanProductSegue", sender: self)
+        RootViewController.rootViewController()?.showScan()
+        performSegue(withIdentifier: "tabs", sender: self)
     }
 
     func searchFound(product: Product) {
