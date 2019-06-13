@@ -187,7 +187,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mYy-v7-npc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="NOrder" image="tetra-pak" id="0fT-Sl-boM" userLabel="NOrder"/>
+                    <tabBarItem key="tabBarItem" title="NOrder" image="home-29" id="0fT-Sl-boM" userLabel="NOrder"/>
                     <navigationItem key="navigationItem" id="HPa-XE-vLW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -332,7 +332,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="G2R-cE-EnX"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Stock" image="tetra-pak" id="p87-Vi-oLg" userLabel="Stock"/>
+                    <tabBarItem key="tabBarItem" title="Stock" image="stock-29" id="p87-Vi-oLg" userLabel="Stock"/>
                     <navigationItem key="navigationItem" id="4zm-AK-Kve"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -630,7 +630,7 @@
             <objects>
                 <viewController id="KCg-et-v6Z" customClass="ScannerViewController" customModule="StockMeMiniDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iqb-gJ-WyV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="513"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="est-XY-6RV"/>
@@ -681,7 +681,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="HistoryTableViewController" title="History" id="USd-NH-eQg" customClass="HistoryTableViewController" customModule="StockMeMiniDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JAK-RT-i8r">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="513"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -849,7 +849,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="HAW-Iv-ABd"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Pesée" image="tetra-pak" id="9cR-b3-WDz" userLabel="Weighing"/>
+                    <tabBarItem key="tabBarItem" title="Pesée" image="kg-29" id="9cR-b3-WDz" userLabel="Weighing"/>
                     <navigationItem key="navigationItem" title="Pesée" id="rl6-Rg-jgD"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -871,6 +871,8 @@
         <image name="add-app.png" width="126" height="121"/>
         <image name="barcode" width="25" height="25"/>
         <image name="header.png" width="194" height="44"/>
+        <image name="home-29" width="29" height="29"/>
+        <image name="kg-29" width="29" height="29"/>
         <image name="norder-title.png" width="258" height="81"/>
         <image name="nutrition.png" width="140" height="107"/>
         <image name="order.png" width="127" height="127"/>
@@ -878,10 +880,10 @@
         <image name="scale.png" width="132" height="129"/>
         <image name="shopping.png" width="127" height="127"/>
         <image name="status-list.png" width="133" height="118"/>
-        <image name="tetra-pak" width="29" height="29"/>
+        <image name="stock-29" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5Yp-g3-g41"/>
+        <segue reference="GA0-vB-5vN"/>
         <segue reference="Bpb-tK-TEe"/>
     </inferredMetricsTieBreakers>
 </document>
