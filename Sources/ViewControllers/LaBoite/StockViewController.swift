@@ -17,8 +17,8 @@ protocol SearchObserver {
 
 class StockViewController: UITableViewController, SearchObserver, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    let pollPeriod = 3.0 // seconds
-    var timer: Timer?
+    let pollPeriod = 3000 // milliseconds
+    var queue=DispatchQueue.global(qos: .userInitiated)
 
     var bases: BaseList?
 
@@ -129,7 +129,7 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
                 tableView.beginUpdates()
                 tableView.insertRows(at: [IndexPath(item: bases!.elements.count-1, section: 0)], with: .automatic)
                 tableView.endUpdates()
-                timer!.fire()
+                startPollingControllers()
                 bases!.save()
             }
         }
@@ -333,18 +333,19 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
     // Stock Polling
 
     func startPollingControllers() {
-        guard timer == nil else { return }
-        timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(floatLiteral: pollPeriod),
-                                     repeats: true,
-                                     block: { (_: Timer) -> Void in
-                                        print("Calling pollControllers")
-                                        self.pollControllers() })
-        print("Created scheduled Timer \(timer!.timeInterval)")
+        queue.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(pollPeriod)){
+            print("Calling pollControllers")
+            self.pollControllers()
+        }
     }
 
     func pollControllers() {
         for stock in bases!.elements {
             stock.pollController()
+        }
+        queue.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(pollPeriod)){
+            print("Calling pollControllers")
+            self.pollControllers()
         }
     }
 
