@@ -6,7 +6,6 @@
 //  Copyright © 2019 SBDE SAS àcv. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class NOrderMenuController: UIViewController {
@@ -45,8 +44,8 @@ class NOrderMenuController: UIViewController {
         UIApplication.shared.open(shopUrl, options: [:], completionHandler: {_ in })
     }
 
-    @IBAction func addApp() {
-        print("move to addApp")
+    @IBAction func addBase() {
+        print("move to addBase")
         performSegue(withIdentifier: "addBase", sender: self)
     }
 

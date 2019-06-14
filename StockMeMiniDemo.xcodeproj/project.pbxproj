@@ -35,6 +35,7 @@
 		2AC1F2D322AE21B000D8AAC8 /* BaseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1F2D222AE21B000D8AAC8 /* BaseList.swift */; };
 		2AC1F2D522B0ACC800D8AAC8 /* ScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1F2D422B0ACC800D8AAC8 /* ScaleViewController.swift */; };
 		2AC1F2D722B0C0A900D8AAC8 /* order.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC1F2D622B0C0A900D8AAC8 /* order.png */; };
+		2AC1F2DB22B3478100D8AAC8 /* NOrderIconvView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1F2DA22B3478100D8AAC8 /* NOrderIconvView.swift */; };
 		2AE412F6228562DA0071A99B /* UIProgress+Thickness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */; };
 		2AE412F822865FE50071A99B /* UIViewController+dismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE412F722865FE50071A99B /* UIViewController+dismissKeyboard.swift */; };
 		2AE472F122787ECC00B32D17 /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE472F022787ECC00B32D17 /* StockViewController.swift */; };
@@ -364,6 +365,7 @@
 		2AC1F2D222AE21B000D8AAC8 /* BaseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseList.swift; sourceTree = "<group>"; };
 		2AC1F2D422B0ACC800D8AAC8 /* ScaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleViewController.swift; sourceTree = "<group>"; };
 		2AC1F2D622B0C0A900D8AAC8 /* order.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = order.png; sourceTree = "<group>"; };
+		2AC1F2DA22B3478100D8AAC8 /* NOrderIconvView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOrderIconvView.swift; sourceTree = "<group>"; };
 		2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIProgress+Thickness.swift"; sourceTree = "<group>"; };
 		2AE412F722865FE50071A99B /* UIViewController+dismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissKeyboard.swift"; sourceTree = "<group>"; };
 		2AE412F922868F7D0071A99B /* StockMeMiniDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StockMeMiniDemo.entitlements; sourceTree = "<group>"; };
@@ -1064,6 +1066,7 @@
 			children = (
 				2A1C3252228320930015AF05 /* fr_sbde_protocol */,
 				2A2C7BB522A74CD4009104F7 /* NOrderMenuController.swift */,
+				2AC1F2DA22B3478100D8AAC8 /* NOrderIconvView.swift */,
 				2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */,
 				2AE472F022787ECC00B32D17 /* StockViewController.swift */,
 				2A1D1D7122AA48D8008AAFE5 /* BaseViewController.swift */,
@@ -2486,6 +2489,7 @@
 				2A1D1D7022AA40BD008AAFE5 /* CarrefourProvider.swift in Sources */,
 				9581B3EA1F912B5C0036AC7C /* LoginViewController.swift in Sources */,
 				95DB3BEC1FDD9B0E00E83B76 /* Instantiable.swift in Sources */,
+				2AC1F2DB22B3478100D8AAC8 /* NOrderIconvView.swift in Sources */,
 				956FF9451F1FF0CA0069D678 /* NutritionHeaderTableViewCell.swift in Sources */,
 				30270C342226F4A000E6973D /* operators.swift in Sources */,
 				303C27A52201C0E500159961 /* NovaGroupView.swift in Sources */,
