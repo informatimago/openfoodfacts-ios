@@ -40,7 +40,9 @@ import UIKit
 
     func setText(_ text: String) {
         UIView.transition(with: textLabel, duration: 0.25, options: .transitionCrossDissolve, animations: { [weak self] in
-            self?.textLabel.text = text
+            DispatchQueue.main.async {
+                self?.textLabel.text = text
+            }
             }, completion: nil)
     }
 }
