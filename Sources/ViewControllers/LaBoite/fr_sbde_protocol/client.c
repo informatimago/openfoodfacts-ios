@@ -4,7 +4,6 @@
 #include <stdarg.h>
 #include <string.h>
 #include <time.h>
-#include <sysexits.h>
 #include "client.h"
 #include "socket.h"
 #include "buffer.h"

@@ -227,8 +227,8 @@ class Stock {
         if let message = message {
             switch message.pointee.kind {
             case controller_ua_message_version:
-                if !(message.pointee.message.version.version == 1) {
-                    print("Bad version \(message.pointee.message.version.version)")
+                if !(message.pointee.message.version.version_number == 1) {
+                    print("Bad version \(message.pointee.message.version.version_number)")
                 }
             case controller_ua_message_scales_measure:
                 receiveGrossWeight(message.pointee.message.scales_measure.mass)
