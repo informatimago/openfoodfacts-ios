@@ -49,6 +49,7 @@ class ScaleViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ sender: UITextField) -> Bool {
+        self.view.endEditing(true)
         sender.resignFirstResponder()
         return false
     }
