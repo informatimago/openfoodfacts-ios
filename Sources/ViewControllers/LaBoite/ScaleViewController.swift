@@ -20,7 +20,7 @@ class ScaleViewController: UIViewController, UITextFieldDelegate {
 
     let defaultControllerIPAddress="boxsim.laboite.sbde.fr"
     var grossWeight: Float = 0.0
-    var tareValue: Float = 0.0
+    // var tareValue: Float = 0.0
 
     var crlf = Data.init()
     var datetimeFormatter = ISO8601DateFormatter.init()
@@ -38,7 +38,7 @@ class ScaleViewController: UIViewController, UITextFieldDelegate {
         datetimeFormatter=ISO8601DateFormatter.init()
         datetimeFormatter.formatOptions=[.withYear, .withMonth, .withDay, .withTime, .withTimeZone]
         controllerIPAddress.text=defaults.string(forKey: "controllerIPAddress") ?? defaultControllerIPAddress
-        tareValue=0.0
+        // tareValue=0.0
         grossWeight=0.0
         updateWeightDisplay()
         updateConnectionState()
@@ -255,7 +255,7 @@ class ScaleViewController: UIViewController, UITextFieldDelegate {
         queue.async {
             self.sendSetTare(slot: 1)
         }
-        tareValue=grossWeight
+        // We can get it right only the first time, so // tareValue=grossWeight
         updateWeightDisplay()
     }
 
@@ -315,25 +315,25 @@ class ScaleViewController: UIViewController, UITextFieldDelegate {
     @IBAction func toggleContinuousWeighting(_ sender: Any) {
         if continuous {
             continuous=false
-        }else{
+        } else {
             continuous=true
             self.weight(self)
         }
     }
 
-    func formatWeight(_ weight:Float)->String{
+    func formatWeight(_ weight: Float) -> String {
         return String.init(format:"%.3f kg",weight)
     }
 
-    func receiveGrossWeight(_ weight:Float) {
-        grossWeight=weight;
+    func receiveGrossWeight(_ weight: Float) {
+        grossWeight = weight
         updateWeightDisplay()
     }
 
     func updateWeightDisplay() {
         DispatchQueue.main.async {
-            self.tare.text=self.formatWeight(self.tareValue)
-            self.weight.text=self.formatWeight(self.grossWeight-self.tareValue)
+            // self.tare.text=self.formatWeight(self.tareValue)
+            self.weight.text=self.formatWeight(self.grossWeight) /* The are is computed by the controller now */
         }
     }
 

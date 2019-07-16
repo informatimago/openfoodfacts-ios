@@ -147,11 +147,12 @@ class Stock {
     }
 
     func receiveGrossWeight(_ weight: Float) {
-        if (tare <= weight) {
-            stock(set: weight - tare)
-        } else {
-            stock(set: 0.0)
-        }
+       stock(set: weight)
+//       if (tare <= weight) {
+//            stock(set: weight - tare)
+//        } else {
+//            stock(set: 0.0)
+//        }
         checkReorder()
     }
 

@@ -289,18 +289,19 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
                 completionHandler(true)
             }
 
-            let tare = UIContextualAction(style: .normal, title: "Tare") { (action, sourceView, completionHandler) in
-                self.bases!.elements[indexPath.item].setTare()
-                self.bases!.save()
-                completionHandler(true)
-            }
+//            let tare = UIContextualAction(style: .normal, title: "Tare") { (action, sourceView, completionHandler) in
+//                self.bases!.elements[indexPath.item].setTare()
+//                self.bases!.save()
+//                completionHandler(true)
+//            }
 
 //            let rename = UIContextualAction(style: .normal, title: "Edit") { (action, sourceView, completionHandler) in
 //                print("index path of edit: \(indexPath)")
 //                completionHandler(true)
 //            }
 //            let swipeActionConfig = UISwipeActionsConfiguration(actions: [rename, delete])
-            let swipeActionConfig = UISwipeActionsConfiguration(actions: [delete,tare])
+
+            let swipeActionConfig = UISwipeActionsConfiguration(actions: [delete])
             swipeActionConfig.performsFirstActionWithFullSwipe = false
             return swipeActionConfig
         default:
