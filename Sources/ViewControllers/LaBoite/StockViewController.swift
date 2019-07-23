@@ -32,7 +32,8 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
         hideKeyboardWhenTappedAround()
         bases = BaseList.instance()
         if !(bases!.load()) {
-            addDemoCells()
+            print("Could not load bases!")
+            // addDemoCells()
         }
         initializeTableView()
         startPollingControllers()
@@ -61,14 +62,14 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
         tableView.reloadData()
     }
 
-    func addDemoCells() {
-        bases!.elements.append(Stock(productName: "Riz Long Grain", stock: 5.000, reorderThreshold: 0.300))
-        bases!.elements.append(Stock(productName: "Cassonade", stock: 1.000, reorderThreshold: 0.100))
-        bases!.elements.append(Stock(productName: "Huile d'Olive Vierge Extra", stock: 1.000, reorderThreshold: 0.100))
-        bases!.elements[0].stock(decrement: 0.550)
-        bases!.elements[1].stock(decrement: 0.735)
-        bases!.elements[2].stock(decrement: 0.524)
-    }
+//    func addDemoCells() {
+//        bases!.elements.append(Stock(productName: "Riz Long Grain", stock: 5.000, reorderThreshold: 0.300))
+//        bases!.elements.append(Stock(productName: "Cassonade", stock: 1.000, reorderThreshold: 0.100))
+//        bases!.elements.append(Stock(productName: "Huile d'Olive Vierge Extra", stock: 1.000, reorderThreshold: 0.100))
+//        bases!.elements[0].stock(decrement: 0.550)
+//        bases!.elements[1].stock(decrement: 0.735)
+//        bases!.elements[2].stock(decrement: 0.524)
+//    }
 
     func saveConfiguration() {
         bases!.save()
@@ -104,8 +105,8 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
     }
 
     @IBAction func order() {
-        let shopUrl = currentProvider!.urlToShop()!
-        UIApplication.shared.open(shopUrl, options: [:], completionHandler: {_ in })
+        let orderUrl = currentProvider!.urlToOrder()!
+        UIApplication.shared.open(orderUrl, options: [:], completionHandler: {_ in })
     }
 
     @IBAction func updateReorderThreshold(_ sender: UIView) {
@@ -289,11 +290,11 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
                 completionHandler(true)
             }
 
-//            let tare = UIContextualAction(style: .normal, title: "Tare") { (action, sourceView, completionHandler) in
-//                self.bases!.elements[indexPath.item].setTare()
-//                self.bases!.save()
-//                completionHandler(true)
-//            }
+            let tare = UIContextualAction(style: .normal, title: "Tare") { (_, sourceView, completionHandler) in
+                self.bases!.elements[indexPath.item].setTare()
+                self.bases!.save()
+                completionHandler(true)
+            }
 
 //            let rename = UIContextualAction(style: .normal, title: "Edit") { (action, sourceView, completionHandler) in
 //                print("index path of edit: \(indexPath)")
@@ -301,7 +302,7 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
 //            }
 //            let swipeActionConfig = UISwipeActionsConfiguration(actions: [rename, delete])
 
-            let swipeActionConfig = UISwipeActionsConfiguration(actions: [delete])
+            let swipeActionConfig = UISwipeActionsConfiguration(actions: [tare, delete])
             swipeActionConfig.performsFirstActionWithFullSwipe = false
             return swipeActionConfig
         default:
@@ -334,7 +335,7 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
     // Stock Polling
 
     func startPollingControllers() {
-        queue.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(pollPeriod)){
+        queue.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(pollPeriod)) {
             print("Calling pollControllers")
             self.pollControllers()
         }
@@ -344,7 +345,7 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
         for stock in bases!.elements {
             stock.pollController()
         }
-        queue.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(pollPeriod)){
+        queue.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(pollPeriod)) {
             print("Calling pollControllers")
             self.pollControllers()
         }
@@ -361,8 +362,10 @@ class StockViewController: UITableViewController, SearchObserver, UIPickerViewDe
 
     func segueToScanner() {
         StockViewController.searchingController = self
-        RootViewController.rootViewController()?.showScan()
-        performSegue(withIdentifier: "tabs", sender: self)
+        if let parent = self.parent as? StockSelectionViewController {
+            parent.showScan()
+        }
+        // performSegue(withIdentifier: "tabs", sender: self)
     }
 
     func searchFound(product: Product) {

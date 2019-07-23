@@ -1,5 +1,5 @@
 //
-//  CarrefourProvider.swift
+//  DistributeurProvider.swift
 //  StockMeMiniDemo
 //
 //  Created by Pascal Bourguignon on 07/06/2019.
@@ -9,15 +9,14 @@
 import Foundation
 import UIKit
 
-class CarrefourProvider: Provider {
+class DistributeurProvider: Provider {
 
     func urlToOrder() -> URL? {
-        return URL(string: "https://www.carrefour.fr/")
+        return URL(string: "http://sbde.fr/laboite/distributeur/commande.html")
     }
 
-
     func urlToShop() -> URL? {
-        return URL(string: "https://www.carrefour.fr/")
+        return URL(string: "http://sbde.fr/laboite/distributeur/index.html")
     }
 
     func urlToReceipes() -> URL? {
@@ -27,7 +26,7 @@ class CarrefourProvider: Provider {
     func urlToOrder( productNamed productName: String) -> URL? {
         print("Reorder now \(productName)")
         if let escapedProductName = productName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) {
-            return URL(string: "https://www.carrefour.fr/s?q=\(escapedProductName)")
+            return URL(string: "http://sbde.fr/laboite/distributeur/s?q=\(escapedProductName)")
         } else {
             return nil
         }

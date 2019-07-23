@@ -11,6 +11,7 @@ import UIKit
 
 protocol Provider {
 
+    func urlToOrder() -> URL? 
     func urlToShop() -> URL?
     func urlToOrder( productNamed productName: String) -> URL?
     func urlToReceipes() -> URL?

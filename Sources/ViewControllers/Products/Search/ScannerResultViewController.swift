@@ -18,12 +18,6 @@ enum ScannerResultStatusEnum {
 
 class ScannerResultViewController: UIViewController {
 
-    @IBOutlet weak var statusIndicatorLabel: UILabel!
-
-    @IBOutlet weak var topSummaryView: ScanProductSummaryView!
-    @IBOutlet weak var manualBarcodeInputView: ManualBarcodeInputView!
-    @IBOutlet weak var productDetailsContainer: UIView!
-
     var status: ScannerResultStatusEnum = .waitingForScan {
         didSet {
             updateSummaryDisplay()
@@ -32,71 +26,119 @@ class ScannerResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        topSummaryView.backgroundColor = UIColor.clear
-        productDetailsContainer.backgroundColor = UIColor.clear
-
-        updateSummaryDisplay()
+        if let product = product {
+            fillIn(product: product)
+        }
     }
 
     fileprivate func updateSummaryDisplay() {
 
-        topSummaryView.isHidden = true
-        statusIndicatorLabel.isHidden = true
-        manualBarcodeInputView.isHidden = true
-        productDetailsContainer.isHidden = true
-
         switch status {
-
         case .waitingForScan:
-            statusIndicatorLabel.text = "product-scanner.overlay.user-help".localized
-            statusIndicatorLabel.isHidden = false
-
-        case .loading(let barcode):
-            statusIndicatorLabel.text = barcode + "\n" + "product-scanner.search.status".localized
-            statusIndicatorLabel.isHidden = false
-
+            break
+        case .loading( _ /*barcode*/):
+            break
         case .hasSummary(let product):
             updateSummaryVisibility(forProduct: product)
-
-        case .hasProduct(let product, let dataManager):
+        case .hasProduct(let product, _ /*let dataManager*/):
             updateSummaryVisibility(forProduct: product)
-            updateDetailsVisibility(forProduct: product, withDataManager: dataManager)
-
         case .manualBarcode:
-            manualBarcodeInputView.barcodeTextField.text = nil
-            manualBarcodeInputView.isHidden = false
+            break
         }
     }
 
     fileprivate func updateSummaryVisibility(forProduct product: Product) {
-        topSummaryView.fillIn(product: product)
-        topSummaryView.isHidden = false
+        fillIn(product: product)
     }
 
-    fileprivate func updateDetailsVisibility(forProduct product: Product, withDataManager dataManager: DataManagerProtocol) {
-        let storyboard = UIStoryboard(name: String(describing: ProductDetailViewController.self), bundle: nil)
-        // swiftlint:disable:next force_cast
-        let productDetailVC = storyboard.instantiateInitialViewController() as! ProductDetailViewController
-        productDetailVC.product = product
-        productDetailVC.dataManager = dataManager
-        productDetailVC.hideSummary = true
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var brandsLabel: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var nutriScoreView: NutriScoreView!
+    @IBOutlet weak var novaGroupView: NovaGroupView!
+    @IBOutlet weak var environmentImpactImageView: UIImageView!
+    @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var associationCancelButton: UIButton!
+    @IBOutlet weak var associationSetButton: UIButton!
 
-        self.addChild(productDetailVC)
-        self.productDetailsContainer.addSubview(productDetailVC.view)
+    var product: Product?
 
-        productDetailVC.view.translatesAutoresizingMaskIntoConstraints = false
-        productDetailVC.view.topAnchor
-            .constraint(equalTo: productDetailsContainer.topAnchor).isActive = true
-        productDetailVC.view.bottomAnchor
-            .constraint(equalTo: productDetailsContainer.bottomAnchor).isActive = true
-        productDetailVC.view.leadingAnchor
-            .constraint(equalTo: productDetailsContainer.leadingAnchor).isActive = true
-        productDetailVC.view.trailingAnchor
-            .constraint(equalTo: productDetailsContainer.trailingAnchor).isActive = true
+    func fillIn(product: Product) {
+        self.product = product
+        titleLabel.text = product.name
 
-        productDetailVC.didMove(toParent: self)
+        if let imageUrl = product.frontImageSmallUrl ?? product.imageSmallUrl ??  product.frontImageUrl ?? product.imageUrl, let url = URL(string: imageUrl) {
+            productImageView.kf.indicatorType = .activity
+            productImageView.kf.setImage(with: url)
+            productImageView.isHidden = false
+        } else {
+            productImageView.isHidden = true
+        }
 
-        self.productDetailsContainer.isHidden = false
+        brandsLabel.text = nil
+        if let brands = product.brands, !brands.isEmpty {
+            brandsLabel.text = brands.joined(separator: ", ")
+        }
+        quantityLabel.text = nil
+        if let quantity = product.quantity, !quantity.isEmpty {
+            quantityLabel.text = quantity
+        }
+
+        if let nutriscoreValue = product.nutriscore, let score = NutriScoreView.Score(rawValue: nutriscoreValue) {
+            nutriScoreView.currentScore = score
+            nutriScoreView.isHidden = false
+        } else {
+            nutriScoreView.isHidden = true
+        }
+
+        if let novaGroupValue = product.novaGroup,
+            let novaGroup = NovaGroupView.NovaGroup(rawValue: novaGroupValue) {
+            novaGroupView.novaGroup = novaGroup
+            novaGroupView.isHidden = false
+        } else {
+            novaGroupView.isHidden = true
+        }
+
+        if let co2Impact = product.environmentImpactLevelTags?.first {
+            environmentImpactImageView.image = co2Impact.image
+            environmentImpactImageView.isHidden = false
+        } else {
+            environmentImpactImageView.isHidden = true
+        }
+
+        associationCancelButton.isUserInteractionEnabled = true
+        associationSetButton.isUserInteractionEnabled = true
     }
+
+    func popViewController() {
+        self.dismiss(animated: false)
+        // RootViewController.rootViewController()!.showStock()
+        // self.parentContainerViewController()?.performSegue(withIdentifier: "tabs", sender: self)
+    }
+
+    var selection: ScannerSelectionProtocol?
+
+    @IBAction func back() {
+        associationCancel(self)
+    }
+
+    @IBAction func associationSet(_ sender: Any?) {
+        print("association SET \(String(describing: StockViewController.searchObserver()))")
+        if let searchObserver = StockViewController.searchObserver() {
+            popViewController()
+            searchObserver.searchFound(product: product!)
+            selection?.associate()
+        }
+    }
+
+    @IBAction func associationCancel(_ sender: Any?) {
+        print("association CANCEL \(String(describing: StockViewController.searchObserver()))")
+        if let searchObserver = StockViewController.searchObserver() {
+            popViewController()
+            searchObserver.cancelSearch()
+            selection?.cancel()
+        }
+    }
+
 }

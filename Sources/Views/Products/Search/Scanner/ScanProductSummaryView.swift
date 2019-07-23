@@ -1,5 +1,5 @@
 //
-//  ContinuousScanSummaryView.swift
+//  ScanProductSummaryView.swift
 //  OpenFoodFacts
 //
 
@@ -29,10 +29,13 @@ class ScanProductSummaryView: UIView {
     }
 
     private func commonInit() {
-        Bundle.main.loadNibNamed(String(describing: ScanProductSummaryView.self), owner: self, options: nil)
-        addSubview(contentView)
-        contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        Bundle.main.loadNibNamed(String(describing: ScanProductSummaryView.self), owner: self, options: nil)
+//        addSubview(contentView)
+//        contentView.frame = self.bounds
+//        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        print("commonInit isUserInteractionEnabled \(associationCancelButton.isUserInteractionEnabled) \(associationSetButton.isUserInteractionEnabled)")
+//        associationCancelButton.isUserInteractionEnabled = true
+//        associationSetButton.isUserInteractionEnabled = true
     }
 
     var product: Product?
@@ -83,26 +86,16 @@ class ScanProductSummaryView: UIView {
         let notAssociating = StockViewController.searchObserver() == nil
         associationSetButton.isHidden = notAssociating
         associationCancelButton.isHidden = notAssociating
+        print("fillIn isUserInteractionEnabled \(associationCancelButton.isUserInteractionEnabled) \(associationSetButton.isUserInteractionEnabled)")
+        associationCancelButton.isUserInteractionEnabled = true
+        associationSetButton.isUserInteractionEnabled = true
     }
 
     func popViewController() {
-//        self.parentContainerViewController()?.dismiss(animated: false)
-        RootViewController.rootViewController()!.showStock()
-        self.parentContainerViewController()?.performSegue(withIdentifier: "tabs", sender: self)
+        self.parentContainerViewController()?.dismiss(animated: false)
+        // RootViewController.rootViewController()!.showStock()
+        // self.parentContainerViewController()?.performSegue(withIdentifier: "tabs", sender: self)
     }
 
-    @IBAction func associationSet(_ sender: Any?) {
-        if let searchObserver = StockViewController.searchObserver() {
-            popViewController()
-            searchObserver.searchFound(product: product!)
-        }
-    }
-
-    @IBAction func associationCancel(_ sender: Any?) {
-        if let searchObserver = StockViewController.searchObserver() {
-            popViewController()
-            searchObserver.cancelSearch()
-        }
-    }
 
 }

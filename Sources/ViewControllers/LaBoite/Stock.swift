@@ -31,10 +31,6 @@ class Stock {
     var maxStock: Float = 1.0
     var notified = false
 
-    func setTare() {
-        tare = stock
-    }
-
     func encode() -> [String: Any] {
         return [
             "controller.IPAddress": controllerIPAddress ?? "",
@@ -162,9 +158,15 @@ class Stock {
     let datetimeFormatter=ISO8601DateFormatter.init()
     let defaults=UserDefaults.init()
     var controller: OpaquePointer?
+    var setTareNow = false
+
+    func setTare() {
+        self.setTareNow = true // actually within StockViewController.pollPeriod
+        print("\(productName) will set the tare soon? \(self.setTareNow)")
+   }
 
     func pollController() {
-        print("pollController \(String(describing: controllerIPAddress)) \(controllerPort)1")
+        print("pollController \(String(describing: controllerIPAddress)) \(controllerPort)")
         if controllerIPAddress == nil {
             checkReorder()
             return
@@ -172,6 +174,12 @@ class Stock {
         if connectToController() {
             /* Initialize Protocol */
             sendVersion(1)
+            print("\(productName) connected; tare? \(self.setTareNow)")
+            if self.setTareNow {
+                self.setTareNow = false
+                sendSetTare(slot: 1)
+                /* TODO: sleep a little */
+            }
             /* Query Weight */
             sendScalesStart(slot: 1)
             sendScalesQuery(slot: 1)
@@ -199,6 +207,10 @@ class Stock {
     }
 
     func sendMessage(_ message: UnsafeMutablePointer<controller_ua_message>) {
+        sendMessage(message, true)
+    }
+
+    func sendMessage(_ message: UnsafeMutablePointer<controller_ua_message>, _ expectResponse: Bool) {
         if controller == nil {
             print("sendMessage: Not connected to \(String(describing: controllerIPAddress))")
             return
@@ -207,7 +219,9 @@ class Stock {
         print("Send Message \(message.pointee.kind) -> \(okay)")
         free(message)
         if okay {
-            receiveMessage()
+            if expectResponse {
+                receiveMessage()
+            }
         } else {
             if let controller = controller {
                 if let error = fr_sbde_protocol_client_error(controller) {
@@ -256,6 +270,18 @@ class Stock {
         let message = controller_ua_version_new(version, timestamp)
         if let message = message {
             sendMessage(message)
+        }
+    }
+
+    func sendSetTare(slot: Int) {
+        if controller == nil {
+            print("sendSetTare: Not connected to \(String(describing: controllerIPAddress))")
+            return
+        }
+        print("sendSetTare \(slot)")
+        let message = controller_ua_tare_set_new(slot)
+        if let message = message {
+            sendMessage(message, false)
         }
     }
 

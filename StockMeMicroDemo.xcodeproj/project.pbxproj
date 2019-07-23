@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1552B522DDD53900B6ACDC /* ScannerSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1552B422DDD53900B6ACDC /* ScannerSelectionViewController.swift */; };
+		2A1552B722DEBF1100B6ACDC /* UIViewDumpHierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1552B622DEBF1100B6ACDC /* UIViewDumpHierarchy.swift */; };
 		2A1C325122831A520015AF05 /* ControllerConfigurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C325022831A520015AF05 /* ControllerConfigurationCell.swift */; };
 		2A1C3266228323C80015AF05 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C3255228323C70015AF05 /* error.c */; };
 		2A1C3267228323C80015AF05 /* protocol.c in Sources */ = {isa = PBXBuildFile; fileRef = 2A1C325A228323C70015AF05 /* protocol.c */; };
@@ -32,6 +34,8 @@
 		2A2C7BB822A7520F009104F7 /* sbde-logo-big.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2C7BB722A7520F009104F7 /* sbde-logo-big.png */; };
 		2A2C7BBA22A75B5E009104F7 /* StockSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */; };
 		2A2C7BBC22A76417009104F7 /* BoxedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */; };
+		2A6EAD5122DD829B0053023E /* distributeur.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2A6EAD5022DD829B0053023E /* distributeur.jpeg */; };
+		2A6EAD5322DD8EB40053023E /* DistributeurProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EAD5222DD8EB40053023E /* DistributeurProvider.swift */; };
 		2AC1F2D322AE21B000D8AAC8 /* BaseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1F2D222AE21B000D8AAC8 /* BaseList.swift */; };
 		2AC1F2D522B0ACC800D8AAC8 /* ScaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC1F2D422B0ACC800D8AAC8 /* ScaleViewController.swift */; };
 		2AC1F2D722B0C0A900D8AAC8 /* order.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AC1F2D622B0C0A900D8AAC8 /* order.png */; };
@@ -326,6 +330,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A1552B422DDD53900B6ACDC /* ScannerSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerSelectionViewController.swift; sourceTree = "<group>"; };
+		2A1552B622DEBF1100B6ACDC /* UIViewDumpHierarchy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewDumpHierarchy.swift; sourceTree = "<group>"; };
 		2A1C325022831A520015AF05 /* ControllerConfigurationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerConfigurationCell.swift; sourceTree = "<group>"; };
 		2A1C3253228320930015AF05 /* fr_sbde_protocol_tests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fr_sbde_protocol_tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		2A1C3254228320930015AF05 /* fr_sbde_protocol-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fr_sbde_protocol-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -362,13 +368,15 @@
 		2A2C7BB722A7520F009104F7 /* sbde-logo-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sbde-logo-big.png"; sourceTree = "<group>"; };
 		2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSelectionViewController.swift; sourceTree = "<group>"; };
 		2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxedLabel.swift; sourceTree = "<group>"; };
+		2A6EAD5022DD829B0053023E /* distributeur.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = distributeur.jpeg; sourceTree = "<group>"; };
+		2A6EAD5222DD8EB40053023E /* DistributeurProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributeurProvider.swift; sourceTree = "<group>"; };
 		2AC1F2D222AE21B000D8AAC8 /* BaseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseList.swift; sourceTree = "<group>"; };
 		2AC1F2D422B0ACC800D8AAC8 /* ScaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleViewController.swift; sourceTree = "<group>"; };
 		2AC1F2D622B0C0A900D8AAC8 /* order.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = order.png; sourceTree = "<group>"; };
 		2AC1F2DA22B3478100D8AAC8 /* NOrderIconvView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOrderIconvView.swift; sourceTree = "<group>"; };
 		2AE412F5228562DA0071A99B /* UIProgress+Thickness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIProgress+Thickness.swift"; sourceTree = "<group>"; };
 		2AE412F722865FE50071A99B /* UIViewController+dismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissKeyboard.swift"; sourceTree = "<group>"; };
-		2AE412F922868F7D0071A99B /* StockMeMiniDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StockMeMiniDemo.entitlements; sourceTree = "<group>"; };
+		2AE412F922868F7D0071A99B /* StockMeMicroDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StockMeMicroDemo.entitlements; sourceTree = "<group>"; };
 		2AE472F022787ECC00B32D17 /* StockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
 		2AE472F22278806B00B32D17 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		2AE472F422789A4D00B32D17 /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
@@ -490,7 +498,7 @@
 		951D609E1F71C12C008E4BCC /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		951EA4921F801C6100FD1544 /* NutritionTableHeaderCellControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTableHeaderCellControllerTests.swift; sourceTree = "<group>"; };
 		951EA4941F80EC8200FD1544 /* FormTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTableViewControllerTests.swift; sourceTree = "<group>"; };
-		951FA76D1F4E22790096AC5A /* OpenFoodFactsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenFoodFactsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		951FA76D1F4E22790096AC5A /* StockMeMicroDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockMeMicroDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		951FA76F1F4E22790096AC5A /* ProductSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchUITests.swift; sourceTree = "<group>"; };
 		951FA7711F4E22790096AC5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		951FA7791F4E22B00096AC5A /* HTTPDynamicStubs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPDynamicStubs.swift; sourceTree = "<group>"; };
@@ -896,7 +904,7 @@
 		95B512EB1F94FEE7003B0012 /* UserViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewControllerUITests.swift; sourceTree = "<group>"; };
 		95BA22681F6B21BA0090C471 /* TakePictureViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePictureViewControllerTests.swift; sourceTree = "<group>"; };
 		95C216481FDC8A5900EC5BCB /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
-		95C2650E1E96D55B004212EC /* StockMeMiniDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockMeMiniDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95C2650E1E96D55B004212EC /* StockMeMicroDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockMeMicroDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C265111E96D55B004212EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95C265181E96D55B004212EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95C265241E96D5C2004212EC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -955,7 +963,7 @@
 		95F184B41F655C6200A544C2 /* GET_ProductsByNameSinglePage_200.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_ProductsByNameSinglePage_200.json; sourceTree = "<group>"; };
 		95F2B04A1F51A0F6004F8AF9 /* ProductDetailUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailUITests.swift; sourceTree = "<group>"; };
 		95F2B04F1F52DDC7004F8AF9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		95F31BEA1F38F71D00B8AF90 /* OpenFoodFactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenFoodFactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95F31BEA1F38F71D00B8AF90 /* StockMeMicroDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockMeMicroDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F31BEE1F38F71E00B8AF90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95F31BF41F3A230400B8AF90 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		95F31BF61F3A231000B8AF90 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
@@ -1046,6 +1054,7 @@
 		2A2C7BA222A7464C009104F7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2A6EAD5022DD829B0053023E /* distributeur.jpeg */,
 				2A1D1D6B22AA2FF9008AAFE5 /* header.png */,
 				2A2C7BB722A7520F009104F7 /* sbde-logo-big.png */,
 				2A2C7BA322A7464C009104F7 /* scale.png */,
@@ -1068,6 +1077,7 @@
 				2A2C7BB522A74CD4009104F7 /* NOrderMenuController.swift */,
 				2AC1F2DA22B3478100D8AAC8 /* NOrderIconvView.swift */,
 				2A2C7BB922A75B5E009104F7 /* StockSelectionViewController.swift */,
+				2A1552B422DDD53900B6ACDC /* ScannerSelectionViewController.swift */,
 				2AE472F022787ECC00B32D17 /* StockViewController.swift */,
 				2A1D1D7122AA48D8008AAFE5 /* BaseViewController.swift */,
 				2AE472F422789A4D00B32D17 /* StockCell.swift */,
@@ -1078,8 +1088,10 @@
 				2A2C7BBB22A76417009104F7 /* BoxedLabel.swift */,
 				2A1D1D6D22AA3F67008AAFE5 /* Provider.swift */,
 				2A1D1D6F22AA40BD008AAFE5 /* CarrefourProvider.swift */,
+				2A6EAD5222DD8EB40053023E /* DistributeurProvider.swift */,
 				2AC1F2D222AE21B000D8AAC8 /* BaseList.swift */,
 				2AE472F22278806B00B32D17 /* Stock.swift */,
+				2A1552B622DEBF1100B6ACDC /* UIViewDumpHierarchy.swift */,
 			);
 			path = LaBoite;
 			sourceTree = "<group>";
@@ -1739,7 +1751,7 @@
 		95C265051E96D55B004212EC = {
 			isa = PBXGroup;
 			children = (
-				2AE412F922868F7D0071A99B /* StockMeMiniDemo.entitlements */,
+				2AE412F922868F7D0071A99B /* StockMeMicroDemo.entitlements */,
 				95F2B04F1F52DDC7004F8AF9 /* README.md */,
 				95C265231E96D5C2004212EC /* Frameworks */,
 				95C265101E96D55B004212EC /* Sources */,
@@ -1753,9 +1765,9 @@
 		95C2650F1E96D55B004212EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				95C2650E1E96D55B004212EC /* StockMeMiniDemo.app */,
-				95F31BEA1F38F71D00B8AF90 /* OpenFoodFactsTests.xctest */,
-				951FA76D1F4E22790096AC5A /* OpenFoodFactsUITests.xctest */,
+				95C2650E1E96D55B004212EC /* StockMeMicroDemo.app */,
+				95F31BEA1F38F71D00B8AF90 /* StockMeMicroDemoTests.xctest */,
+				951FA76D1F4E22790096AC5A /* StockMeMicroDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2004,9 +2016,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		951FA76C1F4E22790096AC5A /* OpenFoodFactsUITests */ = {
+		951FA76C1F4E22790096AC5A /* StockMeMicroDemoUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 951FA7741F4E22790096AC5A /* Build configuration list for PBXNativeTarget "OpenFoodFactsUITests" */;
+			buildConfigurationList = 951FA7741F4E22790096AC5A /* Build configuration list for PBXNativeTarget "StockMeMicroDemoUITests" */;
 			buildPhases = (
 				951FA7691F4E22790096AC5A /* Sources */,
 				951FA76A1F4E22790096AC5A /* Frameworks */,
@@ -2018,14 +2030,14 @@
 			dependencies = (
 				951FA7731F4E22790096AC5A /* PBXTargetDependency */,
 			);
-			name = OpenFoodFactsUITests;
+			name = StockMeMicroDemoUITests;
 			productName = OpenFoodFactsUITests;
-			productReference = 951FA76D1F4E22790096AC5A /* OpenFoodFactsUITests.xctest */;
+			productReference = 951FA76D1F4E22790096AC5A /* StockMeMicroDemoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		95C2650D1E96D55B004212EC /* StockMeMiniDemo */ = {
+		95C2650D1E96D55B004212EC /* StockMeMicroDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95C265201E96D55B004212EC /* Build configuration list for PBXNativeTarget "StockMeMiniDemo" */;
+			buildConfigurationList = 95C265201E96D55B004212EC /* Build configuration list for PBXNativeTarget "StockMeMicroDemo" */;
 			buildPhases = (
 				95C2650A1E96D55B004212EC /* Sources */,
 				95C2650B1E96D55B004212EC /* Frameworks */,
@@ -2038,14 +2050,14 @@
 			);
 			dependencies = (
 			);
-			name = StockMeMiniDemo;
+			name = StockMeMicroDemo;
 			productName = OpenFoodFacts;
-			productReference = 95C2650E1E96D55B004212EC /* StockMeMiniDemo.app */;
+			productReference = 95C2650E1E96D55B004212EC /* StockMeMicroDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		95F31BE91F38F71D00B8AF90 /* OpenFoodFactsTests */ = {
+		95F31BE91F38F71D00B8AF90 /* StockMeMicroDemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95F31BF31F38F71E00B8AF90 /* Build configuration list for PBXNativeTarget "OpenFoodFactsTests" */;
+			buildConfigurationList = 95F31BF31F38F71E00B8AF90 /* Build configuration list for PBXNativeTarget "StockMeMicroDemoTests" */;
 			buildPhases = (
 				95F31BE61F38F71D00B8AF90 /* Sources */,
 				95F31BE71F38F71D00B8AF90 /* Frameworks */,
@@ -2057,9 +2069,9 @@
 			dependencies = (
 				95F31BF01F38F71E00B8AF90 /* PBXTargetDependency */,
 			);
-			name = OpenFoodFactsTests;
+			name = StockMeMicroDemoTests;
 			productName = OpenFoodFactsTests;
-			productReference = 95F31BEA1F38F71D00B8AF90 /* OpenFoodFactsTests.xctest */;
+			productReference = 95F31BEA1F38F71D00B8AF90 /* StockMeMicroDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -2083,7 +2095,7 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 8W59692BCX;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 0;
@@ -2099,7 +2111,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 95C265091E96D55B004212EC /* Build configuration list for PBXProject "StockMeMiniDemo" */;
+			buildConfigurationList = 95C265091E96D55B004212EC /* Build configuration list for PBXProject "StockMeMicroDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -2242,9 +2254,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				95C2650D1E96D55B004212EC /* StockMeMiniDemo */,
-				95F31BE91F38F71D00B8AF90 /* OpenFoodFactsTests */,
-				951FA76C1F4E22790096AC5A /* OpenFoodFactsUITests */,
+				95C2650D1E96D55B004212EC /* StockMeMicroDemo */,
+				95F31BE91F38F71D00B8AF90 /* StockMeMicroDemoTests */,
+				951FA76C1F4E22790096AC5A /* StockMeMicroDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -2290,6 +2302,7 @@
 				956FF94A1F1FF0CA0069D678 /* NutritionLevelView.xib in Resources */,
 				951FB09D1EB2989A005CAE33 /* InfoPlist.strings in Resources */,
 				2A2C7BB222A7464C009104F7 /* nutrition.png in Resources */,
+				2A6EAD5122DD829B0053023E /* distributeur.jpeg in Resources */,
 				9581B3E61F900F180036AC7C /* Main.storyboard in Resources */,
 				95DFD7CD1F01A45C007FDB69 /* Localizable.strings in Resources */,
 				95019A741FDAAABC00A7BB79 /* PickerActionSheet.xib in Resources */,
@@ -2511,6 +2524,7 @@
 				95D355AA1FDC69FA008961B1 /* SearchViewController.swift in Sources */,
 				9587DF6E1F82CCD60069F0A6 /* PictureTableViewController.swift in Sources */,
 				958F33441F361A9D005269C5 /* IngredientsHeaderCellController.swift in Sources */,
+				2A1552B522DDD53900B6ACDC /* ScannerSelectionViewController.swift in Sources */,
 				956FF9551F1FF0CA0069D678 /* ProductTableViewCell.swift in Sources */,
 				95781BC31EC3A898003E3256 /* DoubleTransform.swift in Sources */,
 				9587DF731F84056F0069F0A6 /* PictureViewModel.swift in Sources */,
@@ -2558,6 +2572,7 @@
 				957E05C41FE6D4DF00868315 /* UIColor.swift in Sources */,
 				956FF9651F1FF0FD0069D678 /* SearchTableViewController.swift in Sources */,
 				95AA2AFD1FDAB6E800EE3A14 /* PickerToolbarViewController.swift in Sources */,
+				2A1552B722DEBF1100B6ACDC /* UIViewDumpHierarchy.swift in Sources */,
 				2A1C3268228323C80015AF05 /* socket.c in Sources */,
 				95E9F0481EC8D7D900BA20B0 /* NutritionLevels.swift in Sources */,
 				95781BC11EC3A898003E3256 /* LocalizedString.swift in Sources */,
@@ -2619,6 +2634,7 @@
 				950163741F2D1EF20057B8D5 /* TakePictureViewController.swift in Sources */,
 				2AE412F822865FE50071A99B /* UIViewController+dismissKeyboard.swift in Sources */,
 				30E43D78220895B100D7A906 /* Category.swift in Sources */,
+				2A6EAD5322DD8EB40053023E /* DistributeurProvider.swift in Sources */,
 				2AC1F2D522B0ACC800D8AAC8 /* ScaleViewController.swift in Sources */,
 				95A566161FD6037800C997C8 /* LocalizableButton.swift in Sources */,
 				95DDAF621F25401D0096B74E /* CameraController.swift in Sources */,
@@ -2686,12 +2702,12 @@
 /* Begin PBXTargetDependency section */
 		951FA7731F4E22790096AC5A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 95C2650D1E96D55B004212EC /* StockMeMiniDemo */;
+			target = 95C2650D1E96D55B004212EC /* StockMeMicroDemo */;
 			targetProxy = 951FA7721F4E22790096AC5A /* PBXContainerItemProxy */;
 		};
 		95F31BF01F38F71E00B8AF90 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 95C2650D1E96D55B004212EC /* StockMeMiniDemo */;
+			target = 95C2650D1E96D55B004212EC /* StockMeMicroDemo */;
 			targetProxy = 95F31BEF1F38F71E00B8AF90 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -3138,7 +3154,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 19;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8W59692BCX;
@@ -3154,10 +3170,10 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.sbde.box.StockMe.MiniDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.sbde.box.StockMe.MicroDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "iOS Development StockMe MiniDemo";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sources/ViewControllers/LaBoite/fr_sbde_protocol/fr_sbde_protocol-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -3172,9 +3188,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = NOrder;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Pascal Bourguignon (8W59692BCX)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pascal Bourguignon (8W59692BCX)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 8W59692BCX;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3189,10 +3205,10 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.sbde.box.StockMe.MiniDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.sbde.box.StockMe.MicroDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "iOS Distribution StockMe MiniDemo";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sources/ViewControllers/LaBoite/fr_sbde_protocol/fr_sbde_protocol-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3268,7 +3284,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 19;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8W59692BCX;
@@ -3284,10 +3300,10 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.sbde.box.StockMe.MiniDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.sbde.box.StockMe.MicroDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "iOS Development StockMe MiniDemo";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sources/ViewControllers/LaBoite/fr_sbde_protocol/fr_sbde_protocol-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -3384,7 +3400,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		951FA7741F4E22790096AC5A /* Build configuration list for PBXNativeTarget "OpenFoodFactsUITests" */ = {
+		951FA7741F4E22790096AC5A /* Build configuration list for PBXNativeTarget "StockMeMicroDemoUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				951FA7751F4E22790096AC5A /* Debug */,
@@ -3394,7 +3410,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95C265091E96D55B004212EC /* Build configuration list for PBXProject "StockMeMiniDemo" */ = {
+		95C265091E96D55B004212EC /* Build configuration list for PBXProject "StockMeMicroDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95C2651E1E96D55B004212EC /* Debug */,
@@ -3404,7 +3420,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95C265201E96D55B004212EC /* Build configuration list for PBXNativeTarget "StockMeMiniDemo" */ = {
+		95C265201E96D55B004212EC /* Build configuration list for PBXNativeTarget "StockMeMicroDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95C265211E96D55B004212EC /* Debug */,
@@ -3414,7 +3430,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95F31BF31F38F71E00B8AF90 /* Build configuration list for PBXNativeTarget "OpenFoodFactsTests" */ = {
+		95F31BF31F38F71E00B8AF90 /* Build configuration list for PBXNativeTarget "StockMeMicroDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95F31BF11F38F71E00B8AF90 /* Debug */,

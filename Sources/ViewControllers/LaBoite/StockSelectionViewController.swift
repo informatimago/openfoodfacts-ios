@@ -15,9 +15,8 @@ class StockSelectionViewController: UIViewController {
     }
 
     @IBAction func back() {
-        RootViewController.rootViewController()!.showMenu()
-        performSegue(withIdentifier: "tabs", sender: self)
-        // self.dismiss(animated: true)
+        // RootViewController.rootViewController()!.showMenu()
+        self.dismiss(animated: true)
     }
 
     @IBAction func selectCategory(_ sender: UIButton) {
@@ -25,4 +24,13 @@ class StockSelectionViewController: UIViewController {
     }
 
     @IBOutlet var currentCategory: UILabel?
+
+    func showScan() {
+        print("scan bar code")
+        performSegue(withIdentifier: "scannerSegue", sender: self)
+        //        transition(to: scannerVC!) { result in
+        //            print("transitionned \(result)")
+        //        }
+    }
+
 }

@@ -89,10 +89,10 @@ class ScannerViewController: UIViewController, DataManagerClient {
         floatingLabelContainer.translatesAutoresizingMaskIntoConstraints = false
         floatingLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        configureFloatingPanel()
+        // configureFloatingPanel()
 
         NSLayoutConstraint.activate([
-            NSLayoutConstraint(item: floatingLabelContainer, attribute: .bottom, relatedBy: .equal, toItem: floatingPanelController.surfaceView, attribute: .top, multiplier: 1, constant: 8),
+//            NSLayoutConstraint(item: floatingLabelContainer, attribute: .bottom, relatedBy: .equal, toItem: floatingPanelController.surfaceView, attribute: .top, multiplier: 1, constant: 8),
             NSLayoutConstraint(item: floatingLabelContainer, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: floatingLabelContainer, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: floatingLabel, attribute: .bottom, relatedBy: .equal, toItem: floatingLabelContainer, attribute: .bottom, multiplier: 1, constant: -16),
@@ -121,21 +121,25 @@ class ScannerViewController: UIViewController, DataManagerClient {
             self.lastCodeScanned = barcodeToOpenAtStartup
             self.barcodeToOpenAtStartup = nil
             self.getProduct(barcode: barcodeToOpenAtStartup, isSummary: true, createIfNeeded: false)
-        } else {
-            self.floatingPanelController.move(to: .hidden, animated: false)
         }
 
         self.navigationController?.isNavigationBarHidden = true
     }
 
+    var scannerRunning = true
+    func stopScanner() {
+        if scannerRunning {
+            scannerRunning = false
+            lastCodeScanned = nil
+            session.stopRunning()
+            showHelpInOverlayTask?.cancel()
+            videoPreviewView.removeFromSuperview()
+        }
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
         self.navigationController?.isNavigationBarHidden = false
-        self.lastCodeScanned = nil
-
-        session.stopRunning()
-        showHelpInOverlayTask?.cancel()
+        stopScanner()
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -244,25 +248,34 @@ class ScannerViewController: UIViewController, DataManagerClient {
     }
 
     fileprivate func showScanHelpInstructions() {
-        let task = DispatchWorkItem { [weak self] in
-            guard self != nil else { return }
-
-            if self?.lastCodeScanned == nil {
-                self?.overlay.setText("product-scanner.overlay.extended-user-help".localized)
-                self?.scannerFloatingPanelLayout.canShowDetails = true
-                self?.scannerResultController.status = .manualBarcode
-                self?.floatingPanelController.move(to: .tip, animated: true)
-            } else {
-                self?.showScanHelpInstructions()
-            }
-        }
-
-        self.showHelpInOverlayTask = task
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10, execute: task)
+//        let task = DispatchWorkItem { [weak self] in
+//            guard self != nil else { return }
+//
+//            if self?.lastCodeScanned == nil {
+//                self?.overlay.setText("product-scanner.overlay.extended-user-help".localized)
+//                self?.scannerFloatingPanelLayout.canShowDetails = true
+//                self?.scannerResultController.status = .manualBarcode
+//                //PJB//self?.showResults()
+//                //PJB//self?.floatingPanelController.move(to: .tip, animated: true)
+//            } else {
+//                self?.showScanHelpInstructions()
+//            }
+//        }
+//
+//        self.showHelpInOverlayTask = task
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 10, execute: task)
     }
 
     fileprivate func configureTapToFocus() {
         self.videoPreviewView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapToFocus(_:))))
+    }
+
+    func enableUserInteraction(view: UIView) {
+        print("enableUserInteraction \(String(describing: view)) \(String(describing: view.isUserInteractionEnabled))")
+        view.isUserInteractionEnabled = true
+        if let superview = view.superview {
+            enableUserInteraction(view: superview)
+        }
     }
 
     fileprivate func configureFloatingPanel() {
@@ -272,7 +285,9 @@ class ScannerViewController: UIViewController, DataManagerClient {
         let storyboard = UIStoryboard(name: "Search", bundle: nil)
         // swiftlint:disable:next force_cast
         scannerResultController = (storyboard.instantiateViewController(withIdentifier: "ScannerResultViewController") as! ScannerResultViewController)
-        floatingPanelController.set(contentViewController: scannerResultController)
+        scannerResultController.view.isHidden = true
+        view.addSubview(scannerResultController.view)
+        //PJB// floatingPanelController.set(contentViewController: scannerResultController)
 
         floatingPanelController.surfaceView.backgroundColor = .clear
         floatingPanelController.surfaceView.cornerRadius = 9.0
@@ -280,13 +295,20 @@ class ScannerViewController: UIViewController, DataManagerClient {
 
         floatingPanelController.addPanel(toParent: self)
 
-        scannerResultController.manualBarcodeInputView.delegate = self
+        // scannerResultController.manualBarcodeInputView.delegate = self
     }
 
     private func handleNoCamera() {
         let error = NSError(domain: "ScannerViewControllerErrorDomain", code: 1, userInfo: ["errorType": "No camera found"])
         Crashlytics.sharedInstance().recordError(error)
     }
+
+    @IBAction func back() {
+        self.dismiss(animated: true)
+    }
+
+    var selection: ScannerSelectionProtocol?
+
 }
 
 // MARK: - AVCapture delegate
@@ -311,26 +333,28 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
     /// when isSummary is true, only a few fields of the products are downloaded, and when done, this methods calls itself with isSummary=false
     func getProduct(barcode: String, isSummary: Bool, createIfNeeded: Bool = true) {
         scannerFloatingPanelLayout.canShowDetails = false
-        DispatchQueue.main.async {
-            self.floatingPanelController.move(to: .tip, animated: true)
-            self.scannerResultController.status = .loading(barcode: barcode)
-        }
+//        DispatchQueue.main.async {
+//            self.showResults()
+//            //PJB//self.floatingPanelController.move(to: .tip, animated: true)
+//            self.scannerResultController.status = .loading(barcode: barcode)
+//        }
 
         dataManager.getProduct(byBarcode: barcode, isScanning: true, isSummary: isSummary, onSuccess: { [weak self] response in
             self?.handleGetProductSuccess(barcode, response, isSummary: isSummary, createIfNeeded: createIfNeeded)
 
-            if response != nil, isSummary {
-                self?.getProduct(barcode: barcode, isSummary: false)
-            }
+//            if response != nil, isSummary {
+//                self?.getProduct(barcode: barcode, isSummary: false)
+//            }
 
         }, onError: { [weak self] error in
             if isOffline(errorCode: (error as NSError).code) {
                 // Assume product does not exist and store locally for later upload
-                self?.handleGetProductSuccess(barcode, nil, isSummary: isSummary, createIfNeeded: createIfNeeded)
+                // self?.handleGetProductSuccess(barcode, nil, isSummary: isSummary, createIfNeeded: createIfNeeded)
+                self?.lastCodeScanned = nil
             } else {
                 DispatchQueue.main.async {
                     StatusBarNotificationBanner(title: "product-scanner.barcode.error".localized, style: .danger).show()
-                    self?.scannerResultController.status = .waitingForScan
+//                    self?.scannerResultController.status = .waitingForScan
                 }
                 self?.lastCodeScanned = nil
             }
@@ -363,26 +387,29 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
 
     private func handleGetProductSuccess(_ barcode: String, _ product: Product?, isSummary: Bool, createIfNeeded: Bool = true) {
         DispatchQueue.main.async {
-            if let product = product {
-                if isSummary {
-                    self.scannerResultController.status = .hasSummary(product: product)
-                } else {
-                    self.scannerFloatingPanelLayout.canShowDetails = true
-                    self.dataManager.addHistoryItem(product)
-                    self.scannerResultController.status = .hasProduct(product: product, dataManager: self.dataManager)
-                    if self.allergenAlertShown == false {
-                        self.allergenAlertShown = true
-                        self.showAllergenAlertIfNeeded(forProduct: product)
-                    }
+            if isSummary, let product = product {
+                if self.selection?.product == nil {
+                    self.selection?.product = product
                 }
+//                if isSummary {
+//                    self.scannerResultController.status = .hasSummary(product: product)
+//                } else {
+//                    self.scannerFloatingPanelLayout.canShowDetails = true
+//                    self.dataManager.addHistoryItem(product)
+//                    self.scannerResultController.status = .hasProduct(product: product, dataManager: self.dataManager)
+//                    if self.allergenAlertShown == false {
+//                        self.allergenAlertShown = true
+//                        self.showAllergenAlertIfNeeded(forProduct: product)
+//                    }
+//                }
 
-                self.showAllergensFloatingLabelIfNeeded()
+//                self.showAllergensFloatingLabelIfNeeded()
 
-            } else {
-                if createIfNeeded == true {
-                    self.addNewProduct(barcode)
-                }
-                self.scannerResultController.status = .waitingForScan
+//            } else {
+//                if createIfNeeded == true {
+//                    self.addNewProduct(barcode)
+//                }
+//                self.scannerResultController.status = .waitingForScan
             }
         }
     }
@@ -551,6 +578,11 @@ extension ScannerViewController: FloatingPanelControllerDelegate {
         }
         self.showAllergensFloatingLabelIfNeeded()
     }
+
+    func floatingPanel(_ fpvc: FloatingPanel.FloatingPanelController, shouldRecognizeSimultaneouslyWith gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+
 }
 
 // MARK: - ManualBarcodeInput delegate
@@ -566,16 +598,17 @@ extension ScannerViewController: ManualBarcodeInputDelegate {
     }
 
     func didTapSearch() {
-        guard let enteredBarcode = scannerResultController.manualBarcodeInputView.barcodeTextField.text else {
-            return
-        }
-        let barcode = enteredBarcode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        guard !barcode.isEmpty else {
-            return
-        }
-        self.lastCodeScanned = barcode
-        allergenAlertShown = false
-        self.getProduct(barcode: barcode, isSummary: true)
+        return
+//        guard let enteredBarcode = scannerResultController.manualBarcodeInputView.barcodeTextField.text else {
+//            return
+//        }
+//        let barcode = enteredBarcode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+//        guard !barcode.isEmpty else {
+//            return
+//        }
+//        self.lastCodeScanned = barcode
+//        allergenAlertShown = false
+//        self.getProduct(barcode: barcode, isSummary: true)
     }
 }
 
@@ -592,10 +625,12 @@ class ScannerFloatingPanelLayout: FloatingPanelLayout {
     }
 
     public func insetFor(position: FloatingPanelPosition) -> CGFloat? {
+        print("insetFor(position:\(position)) -> 190.0 or nil")
         switch position {
-        case .full: return 16.0
-        case .tip: return 112.0 + 16.0
-        default: return nil
+        case .full: return 190.0 // A top inset from safe area
+        case .half: return 190.0 // A bottom inset from the safe area
+        case .tip:  return 190.0 // A bottom inset from the safe area
+        default:    return nil   // Or `case .hidden: return nil`
         }
     }
 }

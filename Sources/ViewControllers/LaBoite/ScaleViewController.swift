@@ -344,9 +344,9 @@ class ScaleViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func back() {
-        RootViewController.rootViewController()!.showMenu()
-        performSegue(withIdentifier: "tabs", sender: self)
-        // self.dismiss(animated: true)
+        // RootViewController.rootViewController()!.showMenu()
+        // performSegue(withIdentifier: "tabs", sender: self)
+        self.dismiss(animated: true)
     }
 
 }

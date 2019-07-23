@@ -38,7 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         fr_sbde_protocol_client_initialize()
         StockCell.registerNotifications()
-        currentProvider = CarrefourProvider.init()
+        // currentProvider = CarrefourProvider.init()
+        currentProvider = DistributeurProvider.init()
 
         return true
     }

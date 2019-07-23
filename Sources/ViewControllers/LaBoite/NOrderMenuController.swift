@@ -15,15 +15,12 @@ class NOrderMenuController: UIViewController {
 
     @IBAction func stock() {
         print("move to stock")
-        RootViewController.rootViewController()!.showStock()
-        performSegue(withIdentifier: "tabs", sender: self)
-        // performSegue(withIdentifier: "stockSegue", sender: self)
+        performSegue(withIdentifier: "stockSegue", sender: self)
     }
 
-    @IBAction func scale() {
-        print("move to scale")
-        RootViewController.rootViewController()!.showScale()
-        performSegue(withIdentifier: "tabs", sender: self)
+    @IBAction func addBase() {
+        print("move to addBase")
+        performSegue(withIdentifier: "addBase", sender: self)
     }
 
     @IBAction func receipes() {
@@ -32,21 +29,21 @@ class NOrderMenuController: UIViewController {
         UIApplication.shared.open(receipesUrl, options: [:], completionHandler: {_ in })
     }
 
-    @IBAction func nutrition() {
-        print("move to nutrition")
-        RootViewController.rootViewController()!.showSearch()
-        performSegue(withIdentifier: "tabs", sender: self)
-    }
-
     @IBAction func shopping() {
         print("move to shopping")
         let shopUrl = currentProvider!.urlToShop()!
         UIApplication.shared.open(shopUrl, options: [:], completionHandler: {_ in })
     }
 
-    @IBAction func addBase() {
-        print("move to addBase")
-        performSegue(withIdentifier: "addBase", sender: self)
+    var scannerVC: UIViewController?
+
+    func viewControllers() -> [UIViewController] {
+        if let scannerVC = storyboard?.instantiateViewController(withIdentifier: "scannerViewController") {
+            self.scannerVC = scannerVC
+            return [scannerVC]
+        } else {
+            return []
+        }
     }
 
 }
